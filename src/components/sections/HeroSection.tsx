@@ -66,7 +66,7 @@ export function HeroSection() {
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           aria-hidden="true"
         >
-          <source src="/videos/hero.mp4" type="video/mp4" />
+          <source src="videos/hero.mp4" type="video/mp4" />
         </video>
         <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
         <div className="absolute inset-0 grid-bg opacity-40" />
