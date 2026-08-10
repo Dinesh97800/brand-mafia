@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --black: #020202;
+    --orange: #f05707;
+    --offwhite: #f4f2f2;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    @apply bg-black text-offwhite font-body antialiased;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    @apply bg-orange text-black;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-black;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-orange/40 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-orange/70;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/[0.03] backdrop-blur-xl border border-white/[0.08];
+  }
+
+  .glass-strong {
+    @apply bg-white/[0.06] backdrop-blur-2xl border border-white/[0.12];
+  }
+
+  .gradient-border {
+    position: relative;
+    background: linear-gradient(#020202, #020202) padding-box,
+      linear-gradient(135deg, rgba(240, 87, 7, 0.5), rgba(240, 87, 7, 0.1)) border-box;
+    border: 1px solid transparent;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-offwhite via-offwhite to-orange bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply px-4 sm:px-6 lg:px-8 xl:px-16 2xl:px-24 py-20 md:py-28 lg:py-32;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto w-full;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(
+        rgba(240, 87, 7, 0.03) 1px,
+        transparent 1px
+      ),
+      linear-gradient(90deg, rgba(240, 87, 7, 0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes loadBar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
