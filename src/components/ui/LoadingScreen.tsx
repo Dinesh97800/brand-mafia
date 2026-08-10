@@ -28,7 +28,7 @@ export function LoadingScreen() {
       <div className="relative flex flex-col items-center gap-6">
         <div className="animate-[fadeIn_0.5s_ease-out]">
           <Image
-            src="images/logo.png"
+            src="/images/logo.png"
             alt="Brand Mafia"
             width={120}
             height={80}

@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { heroServices, siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
+import { assetPath } from "@/lib/base-path";
 
 function FloatingShape({
   className,
@@ -78,7 +79,7 @@ export function HeroSection() {
           className="absolute inset-0 h-full w-full object-cover scale-105"
           aria-hidden="true"
         >
-          <source src="videos/hero.mp4" type="video/mp4" />
+          <source src={assetPath("/videos/hero.mp4")} type="video/mp4" />
         </video>
         {/* Lighter overlay — keeps text readable while showing the video */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/65" />
