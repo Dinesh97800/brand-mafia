@@ -23,7 +23,7 @@ export function Footer() {
             <div className="lg:col-span-4">
               <Link href="/" className="inline-block mb-6">
                 <LocalImage
-                  src="/images/logo.png"
+                  src="/images/logo.jpg"
                   alt={siteConfig.name}
                   width={140}
                   height={90}

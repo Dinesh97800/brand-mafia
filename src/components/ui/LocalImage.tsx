@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { assetPath } from "@/lib/base-path";
 
 interface LocalImageProps {
@@ -20,10 +21,26 @@ export function LocalImage({
   className,
   priority,
 }: LocalImageProps) {
+  const [resolvedSrc, setResolvedSrc] = useState<string>("");
+
+  useEffect(() => {
+    setResolvedSrc(assetPath(src));
+  }, [src]);
+
+  if (!resolvedSrc) {
+    return (
+      <span
+        className={className}
+        style={{ width, height, display: "inline-block" }}
+        aria-hidden="true"
+      />
+    );
+  }
+
   return (
     // eslint-disable-next-line @next/next/no-img-element
     <img
-      src={assetPath(src)}
+      src={resolvedSrc}
       alt={alt}
       width={width}
       height={height}
