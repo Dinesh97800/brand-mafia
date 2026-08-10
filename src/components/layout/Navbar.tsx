@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
 import { navLinks, siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
+import { LocalImage } from "@/components/ui/LocalImage";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -44,11 +44,12 @@ export function Navbar() {
           aria-label="Main navigation"
         >
           <Link href="/" className="relative z-10 flex items-center gap-3 group">
-            <Image
+            <LocalImage
               src="/images/logo.png"
               alt={siteConfig.name}
               width={48}
               height={32}
+              priority
               className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>

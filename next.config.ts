@@ -1,9 +1,10 @@
 import type { NextConfig } from "next";
 
 // GitHub Pages project sites live at https://<user>.github.io/<repo>/
-const repoName = process.env.GITHUB_REPOSITORY?.split("/")[1];
+const repoName =
+  process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "brand-mafia";
 const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ?? (repoName ? `/${repoName}` : "");
+  process.env.NEXT_PUBLIC_BASE_PATH ?? `/${repoName}`;
 
 const nextConfig: NextConfig = {
   output: "export",

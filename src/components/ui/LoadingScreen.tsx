@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import { LocalImage } from "@/components/ui/LocalImage";
 
 export function LoadingScreen() {
   const [loading, setLoading] = useState(true);
@@ -27,7 +27,7 @@ export function LoadingScreen() {
     >
       <div className="relative flex flex-col items-center gap-6">
         <div className="animate-[fadeIn_0.5s_ease-out]">
-          <Image
+          <LocalImage
             src="/images/logo.png"
             alt="Brand Mafia"
             width={120}

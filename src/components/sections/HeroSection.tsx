@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import { ArrowUpRight, ChevronDown } from "lucide-react";
 import { heroServices, siteConfig } from "@/data/site";
@@ -34,6 +34,7 @@ function FloatingShape({
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [videoSrc, setVideoSrc] = useState("");
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const parallaxX = useTransform(mouseX, [-500, 500], [-20, 20]);
@@ -53,13 +54,18 @@ export function HeroSection() {
   }, [mouseX, mouseY]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video) return;
+    setVideoSrc(assetPath("/videos/hero.mp4"));
+  }, []);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !videoSrc) return;
+
+    video.load();
     video.play().catch(() => {
       // Autoplay may be blocked until user interaction
     });
-  }, []);
+  }, [videoSrc]);
 
   return (
     <section
@@ -76,11 +82,10 @@ export function HeroSection() {
           loop
           playsInline
           preload="auto"
+          src={videoSrc || undefined}
           className="absolute inset-0 h-full w-full object-cover scale-105"
           aria-hidden="true"
-        >
-          <source src={assetPath("/videos/hero.mp4")} type="video/mp4" />
-        </video>
+        />
         {/* Lighter overlay — keeps text readable while showing the video */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/65" />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50" />
