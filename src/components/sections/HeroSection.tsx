@@ -32,6 +32,7 @@ function FloatingShape({
 
 export function HeroSection() {
   const containerRef = useRef<HTMLElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const parallaxX = useTransform(mouseX, [-500, 500], [-20, 20]);
@@ -50,6 +51,15 @@ export function HeroSection() {
     return () => window.removeEventListener("mousemove", handleMove);
   }, [mouseX, mouseY]);
 
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    video.play().catch(() => {
+      // Autoplay may be blocked until user interaction
+    });
+  }, []);
+
   return (
     <section
       ref={containerRef}
@@ -59,27 +69,31 @@ export function HeroSection() {
       {/* Video Background */}
       <div className="absolute inset-0 z-0">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
-          className="absolute inset-0 h-full w-full object-cover opacity-30"
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover scale-105"
           aria-hidden="true"
         >
-          <source src="videos/hero.mp4" type="video/mp4" />
+          <source src="/videos/hero.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
-        <div className="absolute inset-0 grid-bg opacity-40" />
+        {/* Lighter overlay — keeps text readable while showing the video */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50" />
+        <div className="absolute inset-0 grid-bg opacity-15" />
       </div>
 
       {/* Gradient Orbs */}
       <motion.div
         style={{ x: parallaxX, y: parallaxY }}
-        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-orange/10 blur-[120px] pointer-events-none"
+        className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-orange/8 blur-[120px] pointer-events-none z-[1]"
       />
       <motion.div
         style={{ x: orbX, y: orbY }}
-        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-orange/5 blur-[100px] pointer-events-none"
+        className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-orange/5 blur-[100px] pointer-events-none z-[1]"
       />
 
       {/* Floating Shapes */}
@@ -97,6 +111,9 @@ export function HeroSection() {
       />
 
       <div className="relative z-10 container-custom section-padding pt-32 pb-20 w-full">
+        {/* Localized scrim behind text only — keeps video visible on the right */}
+        <div className="absolute top-24 left-4 sm:left-6 lg:left-8 xl:left-16 w-full max-w-3xl h-[70%] bg-gradient-to-r from-black/60 via-black/30 to-transparent rounded-3xl pointer-events-none -z-10" />
+
         <div className="max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 30 }}

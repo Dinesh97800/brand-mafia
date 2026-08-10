@@ -210,7 +210,7 @@ export const projects = [
     title: "PrimeFit Campaign",
     category: "Paid Ads",
     image:
-      "https://images.unsplash.com/photo-1576678925784-ed7f1a4f7b3?w=800&q=80",
+      "https://images.pexels.com/photos/36106736/pexels-photo-36106736.jpeg?_gl=1*1etmlr9*_ga*MTIyNzM3NjE3MC4xNzg2MzgxMjg1*_ga_8JE65Q40S6*czE3ODYzODEyODUkbzEkZzEkdDE3ODYzODEyOTckajQ4JGwwJGgw",
     description: "Multi-channel paid media strategy for fitness brand.",
     results: ["620% ROAS", "$2.1M revenue generated"],
   },
