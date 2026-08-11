@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" fill="none">
+  <defs>
+    <linearGradient id="shadeOff" x1="100" y1="38" x2="200" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2a2a2a"/>
+      <stop offset="0.5" stop-color="#454545"/>
+      <stop offset="1" stop-color="#1a1a1a"/>
+    </linearGradient>
+    <radialGradient id="bulbOff" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#6a6a6a"/>
+      <stop offset="0.65" stop-color="#3a3a3a"/>
+      <stop offset="1" stop-color="#222222"/>
+    </radialGradient>
+    <filter id="offShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#ffffff" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#offShadow)">
+    <!-- Cable -->
+    <path d="M150 0 V38" stroke="#8a8a8a" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Lamp shade -->
+    <path d="M103 38
+             C108 34 116 32 125 32
+             H175
+             C184 32 192 34 197 38
+             L208 78
+             H92
+             Z"
+          fill="url(#shadeOff)"
+          stroke="#888888"
+          stroke-width="2"/>
+
+    <!-- Shade rim -->
+    <ellipse cx="150" cy="78" rx="58" ry="10"
+             fill="#1a1a1a" stroke="#777777" stroke-width="2"/>
+
+    <!-- Unlit bulb -->
+    <circle cx="150" cy="82" r="15"
+            fill="url(#bulbOff)"
+            stroke="#999999"
+            stroke-width="1.5"/>
+
+    <!-- Bulb reflection -->
+    <ellipse cx="145" cy="77" rx="4" ry="2"
+             fill="#bbb" opacity="0.35"/>
+  </g>
+</svg>

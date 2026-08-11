@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 420" fill="none">
+  <defs>
+    <radialGradient id="bulbGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#fff8dc" stop-opacity="0.95"/>
+      <stop offset="0.28" stop-color="#ffd27a" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#ff8a3d" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="lightBeam" x1="150" y1="70" x2="150" y2="360" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd99a" stop-opacity="0.42"/>
+      <stop offset="0.55" stop-color="#ff9b55" stop-opacity="0.12"/>
+      <stop offset="1" stop-color="#ff5a2a" stop-opacity="0"/>
+    </linearGradient>
+
+    <linearGradient id="shade" x1="100" y1="38" x2="200" y2="92" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#111111"/>
+      <stop offset="0.5" stop-color="#2b2b2b"/>
+      <stop offset="1" stop-color="#080808"/>
+    </linearGradient>
+
+    <filter id="blur" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+
+    <filter id="softBlur" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="5"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient glow -->
+  <ellipse cx="150" cy="108" rx="82" ry="82" fill="url(#bulbGlow)" filter="url(#blur)"/>
+
+  <!-- Light beam -->
+  <path d="M108 78 L192 78 L270 365 L30 365 Z"
+        fill="url(#lightBeam)" filter="url(#softBlur)"/>
+
+  <!-- Cable -->
+  <path d="M150 0 V38" stroke="#252525" stroke-width="5" stroke-linecap="round"/>
+
+  <!-- Lamp shade -->
+  <path d="M103 38
+           C108 34 116 32 125 32
+           H175
+           C184 32 192 34 197 38
+           L208 78
+           H92
+           Z"
+        fill="url(#shade)"
+        stroke="#3a3a3a"
+        stroke-width="2"/>
+
+  <!-- Shade rim -->
+  <ellipse cx="150" cy="78" rx="58" ry="10" fill="#090909" stroke="#4a4a4a" stroke-width="2"/>
+  <ellipse cx="150" cy="76" rx="44" ry="6" fill="#ffd99a" opacity="0.28"/>
+
+  <!-- Bulb -->
+  <circle cx="150" cy="82" r="15" fill="#fff1c4" opacity="0.95"/>
+  <circle cx="150" cy="82" r="34" fill="url(#bulbGlow)" filter="url(#softBlur)"/>
+
+  <!-- Warm hotspot -->
+  <ellipse cx="150" cy="342" rx="95" ry="24" fill="#ff8a45" opacity="0.16" filter="url(#softBlur)"/>
+</svg>
