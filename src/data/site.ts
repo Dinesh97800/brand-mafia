@@ -158,6 +158,41 @@ export const whyStats = [
   { value: 10, suffix: "M+", label: "Of Digital Spends", display: "10M+" },
 ];
 
+export const brandGrowthLayers = [
+  {
+    id: "strategy",
+    title: "Strategy",
+    subtitle: "Discovery & Positioning",
+    description:
+      "We map your market, define your audience, and build a growth roadmap that turns ambition into a clear, measurable plan.",
+    icon: "Compass",
+  },
+  {
+    id: "creative",
+    title: "Creative",
+    subtitle: "Brand & Content",
+    description:
+      "From identity systems to scroll-stopping creative, we craft assets that make your brand impossible to ignore.",
+    icon: "Palette",
+  },
+  {
+    id: "performance",
+    title: "Performance",
+    subtitle: "Paid Media & SEO",
+    description:
+      "Data-driven campaigns across search, social, and display — optimized relentlessly for leads, sales, and ROAS.",
+    icon: "TrendingUp",
+  },
+  {
+    id: "automation",
+    title: "Automation",
+    subtitle: "Scale & Intelligence",
+    description:
+      "AI-powered workflows, email sequences, and analytics dashboards that multiply output without multiplying headcount.",
+    icon: "Bot",
+  },
+];
+
 export const showcasePillars = [
   {
     label: "Media",

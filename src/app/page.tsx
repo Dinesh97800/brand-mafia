@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { BrandGrowthSection } from "@/components/sections/BrandGrowthSection";
 import { WhySection } from "@/components/sections/WhySection";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
 import { ProjectsSection } from "@/components/sections/ProjectsSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <ClientsSection />
       <ServicesSection />
       <WhySection />
+      <BrandGrowthSection />
       <ShowcaseSection />
       <ProjectsSection />
       <ProcessSection />
