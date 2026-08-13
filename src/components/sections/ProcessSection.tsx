@@ -83,10 +83,6 @@ export function ProcessSection() {
         return;
       }
 
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
       ctx = gsap.context(() => {
         const containerRect = track.getBoundingClientRect();
         const isMobile = window.innerWidth < 640;
@@ -139,25 +135,19 @@ export function ProcessSection() {
 
         gsap.set(plane, { xPercent: -50, yPercent: -50, force3D: true });
 
-        if (prefersReducedMotion) {
-          gsap.set(routeProgress, { strokeDashoffset: 0 });
-          const endPoint = routeProgress.getPointAtLength(pathLength);
-          gsap.set(plane, {
-            x: endPoint.x,
-            y: endPoint.y,
-            xPercent: -50,
-            yPercent: -50,
-          });
-          setActiveIndex(steps.length - 1);
-          return;
-        }
-
-        const scrollTriggerBase = {
+        const scrollConfig = {
           trigger: track,
           start: "top 58%",
           end: "bottom 42%",
           scrub: 0.75,
           invalidateOnRefresh: true,
+          onUpdate: (self: ScrollTrigger) => {
+            const idx = Math.min(
+              steps.length - 1,
+              Math.max(0, Math.floor(self.progress * steps.length))
+            );
+            setActiveIndex((prev) => (prev === idx ? prev : idx));
+          },
         };
 
         gsap.to(plane, {
@@ -168,25 +158,16 @@ export function ProcessSection() {
             autoRotate: true,
           },
           ease: "none",
-          scrollTrigger: {
-            ...scrollTriggerBase,
-            onUpdate: (self: ScrollTrigger) => {
-              const idx = Math.min(
-                steps.length - 1,
-                Math.max(0, Math.floor(self.progress * steps.length))
-              );
-              setActiveIndex((prev) => (prev === idx ? prev : idx));
-            },
-          },
+          scrollTrigger: scrollConfig,
         });
 
         gsap.to(routeProgress, {
           strokeDashoffset: 0,
           ease: "none",
-          scrollTrigger: scrollTriggerBase,
+          scrollTrigger: { ...scrollConfig },
         });
 
-        steps.forEach((step) => {
+        steps.forEach((step, i) => {
           gsap.fromTo(
             step,
             { opacity: 0.4, y: 24 },
@@ -202,6 +183,14 @@ export function ProcessSection() {
               },
             }
           );
+
+          ScrollTrigger.create({
+            trigger: step,
+            start: "top 68%",
+            end: "bottom 32%",
+            onEnter: () => setActiveIndex(i),
+            onEnterBack: () => setActiveIndex(i),
+          });
         });
       }, section);
     };
@@ -311,7 +300,7 @@ export function ProcessSection() {
                 >
                   <div
                     className={cn(
-                      "glass rounded-2xl border p-5 transition-[border-color,box-shadow,background-color] duration-500 sm:p-6 md:p-8",
+                      "glass rounded-2xl border p-5 transition-all duration-500 sm:p-6 md:p-8",
                       activeIndex === i
                         ? "border-orange/35 bg-orange/[0.06] shadow-[0_0_40px_rgba(240,87,7,0.12)]"
                         : "border-white/[0.08]"

@@ -64,16 +64,16 @@ function BrandGrowthGraphic({
               ref={(el) => {
                 glowRefs.current[i] = el;
               }}
-              className="pointer-events-none absolute -inset-2 rounded-2xl bg-orange/20"
+              className="absolute inset-0 rounded-2xl bg-orange/30 blur-xl"
               style={{ opacity: 0 }}
             />
             <div
               className={cn(
-                "relative flex h-[80px] w-[80px] flex-col items-center justify-center rounded-2xl border bg-black/95 sm:h-[88px] sm:w-[88px]",
+                "relative flex h-[80px] w-[80px] flex-col items-center justify-center rounded-2xl border bg-black/90 backdrop-blur-md transition-shadow duration-500 sm:h-[88px] sm:w-[88px]",
                 isActive
                   ? "border-orange/50 shadow-[0_0_30px_rgba(240,87,7,0.35)]"
                   : isPeeled
-                    ? "border-orange/25 shadow-[0_0_12px_rgba(240,87,7,0.15)]"
+                    ? "border-orange/25"
                     : "border-orange/20"
               )}
             >
@@ -149,7 +149,7 @@ function BrandGrowthGraphic({
             </div>
 
             <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
-              <div className="absolute inset-x-0 top-0 h-px animate-[scan_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-orange/40 to-transparent will-change-transform" />
+              <div className="absolute inset-x-0 h-px animate-[scan_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-orange/40 to-transparent" />
             </div>
           </div>
         </div>
@@ -200,11 +200,16 @@ function TextBlock({
       ref={blockRef}
       className="flex min-h-[80vh] flex-col justify-center py-12 lg:min-h-screen lg:py-0"
     >
-      <div className="max-w-lg">
+      <div
+        className={cn(
+          "max-w-lg transition-[opacity,transform] duration-500",
+          isActive ? "opacity-100 translate-y-0" : "opacity-35 lg:translate-y-3"
+        )}
+      >
         <div className="mb-5 flex items-center gap-3">
           <div
             className={cn(
-              "flex h-11 w-11 items-center justify-center rounded-xl border",
+              "flex h-11 w-11 items-center justify-center rounded-xl border transition-colors duration-500",
               isActive
                 ? "border-orange/40 bg-orange/10"
                 : "border-white/10 bg-white/[0.03]"
@@ -212,7 +217,7 @@ function TextBlock({
           >
             <Icon
               className={cn(
-                "h-5 w-5",
+                "h-5 w-5 transition-colors duration-500",
                 isActive ? "text-orange" : "text-offwhite/40"
               )}
               strokeWidth={1.75}
@@ -278,34 +283,10 @@ export function BrandGrowthSection() {
 
       if (layers.length === 0) return;
 
-      const prefersReducedMotion = window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
       ctx = gsap.context(() => {
         const mm = gsap.matchMedia();
 
         mm.add("(min-width: 1024px)", () => {
-          if (prefersReducedMotion) {
-            gsap.set([core, ...layers], {
-              xPercent: -50,
-              yPercent: -50,
-              force3D: true,
-            });
-            brandGrowthLayers.forEach((_, i) => {
-              const offset = LAYER_OFFSETS[i];
-              gsap.set(layers[i], {
-                x: offset.x,
-                y: offset.y,
-                scale: 1,
-                opacity: 1,
-              });
-              gsap.set(glows[i], { opacity: 0.4 });
-            });
-            gsap.set(core, { scale: 0.86, opacity: 1 });
-            setActiveIndex(brandGrowthLayers.length - 1);
-            return;
-          }
           gsap.set([core, ...layers], {
             xPercent: -50,
             yPercent: -50,
@@ -313,7 +294,7 @@ export function BrandGrowthSection() {
           });
 
           gsap.set(layers, { x: 0, y: 0, scale: 0.55, opacity: 0 });
-          gsap.set(glows, { opacity: 0 });
+          gsap.set(glows, { opacity: 0, scale: 0.8 });
           gsap.set(core, { x: 0, y: 0, scale: 1, opacity: 1 });
 
           const tl = gsap.timeline({
@@ -364,7 +345,8 @@ export function BrandGrowthSection() {
             tl.to(
               glows[i],
               {
-                opacity: 0.6,
+                opacity: 0.75,
+                scale: 1.35,
                 duration: 0.5,
                 ease: "power2.out",
               },
