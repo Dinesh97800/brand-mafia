@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 
 interface SectionHeadingProps {
   label?: string;
@@ -19,31 +20,30 @@ export function SectionHeading({
   className,
 }: SectionHeadingProps) {
   return (
-    <motion.div
+    <div
       className={cn(
         "mb-12 md:mb-16",
         align === "center" && "text-center mx-auto max-w-3xl",
         className
       )}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.7, ease: [0.76, 0, 0.24, 1] }}
     >
       {label && (
         <span className="mb-4 inline-block font-heading text-xs font-semibold uppercase tracking-[0.3em] text-orange">
           {label}
         </span>
       )}
-      <h2 className="font-heading text-3xl font-bold tracking-tight text-offwhite sm:text-4xl md:text-5xl lg:text-6xl">
-        {title}
-      </h2>
+      <BlurRevealText
+        as="h2"
+        trigger="inView"
+        text={title}
+        className="font-heading text-3xl font-bold tracking-tight text-offwhite sm:text-4xl md:text-5xl lg:text-6xl"
+      />
       {description && (
         <p className="mt-4 text-base text-offwhite/60 md:text-lg leading-relaxed">
           {description}
         </p>
       )}
-    </motion.div>
+    </div>
   );
 }
 

@@ -1,6 +1,7 @@
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageTransition";
 import { FadeUp } from "@/components/ui/SectionHeading";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 import { Button } from "@/components/ui/Button";
 import { stats, siteConfig } from "@/data/site";
 
@@ -32,9 +33,12 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <FadeUp>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-offwhite mb-6">
-                We&apos;ve Already Done It
-              </h2>
+              <BlurRevealText
+                as="h2"
+                trigger="inView"
+                text="We've Already Done It"
+                className="font-heading text-3xl md:text-4xl font-bold text-offwhite mb-6"
+              />
               <div className="space-y-4 text-offwhite/60 leading-relaxed">
                 <p>
                   We&apos;re a team of creators and entrepreneurs — some who live

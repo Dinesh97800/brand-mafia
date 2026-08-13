@@ -1,7 +1,7 @@
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageTransition";
 import { PricingSection } from "@/components/sections/PricingSection";
-import { FAQSection } from "@/components/sections/FAQSection";
+import { SolutionsSection } from "@/components/sections/SolutionsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export const metadata = generateSEO({
@@ -28,7 +28,7 @@ export default function PricingPage() {
         subtitle="Choose the plan that matches your ambition. No hidden fees."
       />
       <PricingSection />
-      <FAQSection />
+      <SolutionsSection />
       <ContactSection />
     </>
   );

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { blogPosts } from "@/data/site";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -68,9 +69,12 @@ export default async function BlogPostPage({ params }: Props) {
               <span className="text-xs text-offwhite/40">{post.date}</span>
             </div>
 
-            <h1 className="font-heading text-3xl md:text-4xl font-bold text-offwhite mb-8">
-              {post.title}
-            </h1>
+            <BlurRevealText
+              as="h1"
+              trigger="mount"
+              text={post.title}
+              className="font-heading text-3xl md:text-4xl font-bold text-offwhite mb-8"
+            />
 
             <div className="prose prose-invert max-w-none">
               <p className="text-lg text-offwhite/70 leading-relaxed mb-6">

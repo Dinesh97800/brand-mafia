@@ -428,36 +428,66 @@ export const pricingPlans = [
   },
 ];
 
-export const faqs = [
+export const solutions = [
   {
-    question: "What makes Brand Mafia different from other agencies?",
-    answer:
+    id: "what-makes-us-different",
+    title: "What makes Brand Mafia different from other agencies?",
+    description:
       "We combine data-driven performance marketing with premium creative execution. Every strategy is custom-built for your brand — no templates, no cookie-cutter approaches. Our average client sees 500% ROAS.",
+    ctaLabel: "Learn more",
+    ctaHref: "/about",
+    image:
+      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=900&q=80",
   },
   {
-    question: "How long before I see results?",
-    answer:
+    id: "how-long-results",
+    title: "How long before I see results?",
+    description:
       "Paid ads typically show results within 2-4 weeks. SEO is a longer game — expect meaningful improvements in 3-6 months. We set clear milestones and keep you informed every step of the way.",
+    ctaLabel: "See case studies",
+    ctaHref: "/case-studies",
+    image:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&q=80",
   },
   {
-    question: "Do you work with startups?",
-    answer:
+    id: "startups",
+    title: "Do you work with startups?",
+    description:
       "Absolutely. Our Starter plan is designed for emerging brands. We've helped dozens of startups go from zero to market leaders.",
+    ctaLabel: "View pricing",
+    ctaHref: "/pricing",
+    image:
+      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80",
   },
   {
-    question: "What's included in the free strategy call?",
-    answer:
+    id: "strategy-call",
+    title: "What's included in the free strategy call?",
+    description:
       "A 30-minute consultation where we audit your current marketing, identify growth opportunities, and outline a custom strategy — completely free, no obligations.",
+    ctaLabel: "Book a call",
+    ctaHref: siteConfig.calendly,
+    image:
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80",
   },
   {
-    question: "Can I switch plans later?",
-    answer:
+    id: "switch-plans",
+    title: "Can I switch plans later?",
+    description:
       "Yes. We offer flexible month-to-month contracts. Upgrade or adjust your plan as your business grows.",
+    ctaLabel: "Compare plans",
+    ctaHref: "/pricing",
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",
   },
   {
-    question: "Do you offer white-label services?",
-    answer:
+    id: "white-label",
+    title: "Do you offer white-label services?",
+    description:
       "Yes, we partner with agencies and consultants who need premium execution capabilities. Contact us for white-label pricing.",
+    ctaLabel: "Partner with us",
+    ctaHref: "/contact",
+    image:
+      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=900&q=80",
   },
 ];
 

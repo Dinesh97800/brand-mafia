@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 import { ArrowRight } from "lucide-react";
 import { showcasePillars } from "@/data/site";
 
@@ -17,15 +18,12 @@ export function ShowcaseSection() {
     <section className="section-padding relative overflow-hidden bg-black">
       <div className="container-custom">
         {/* Heading */}
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+        <BlurRevealText
+          as="h2"
+          trigger="inView"
+          text="Full-service digital marketing agency"
           className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-offwhite text-center mb-12 md:mb-16 max-w-4xl mx-auto leading-tight"
-        >
-          Full-service digital marketing agency
-        </motion.h2>
+        />
 
         {/* Peaked image gallery */}
         <div

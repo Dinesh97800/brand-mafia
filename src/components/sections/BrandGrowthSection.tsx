@@ -31,6 +31,71 @@ const LAYER_OFFSETS = [
   { x: 155, y: 125 },
 ];
 
+function GrowthEngineCard({ className }: { className?: string }) {
+  return (
+    <div className={cn("gradient-border overflow-hidden rounded-2xl shadow-[0_0_60px_rgba(240,87,7,0.15)]", className)}>
+      <div className="relative bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] p-5 sm:p-6">
+        <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-b from-orange/20 via-orange/5 to-orange/20 opacity-60" />
+
+        <div className="mb-4 flex items-center justify-between">
+          <div className="flex items-center gap-2">
+            <Flame className="h-4 w-4 text-orange" />
+            <span className="font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-orange sm:text-xs">
+              Growth Engine
+            </span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="h-1.5 w-1.5 rounded-full bg-orange animate-pulse" />
+            <span className="font-mono text-[8px] text-orange/80 sm:text-[9px]">LIVE</span>
+          </div>
+        </div>
+
+        <div className="mb-4 flex gap-3">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-orange/30 bg-orange/10 sm:h-12 sm:w-12">
+            <span className="font-heading text-sm font-bold text-orange sm:text-base">BM</span>
+          </div>
+          <div className="flex flex-1 flex-col justify-end pb-0.5">
+            <div className="flex h-8 items-end gap-1 sm:h-10">
+              {[40, 55, 45, 70, 60, 85, 75, 100].map((h, n) => (
+                <div
+                  key={n}
+                  className="flex-1 rounded-sm bg-gradient-to-t from-orange/20 to-orange/60"
+                  style={{ height: `${h}%` }}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-2 border-t border-white/5 pt-3">
+          <div className="flex justify-between">
+            <span className="font-mono text-[7px] uppercase tracking-wider text-white/30 sm:text-[8px]">
+              Reach
+            </span>
+            <span className="font-mono text-[7px] text-orange/70 sm:text-[8px]">+247%</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-mono text-[7px] uppercase tracking-wider text-white/30 sm:text-[8px]">
+              ROAS
+            </span>
+            <span className="font-mono text-[7px] text-green-400/80 sm:text-[8px]">5.2×</span>
+          </div>
+          <div className="flex justify-between">
+            <span className="font-mono text-[7px] uppercase tracking-wider text-white/30 sm:text-[8px]">
+              Leads
+            </span>
+            <span className="font-mono text-[7px] text-offwhite/60 sm:text-[8px]">↑ Scaling</span>
+          </div>
+        </div>
+
+        <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
+          <div className="absolute inset-x-0 h-px animate-[scan_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-orange/40 to-transparent" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function BrandGrowthGraphic({
   coreRef,
   layerRefs,
@@ -93,66 +158,7 @@ function BrandGrowthGraphic({
         className="absolute left-1/2 top-1/2 z-20 w-[210px] will-change-transform sm:w-[230px]"
         style={{ opacity: 1 }}
       >
-        <div className="gradient-border overflow-hidden rounded-2xl shadow-[0_0_60px_rgba(240,87,7,0.15)]">
-          <div className="relative bg-gradient-to-br from-[#0a0a0a] via-[#111] to-[#0a0a0a] p-5">
-            <div className="absolute right-0 top-0 h-full w-8 bg-gradient-to-b from-orange/20 via-orange/5 to-orange/20 opacity-60" />
-
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <Flame className="h-4 w-4 text-orange" />
-                <span className="font-heading text-[10px] font-bold uppercase tracking-[0.2em] text-orange">
-                  Growth Engine
-                </span>
-              </div>
-              <div className="flex items-center gap-1">
-                <div className="h-1.5 w-1.5 rounded-full bg-orange animate-pulse" />
-                <span className="font-mono text-[8px] text-orange/80">LIVE</span>
-              </div>
-            </div>
-
-            <div className="mb-4 flex gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-orange/30 bg-orange/10">
-                <span className="font-heading text-sm font-bold text-orange">BM</span>
-              </div>
-              <div className="flex flex-1 flex-col justify-end pb-0.5">
-                <div className="flex h-8 items-end gap-1">
-                  {[40, 55, 45, 70, 60, 85, 75, 100].map((h, n) => (
-                    <div
-                      key={n}
-                      className="flex-1 rounded-sm bg-gradient-to-t from-orange/20 to-orange/60"
-                      style={{ height: `${h}%` }}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-2 border-t border-white/5 pt-3">
-              <div className="flex justify-between">
-                <span className="font-mono text-[7px] uppercase tracking-wider text-white/30">
-                  Reach
-                </span>
-                <span className="font-mono text-[7px] text-orange/70">+247%</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="font-mono text-[7px] uppercase tracking-wider text-white/30">
-                  ROAS
-                </span>
-                <span className="font-mono text-[7px] text-green-400/80">5.2×</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="font-mono text-[7px] uppercase tracking-wider text-white/30">
-                  Leads
-                </span>
-                <span className="font-mono text-[7px] text-offwhite/60">↑ Scaling</span>
-              </div>
-            </div>
-
-            <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
-              <div className="absolute inset-x-0 h-px animate-[scan_3s_ease-in-out_infinite] bg-gradient-to-r from-transparent via-orange/40 to-transparent" />
-            </div>
-          </div>
-        </div>
+        <GrowthEngineCard />
       </div>
 
       <svg
@@ -198,32 +204,30 @@ function TextBlock({
   return (
     <div
       ref={blockRef}
-      className="flex min-h-[80vh] flex-col justify-center py-12 lg:min-h-screen lg:py-0"
+      className={cn(
+        "border-b border-white/[0.06] py-10 last:border-b-0",
+        "lg:min-h-screen lg:border-b-0 lg:py-0 lg:flex lg:flex-col lg:justify-center"
+      )}
     >
       <div
         className={cn(
           "max-w-lg transition-[opacity,transform] duration-500",
-          isActive ? "opacity-100 translate-y-0" : "opacity-35 lg:translate-y-3"
+          "opacity-100 translate-y-0",
+          !isActive && "lg:opacity-35 lg:translate-y-3"
         )}
       >
-        <div className="mb-5 flex items-center gap-3">
+        <div className="mb-4 flex items-center gap-3 lg:mb-5">
           <div
             className={cn(
               "flex h-11 w-11 items-center justify-center rounded-xl border transition-colors duration-500",
               isActive
-                ? "border-orange/40 bg-orange/10"
-                : "border-white/10 bg-white/[0.03]"
+                ? "border-orange/40 bg-orange/10 lg:border-orange/40 lg:bg-orange/10"
+                : "border-orange/25 bg-orange/5 lg:border-white/10 lg:bg-white/[0.03]"
             )}
           >
-            <Icon
-              className={cn(
-                "h-5 w-5 transition-colors duration-500",
-                isActive ? "text-orange" : "text-offwhite/40"
-              )}
-              strokeWidth={1.75}
-            />
+            <Icon className="h-5 w-5 text-orange" strokeWidth={1.75} />
           </div>
-          <span className="font-heading text-xs font-semibold uppercase tracking-[0.25em] text-orange/70">
+          <span className="font-heading text-xs font-semibold uppercase tracking-[0.25em] text-orange/80">
             Pillar {String(index + 1).padStart(2, "0")}
           </span>
         </div>
@@ -231,26 +235,12 @@ function TextBlock({
         <h3 className="font-heading text-2xl font-bold tracking-tight text-offwhite sm:text-3xl md:text-4xl">
           {layer.title}
         </h3>
-        <p className="mt-2 font-heading text-sm font-medium text-orange/80">
+        <p className="mt-2 font-heading text-sm font-medium text-orange/90 sm:text-base">
           {layer.subtitle}
         </p>
-        <p className="mt-4 text-base leading-relaxed text-offwhite/50 md:text-lg">
+        <p className="mt-3 text-base leading-relaxed text-offwhite/70 md:mt-4 md:text-lg lg:text-offwhite/50">
           {layer.description}
         </p>
-      </div>
-
-      <div className="mt-8 lg:hidden">
-        <div className="flex items-center gap-4 rounded-2xl border border-orange/20 bg-orange/5 p-4">
-          <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-xl border border-orange/30 bg-black/60">
-            <Icon className="h-6 w-6 text-orange" />
-          </div>
-          <div>
-            <p className="font-heading text-sm font-semibold text-offwhite">
-              {layer.title}
-            </p>
-            <p className="text-xs text-offwhite/40">Growth pillar active</p>
-          </div>
-        </div>
       </div>
     </div>
   );
@@ -391,22 +381,6 @@ export function BrandGrowthSection() {
           gsap.set(layers, { clearProps: "all" });
           gsap.set(glows, { clearProps: "all" });
           gsap.set(core, { clearProps: "all" });
-
-          blocks.forEach((block, i) => {
-            ScrollTrigger.create({
-              trigger: block,
-              start: "top 75%",
-              end: "bottom 25%",
-              onEnter: () => {
-                activeIndexRef.current = i;
-                setActiveIndex(i);
-              },
-              onEnterBack: () => {
-                activeIndexRef.current = i;
-                setActiveIndex(i);
-              },
-            });
-          });
         });
       }, scrollRef);
     };
@@ -446,12 +420,12 @@ export function BrandGrowthSection() {
         <SectionHeading
           label="How We Grow Brands"
           title="Four Layers of Growth"
-          description="Scroll to unlock each pillar of our full-stack growth engine — from strategy and creative to performance and automation."
+          description="Four pillars power our full-stack growth engine — from strategy and creative to performance and automation."
           align="center"
         />
       </div>
 
-      <div ref={scrollRef} className="container-custom relative">
+      <div ref={scrollRef} className="container-custom relative pb-12 lg:pb-0">
         <div className="flex flex-col lg:flex-row lg:gap-12 xl:gap-16">
           <div className="lg:w-1/2">
             {brandGrowthLayers.map((layer, i) => (
@@ -465,6 +439,14 @@ export function BrandGrowthSection() {
                 }}
               />
             ))}
+
+            {/* Mobile: Growth Engine card after all pillars */}
+            <div className="mt-10 lg:hidden">
+              <p className="mb-4 text-center font-heading text-xs font-semibold uppercase tracking-[0.25em] text-orange/80">
+                The Engine Behind It All
+              </p>
+              <GrowthEngineCard className="mx-auto max-w-md" />
+            </div>
           </div>
 
           <div className="hidden lg:block lg:w-1/2">
