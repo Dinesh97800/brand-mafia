@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Space_Grotesk, Inter, Playfair_Display } from "next/font/google";
 import {
   generateSEO,
   generateLocalBusinessSchema,
@@ -20,6 +20,14 @@ const inter = Inter({
   display: "swap",
 });
 
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  style: ["italic"],
+  weight: ["400", "500", "600"],
+  variable: "--font-playfair",
+  display: "swap",
+});
+
 export const metadata: Metadata = generateSEO();
 
 export default function RootLayout({
@@ -31,7 +39,10 @@ export default function RootLayout({
   const organizationSchema = generateOrganizationSchema();
 
   return (
-    <html lang="en" className={`${spaceGrotesk.variable} ${inter.variable}`}>
+    <html
+      lang="en"
+      className={`${spaceGrotesk.variable} ${inter.variable} ${playfair.variable}`}
+    >
       <head>
         <script
           type="application/ld+json"

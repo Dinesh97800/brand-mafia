@@ -1,0 +1,526 @@
+/* ── Fortune teller origami stage ── */
+.stage {
+  position: relative;
+  width: min(88vw, 320px);
+  height: min(88vw, 320px);
+  perspective: 1700px;
+  perspective-origin: 50% 40%;
+  transform-style: preserve-3d;
+}
+
+@media (min-width: 768px) {
+  .stage {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .stage {
+    width: 440px;
+    height: 440px;
+  }
+}
+
+.teller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.tellerShell {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+.tellerShell::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -5%;
+  width: 68%;
+  height: 12%;
+  border-radius: 999px;
+  background: radial-gradient(
+    ellipse,
+    rgba(0, 0, 0, 0.5) 0%,
+    rgba(0, 0, 0, 0.12) 55%,
+    transparent 78%
+  );
+  transform: translate(-50%, 0) translateZ(-24px) rotateX(88deg);
+  filter: blur(5px);
+  pointer-events: none;
+}
+
+/* Solid ivory backing — prevents any black bleed-through */
+.paperBacking {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(155deg, #f9f5ec 0%, #ece4d6 100%);
+  transform: translateZ(-3px);
+  box-shadow:
+    0 28px 64px rgba(0, 0, 0, 0.42),
+    0 0 90px rgba(240, 87, 7, 0.1);
+}
+
+.rimLight {
+  position: absolute;
+  inset: -6%;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 65% 58% at 80% 44%,
+    rgba(240, 87, 7, 0.36) 0%,
+    rgba(240, 87, 7, 0.1) 36%,
+    transparent 66%
+  );
+  filter: blur(12px);
+  transform: translateZ(-50px);
+}
+
+.glowOrb {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 125%;
+  height: 125%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(240, 87, 7, 0.18) 0%,
+    rgba(240, 87, 7, 0.05) 44%,
+    transparent 72%
+  );
+  transform: translate(-50%, -50%) translateZ(-70px);
+  filter: blur(16px);
+}
+
+/* Thin crease cross at centre — not empty gaps */
+.centerSeam {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 18;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) translateZ(14px);
+}
+
+.centerSeam::before,
+.centerSeam::after {
+  content: "";
+  position: absolute;
+  background: rgba(55, 40, 28, 0.42);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
+}
+
+.centerSeam::before {
+  left: 50%;
+  top: 50%;
+  width: 1px;
+  height: 14px;
+  transform: translate(-50%, -50%);
+}
+
+.centerSeam::after {
+  left: 50%;
+  top: 50%;
+  width: 14px;
+  height: 1px;
+  transform: translate(-50%, -50%);
+}
+
+.centerPivot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 22;
+  width: 11px;
+  height: 11px;
+  background: radial-gradient(circle at 38% 32%, #ff9347, #f05707 72%);
+  box-shadow:
+    0 0 10px rgba(240, 87, 7, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  transform: translate(-50%, -50%) translateZ(20px);
+  pointer-events: none;
+}
+
+/* Each petal spans the full square; clip-path masks the quadrant */
+.petal {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.petalTl {
+  z-index: 4;
+}
+
+.petalTr {
+  z-index: 3;
+}
+
+.petalBl {
+  z-index: 2;
+}
+
+.petalBr {
+  z-index: 1;
+}
+
+.petalFace {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
+/*
+  Quadrant clip-paths — curved outer edges, all meet at exact centre (50% 50%).
+  No pinwheel gaps; full square coverage.
+*/
+.petalTl .petalFace {
+  clip-path: polygon(2% 5%, 6% 1%, 47% 0%, 50% 50%, 0% 50%, 0% 47%);
+  background: linear-gradient(
+    135deg,
+    #fcf8f0 0%,
+    #f3ebde 38%,
+    #e8dece 68%,
+    #d9cfc0 100%
+  );
+  box-shadow:
+    inset -3px -3px 8px rgba(0, 0, 0, 0.1),
+    inset 2px 2px 6px rgba(255, 255, 255, 0.55),
+    2px 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.petalTr .petalFace {
+  clip-path: polygon(53% 0%, 94% 1%, 98% 5%, 100% 47%, 100% 50%, 50% 50%);
+  background: linear-gradient(
+    225deg,
+    #fcf8f0 0%,
+    #f2eadc 38%,
+    #e7ddcd 68%,
+    #d8cec0 100%
+  );
+  box-shadow:
+    inset 3px -3px 8px rgba(0, 0, 0, 0.1),
+    inset -2px 2px 6px rgba(255, 255, 255, 0.55),
+    -2px 4px 14px rgba(0, 0, 0, 0.18);
+}
+
+.petalBl .petalFace {
+  clip-path: polygon(0% 47%, 0% 94%, 2% 98%, 47% 100%, 50% 50%);
+  background: linear-gradient(
+    45deg,
+    #faf5ea 0%,
+    #efe7d9 38%,
+    #e4dacb 68%,
+    #d5cbbd 100%
+  );
+  box-shadow:
+    inset -3px 3px 8px rgba(0, 0, 0, 0.1),
+    inset 2px -2px 6px rgba(255, 255, 255, 0.5),
+    2px -3px 14px rgba(0, 0, 0, 0.16);
+}
+
+.petalBr .petalFace {
+  clip-path: polygon(50% 50%, 100% 47%, 100% 94%, 98% 98%, 53% 100%, 50% 53%);
+  background: linear-gradient(
+    315deg,
+    #fbf7ef 0%,
+    #f1e9db 38%,
+    #e6dccf 68%,
+    #d7cdc0 100%
+  );
+  box-shadow:
+    inset 3px 3px 8px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 6px rgba(255, 255, 255, 0.5),
+    -2px -3px 14px rgba(0, 0, 0, 0.16);
+}
+
+/* Paper grain */
+.petalFace::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.26;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+/* Orange rim + inner fold darkening toward centre */
+.petalFace::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+.petalTl .petalFace::after {
+  background: radial-gradient(
+    ellipse 90% 90% at 72% 72%,
+    rgba(0, 0, 0, 0.14) 0%,
+    transparent 55%
+  ),
+  linear-gradient(
+    128deg,
+    transparent 40%,
+    rgba(240, 87, 7, 0.06) 78%,
+    rgba(240, 87, 7, 0.16) 100%
+  );
+}
+
+.petalTr .petalFace::after {
+  background: radial-gradient(
+    ellipse 90% 90% at 28% 72%,
+    rgba(0, 0, 0, 0.14) 0%,
+    transparent 55%
+  ),
+  linear-gradient(
+    232deg,
+    transparent 35%,
+    rgba(240, 87, 7, 0.1) 75%,
+    rgba(240, 87, 7, 0.22) 100%
+  );
+}
+
+.petalBl .petalFace::after {
+  background: radial-gradient(
+    ellipse 90% 90% at 72% 28%,
+    rgba(0, 0, 0, 0.13) 0%,
+    transparent 55%
+  ),
+  linear-gradient(
+    48deg,
+    transparent 42%,
+    rgba(240, 87, 7, 0.05) 80%,
+    rgba(240, 87, 7, 0.12) 100%
+  );
+}
+
+.petalBr .petalFace::after {
+  background: radial-gradient(
+    ellipse 90% 90% at 28% 28%,
+    rgba(0, 0, 0, 0.13) 0%,
+    transparent 55%
+  ),
+  linear-gradient(
+    312deg,
+    transparent 38%,
+    rgba(240, 87, 7, 0.09) 76%,
+    rgba(240, 87, 7, 0.2) 100%
+  );
+}
+
+/* Diagonal fold crease on each petal surface */
+.petalCrease {
+  position: absolute;
+  z-index: 2;
+  height: 1px;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(90, 65, 42, 0.04),
+    rgba(90, 65, 42, 0.28),
+    rgba(90, 65, 42, 0.04)
+  );
+}
+
+.petalTl .petalCrease {
+  left: 6%;
+  top: 7%;
+  width: 46%;
+  transform: rotate(42deg);
+  transform-origin: left center;
+}
+
+.petalTr .petalCrease {
+  right: 6%;
+  top: 7%;
+  width: 46%;
+  transform: rotate(-42deg);
+  transform-origin: right center;
+}
+
+.petalBl .petalCrease {
+  left: 6%;
+  bottom: 7%;
+  width: 46%;
+  transform: rotate(-42deg);
+  transform-origin: left center;
+}
+
+.petalBr .petalCrease {
+  right: 6%;
+  bottom: 7%;
+  width: 46%;
+  transform: rotate(42deg);
+  transform-origin: right center;
+}
+
+.petalContent {
+  position: absolute;
+  z-index: 4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  text-align: center;
+  transform: translateZ(3px);
+}
+
+.petalTl .petalContent {
+  left: 8%;
+  top: 11%;
+  width: 34%;
+  height: 34%;
+}
+
+.petalTr .petalContent {
+  right: 8%;
+  top: 11%;
+  width: 34%;
+  height: 34%;
+}
+
+.petalBl .petalContent {
+  left: 8%;
+  bottom: 11%;
+  width: 34%;
+  height: 34%;
+}
+
+.petalBr .petalContent {
+  right: 8%;
+  bottom: 11%;
+  width: 34%;
+  height: 34%;
+}
+
+.petalIndex {
+  display: flex;
+  height: 1.55rem;
+  width: 1.55rem;
+  align-items: center;
+  justify-content: center;
+  background: #181410;
+  color: #faf6ed;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.22);
+}
+
+@media (min-width: 768px) {
+  .petalIndex {
+    height: 1.75rem;
+    width: 1.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+.petalLabel {
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: clamp(0.72rem, 3vw, 0.88rem);
+  font-weight: 600;
+  line-height: 1.22;
+  letter-spacing: 0.01em;
+  color: #1f1914;
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .petalLabel {
+    font-size: 1.05rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .petalLabel {
+    font-size: 1.12rem;
+  }
+}
+
+/* Reduced motion */
+.reducedOrigami {
+  position: relative;
+  width: min(88vw, 320px);
+  height: min(88vw, 320px);
+}
+
+@media (min-width: 1024px) {
+  .reducedOrigami {
+    width: 440px;
+    height: 440px;
+  }
+}
+
+.reducedBacking {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(155deg, #f9f5ec, #ece4d6);
+}
+
+.reducedPetal {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-family: var(--font-space-grotesk), sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f1914;
+}
+
+.reducedPetalTl {
+  clip-path: polygon(2% 5%, 6% 1%, 47% 0%, 50% 50%, 0% 50%, 0% 47%);
+  background: linear-gradient(135deg, #fcf8f0, #d9cfc0);
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 14%;
+  padding-left: 4%;
+}
+
+.reducedPetalTr {
+  clip-path: polygon(53% 0%, 94% 1%, 98% 5%, 100% 47%, 100% 50%, 50% 50%);
+  background: linear-gradient(225deg, #fcf8f0, #d8cec0);
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 14%;
+}
+
+.reducedPetalBl {
+  clip-path: polygon(0% 47%, 0% 94%, 2% 98%, 47% 100%, 50% 50%);
+  background: linear-gradient(45deg, #faf5ea, #d5cbbd);
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 14%;
+  padding-left: 4%;
+}
+
+.reducedPetalBr {
+  clip-path: polygon(50% 50%, 100% 47%, 100% 94%, 98% 98%, 53% 100%, 50% 53%);
+  background: linear-gradient(315deg, #fbf7ef, #d7cdc0);
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 14%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    will-change: auto;
+  }
+}

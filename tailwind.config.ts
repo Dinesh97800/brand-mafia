@@ -16,6 +16,7 @@ const config: Config = {
       fontFamily: {
         heading: ["var(--font-space-grotesk)", "sans-serif"],
         body: ["var(--font-inter)", "sans-serif"],
+        accent: ["var(--font-playfair)", "Georgia", "serif"],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

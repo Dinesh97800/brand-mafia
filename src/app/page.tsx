@@ -1,6 +1,7 @@
 import { HeroSection } from "@/components/sections/HeroSection";
 import { ClientsSection } from "@/components/sections/ClientsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
+import { FortuneTellerServices } from "@/components/sections/FortuneTellerServices";
 import { BrandGrowthSection } from "@/components/sections/BrandGrowthSection";
 import { WhySection } from "@/components/sections/WhySection";
 import { ShowcaseSection } from "@/components/sections/ShowcaseSection";
@@ -18,6 +19,7 @@ export default function HomePage() {
       <HeroSection />
       <ClientsSection />
       <ServicesSection />
+      <FortuneTellerServices />
       <WhySection />
       <BrandGrowthSection />
       <ShowcaseSection />
