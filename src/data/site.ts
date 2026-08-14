@@ -376,55 +376,231 @@ export const team = [
   },
 ];
 
+export const whyChooseUs = [
+  "Results-Driven Marketing Strategies",
+  "Lead Generation Focused Campaigns",
+  "Creative Content That Converts",
+  "Transparent Reporting",
+  "Dedicated Growth Support",
+  "Customized Marketing Plans",
+  "Industry-Specific Expertise",
+];
+
 export const pricingPlans = [
   {
-    name: "Starter",
-    price: "$2,499",
-    period: "/month",
-    description: "Perfect for startups ready to make their mark.",
-    features: [
-      "SEO Audit & Strategy",
-      "Google Ads Management",
-      "Monthly Reporting",
-      "Social Media (2 platforms)",
-      "Email Support",
+    id: "starter-growth",
+    name: "Starter Growth",
+    price: "$3,000–3,500",
+    period: "/month + Ad Spend",
+    description:
+      "Perfect for startups, local businesses, salons, barbershops, restaurants, cafes, and service-based businesses looking to establish a strong online presence.",
+    inherits: null,
+    featureGroups: [
+      {
+        title: "Social Media Management",
+        items: [
+          "Facebook & Instagram Management",
+          "Profile Optimization",
+          "Monthly Content Strategy",
+          "Hashtag Research",
+          "Content Scheduling",
+        ],
+      },
+      {
+        title: "Content Creation",
+        items: [
+          "8–12 Custom Branded Posts",
+          "8–10 Reels",
+          "Story Designs",
+          "Promotional Banners",
+        ],
+      },
+      {
+        title: "Brand Growth",
+        items: [
+          "Social Media Audit",
+          "Competitor Analysis",
+          "Content Strategy Recommendations",
+        ],
+      },
+      {
+        title: "Google Business Profile",
+        items: [
+          "Google Business Profile Optimization",
+          "Service & Product Updates",
+          "Local Visibility Improvements",
+        ],
+      },
+      {
+        title: "Paid Advertising",
+        items: [
+          "Meta Ads OR Google Ads Management",
+          "Campaign Setup & Monitoring",
+          "Audience Targeting",
+          "Lead Generation Campaigns",
+        ],
+      },
+      {
+        title: "Reporting",
+        items: [
+          "Monthly Performance Report",
+          "Reach & Engagement Analysis",
+          "Ad Performance Summary",
+        ],
+      },
     ],
+    bestFor:
+      "Businesses looking to build brand awareness and generate consistent inquiries.",
     highlighted: false,
     cta: "Get Started",
+    ctaHref: siteConfig.calendly,
   },
   {
-    name: "Growth",
-    price: "$4,999",
-    period: "/month",
-    description: "For businesses scaling aggressively.",
-    features: [
-      "Everything in Starter",
-      "Full SEO Implementation",
-      "Meta & Google Ads",
-      "Content Marketing",
-      "Brand Strategy Sessions",
-      "Dedicated Account Manager",
-      "Weekly Strategy Calls",
+    id: "business-growth",
+    name: "Business Growth",
+    price: "$4,000–5,500",
+    period: "/month + Ad Spend",
+    description:
+      "For businesses looking to generate more leads, appointments, bookings, and sales.",
+    inherits: "Starter Growth",
+    featureGroups: [
+      {
+        title: "Advanced Social Media Management",
+        items: [
+          "16–20 Professional Posts",
+          "15–20 Story Designs",
+          "12–15 Reels + 2–3 YouTube Videos",
+          "Monthly Content Calendar",
+          "Community Engagement Strategy",
+        ],
+      },
+      {
+        title: "Marketing Campaigns",
+        items: [
+          "Promotional Campaign Creation",
+          "Seasonal Campaigns",
+          "Offer Design & Marketing",
+          "Customer Acquisition Strategy",
+        ],
+      },
+      {
+        title: "Advertising Management",
+        items: [
+          "Meta Ads Management",
+          "Lead Generation Campaigns",
+          "Conversion Campaigns",
+          "Retargeting Campaigns",
+        ],
+      },
+      {
+        title: "Market Research",
+        items: [
+          "Competitor Research",
+          "Market Positioning Analysis",
+          "Customer Persona Development",
+        ],
+      },
+      {
+        title: "Google Business Profile Growth",
+        items: [
+          "Weekly Updates",
+          "Local Ranking Strategy",
+          "Review Management Guidance",
+        ],
+      },
+      {
+        title: "Performance Tracking",
+        items: [
+          "Monthly Strategy Consultation",
+          "Lead Tracking Report",
+          "ROI Analysis",
+        ],
+      },
     ],
+    bestFor:
+      "Growing businesses ready to scale their customer acquisition efforts.",
     highlighted: true,
-    cta: "Most Popular",
+    cta: "Book a Strategy Call",
+    ctaHref: siteConfig.calendly,
   },
   {
-    name: "Enterprise",
-    price: "Custom",
-    period: "",
-    description: "Tailored solutions for market leaders.",
-    features: [
-      "Everything in Growth",
-      "AI Automation Setup",
-      "Custom Web Development",
-      "Multi-Channel Campaigns",
-      "Priority Support 24/7",
-      "Executive Reporting",
-      "Dedicated Growth Team",
+    id: "scale-dominate",
+    name: "Scale & Dominate",
+    price: "$10,000",
+    period: "/month + Ad Spend",
+    description:
+      "For established businesses focused on aggressive growth and market leadership.",
+    inherits: "Business Growth",
+    featureGroups: [
+      {
+        title: "Full-Funnel Marketing",
+        items: [
+          "Meta Ads Management",
+          "Google Ads Management",
+          "Retargeting Funnels",
+          "Conversion Optimization",
+        ],
+      },
+      {
+        title: "Premium Content Creation",
+        items: [
+          "20–30 Premium Posts Monthly",
+          "Reels Strategy & Planning",
+          "15–25 Reels & YouTube Videos",
+          "Video Marketing Consultation",
+          "Story Campaigns",
+          "UGC & Creator Collaborations",
+        ],
+      },
+      {
+        title: "Business Growth Consulting",
+        items: [
+          "Weekly Strategy Meetings",
+          "Market Expansion Planning",
+          "Sales Funnel Optimization",
+          "Brand Positioning Strategy",
+        ],
+      },
+      {
+        title: "Lead Generation Systems",
+        items: [
+          "Lead Capture Funnel Setup",
+          "Landing Page Recommendations",
+          "CRM Integration Support",
+          "Conversion Tracking",
+        ],
+      },
+      {
+        title: "Email & SMS Marketing",
+        items: [
+          "Campaign Setup",
+          "Customer Retention Campaigns",
+          "Promotional Broadcast Campaigns",
+        ],
+      },
+      {
+        title: "Website Support",
+        items: [
+          "Website Content Updates",
+          "Landing Page Optimization",
+          "Conversion Tracking Setup",
+        ],
+      },
+      {
+        title: "Executive Reporting",
+        items: [
+          "Monthly Growth Dashboard",
+          "ROI Tracking",
+          "Cost Per Lead Analysis",
+          "Strategic Growth Recommendations",
+        ],
+      },
     ],
+    bestFor:
+      "Businesses seeking consistent lead generation, sales growth, and long-term market dominance.",
     highlighted: false,
-    cta: "Contact Us",
+    cta: "Talk to Us",
+    ctaHref: "/contact",
   },
 ];
 
@@ -453,8 +629,8 @@ export const solutions = [
     id: "startups",
     title: "Do you work with startups?",
     description:
-      "Absolutely. Our Starter plan is designed for emerging brands. We've helped dozens of startups go from zero to market leaders.",
-    ctaLabel: "View pricing",
+      "Absolutely. Our Starter Growth package is designed for emerging brands and local businesses. We've helped dozens of startups go from zero to market leaders.",
+    ctaLabel: "View packages",
     ctaHref: "/pricing",
     image:
       "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=900&q=80",
@@ -471,10 +647,10 @@ export const solutions = [
   },
   {
     id: "switch-plans",
-    title: "Can I switch plans later?",
+    title: "Can I upgrade my package later?",
     description:
-      "Yes. We offer flexible month-to-month contracts. Upgrade or adjust your plan as your business grows.",
-    ctaLabel: "Compare plans",
+      "Yes. We offer flexible month-to-month contracts. Move from Starter Growth to Business Growth or Scale & Dominate whenever your business is ready for more.",
+    ctaLabel: "Compare packages",
     ctaHref: "/pricing",
     image:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80",

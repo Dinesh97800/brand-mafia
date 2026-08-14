@@ -45,7 +45,7 @@ export function Navbar() {
         >
           <Link href="/" className="relative z-10 flex items-center gap-3 group">
             <LocalImage
-              src="/images/logo.jpg"
+              src="/images/brandmafia.logopng.png"
               alt={siteConfig.name}
               width={48}
               height={32}
