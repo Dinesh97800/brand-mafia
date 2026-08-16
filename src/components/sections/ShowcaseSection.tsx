@@ -8,7 +8,13 @@ import { BlurRevealText } from "@/components/ui/BlurRevealText";
 import { ArrowRight } from "lucide-react";
 import { showcasePillars } from "@/data/site";
 
-const pillarHeights = ["h-48 sm:h-56 md:h-64", "h-56 sm:h-72 md:h-80", "h-64 sm:h-80 md:h-96", "h-56 sm:h-72 md:h-80", "h-48 sm:h-56 md:h-64"];
+const pillarHeights = [
+  "h-56 md:h-64",
+  "h-56 md:h-80",
+  "h-56 md:h-96",
+  "h-56 md:h-80",
+  "h-56 md:h-64",
+];
 
 export function ShowcaseSection() {
   const ref = useRef(null);
@@ -28,7 +34,7 @@ export function ShowcaseSection() {
         {/* Peaked image gallery */}
         <div
           ref={ref}
-          className="flex items-end justify-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 mb-10 md:mb-14 overflow-x-auto pb-2 md:overflow-visible"
+          className="mb-10 grid grid-cols-1 gap-8 md:mb-14 md:flex md:items-end md:justify-center md:gap-4 lg:gap-5"
         >
           {showcasePillars.map((pillar, i) => (
             <motion.div
@@ -40,7 +46,7 @@ export function ShowcaseSection() {
                 delay: i * 0.1,
                 ease: [0.76, 0, 0.24, 1],
               }}
-              className="group flex shrink-0 flex-col items-center w-[18vw] min-w-[100px] max-w-[200px] sm:min-w-[120px] md:min-w-0 md:w-auto md:flex-1 md:max-w-[220px]"
+              className="group flex w-full flex-col items-center md:min-w-0 md:w-auto md:max-w-[220px] md:flex-1"
             >
               <div
                 className={`relative w-full overflow-hidden rounded-lg md:rounded-xl ${pillarHeights[i]} transition-transform duration-500 group-hover:scale-[1.03]`}
@@ -50,7 +56,7 @@ export function ShowcaseSection() {
                   alt={pillar.label}
                   fill
                   className="object-cover transition-all duration-700 group-hover:brightness-110"
-                  sizes="(max-width: 768px) 20vw, 200px"
+                  sizes="(max-width: 768px) 100vw, 200px"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
