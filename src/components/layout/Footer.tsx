@@ -1,9 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowUpRight, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { footerLinks, siteConfig } from "@/data/site";
 import { LocalImage } from "@/components/ui/LocalImage";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 const socialIcons = [
   { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
@@ -93,25 +94,7 @@ export function Footer() {
               <p className="text-sm text-offwhite/50 mb-4">
                 Get growth insights delivered to your inbox.
               </p>
-              <form
-                className="flex gap-2"
-                onSubmit={(e) => e.preventDefault()}
-                aria-label="Newsletter signup"
-              >
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="flex-1 rounded-full bg-white/[0.05] border border-white/10 px-4 py-2.5 text-sm text-offwhite placeholder:text-offwhite/30 focus:outline-none focus:border-orange/50 transition-colors"
-                  aria-label="Email address"
-                />
-                <button
-                  type="submit"
-                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-orange text-black transition-transform hover:scale-110"
-                  aria-label="Subscribe"
-                >
-                  <ArrowUpRight className="h-4 w-4" />
-                </button>
-              </form>
+              <NewsletterForm variant="footer" source="footer" />
             </div>
           </div>
 

@@ -17,6 +17,7 @@ import {
   siteConfig,
 } from "@/data/site";
 import { LocalImage } from "@/components/ui/LocalImage";
+import { NewsletterForm } from "@/components/forms/NewsletterForm";
 import { cn } from "@/lib/utils";
 
 const POSTS_PER_PAGE = 6;
@@ -40,8 +41,6 @@ export function BlogPageContent() {
     useState<(typeof blogFilterCategories)[number]>("All Posts");
   const [searchQuery, setSearchQuery] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const [sidebarEmail, setSidebarEmail] = useState("");
-  const [bannerEmail, setBannerEmail] = useState("");
 
   const filteredPosts = useMemo(() => {
     const query = searchQuery.trim().toLowerCase();
@@ -347,28 +346,7 @@ export function BlogPageContent() {
                   Subscribe for the latest growth insights and marketing
                   strategies.
                 </p>
-                <form
-                  className="mt-5 space-y-3"
-                  onSubmit={(e) => {
-                    e.preventDefault();
-                    setSidebarEmail("");
-                  }}
-                >
-                  <input
-                    type="email"
-                    value={sidebarEmail}
-                    onChange={(e) => setSidebarEmail(e.target.value)}
-                    placeholder="your@email.com"
-                    aria-label="Email for newsletter"
-                    className="w-full rounded-full border border-white/10 bg-black/40 px-4 py-2.5 text-sm text-offwhite placeholder:text-offwhite/30 focus:border-orange/40 focus:outline-none"
-                  />
-                  <button
-                    type="submit"
-                    className="w-full rounded-full bg-orange py-2.5 font-heading text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
-                  >
-                    Subscribe Now
-                  </button>
-                </form>
+                <NewsletterForm variant="sidebar" source="blog-sidebar" />
               </div>
             </aside>
           </div>
@@ -398,28 +376,7 @@ export function BlogPageContent() {
                 </div>
               </div>
 
-              <form
-                className="flex w-full flex-col gap-3 sm:flex-row lg:max-w-md"
-                onSubmit={(e) => {
-                  e.preventDefault();
-                  setBannerEmail("");
-                }}
-              >
-                <input
-                  type="email"
-                  value={bannerEmail}
-                  onChange={(e) => setBannerEmail(e.target.value)}
-                  placeholder="Enter your email"
-                  aria-label="Email for newsletter banner"
-                  className="flex-1 rounded-full border border-white/10 bg-black/40 px-5 py-3 text-sm text-offwhite placeholder:text-offwhite/30 focus:border-orange/40 focus:outline-none"
-                />
-                <button
-                  type="submit"
-                  className="shrink-0 rounded-full bg-orange px-6 py-3 font-heading text-sm font-semibold text-black transition-transform hover:scale-[1.02]"
-                >
-                  Subscribe Now
-                </button>
-              </form>
+              <NewsletterForm variant="banner" source="blog-banner" />
             </div>
           </div>
         </div>

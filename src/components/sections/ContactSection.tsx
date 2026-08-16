@@ -1,11 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, Calendar } from "lucide-react";
 import { services, siteConfig } from "@/data/site";
 import { SectionHeading, FadeUp } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import { postForm } from "@/lib/api-client";
 
 interface ContactFormData {
   name: string;
@@ -13,9 +14,14 @@ interface ContactFormData {
   phone: string;
   service: string;
   message: string;
+  website: string;
 }
 
 export function ContactSection() {
+  const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
+    "idle"
+  );
+  const [formMessage, setFormMessage] = useState("");
   const {
     register,
     handleSubmit,
@@ -24,8 +30,31 @@ export function ContactSection() {
   } = useForm<ContactFormData>();
 
   const onSubmit = async (data: ContactFormData) => {
-    console.log(data);
-    reset();
+    setFormStatus("idle");
+    setFormMessage("");
+    try {
+      await postForm("/api/contact", {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        service: data.service,
+        message: data.message,
+        source: "contact",
+        website: data.website,
+      });
+      setFormStatus("success");
+      setFormMessage(
+        "Request received. Check your inbox — we will connect with you soon."
+      );
+      reset();
+    } catch (error) {
+      setFormStatus("error");
+      setFormMessage(
+        error instanceof Error
+          ? error.message
+          : "Could not send your message. Please try again."
+      );
+    }
   };
 
   return (
@@ -112,9 +141,17 @@ export function ContactSection() {
           <FadeUp delay={0.2}>
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="glass-strong rounded-2xl p-8 space-y-5"
+              className="glass-strong relative rounded-2xl p-8 space-y-5"
               aria-label="Contact form"
             >
+              <input
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+                aria-hidden="true"
+                {...register("website")}
+              />
               <div>
                 <label htmlFor="name" className="sr-only">
                   Name
@@ -168,14 +205,18 @@ export function ContactSection() {
                 <select
                   id="service"
                   {...register("service")}
-                  className="w-full rounded-xl bg-white/[0.05] border border-white/10 px-4 py-3 text-sm text-offwhite focus:outline-none focus:border-orange/50 transition-colors appearance-none"
+                  className="w-full appearance-none rounded-xl border border-white/10 bg-white/[0.05] px-4 py-3 text-sm text-offwhite transition-colors focus:border-orange/50 focus:outline-none [&_option]:bg-white [&_option]:text-black"
                   defaultValue=""
                 >
-                  <option value="" disabled>
+                  <option value="" disabled className="bg-white text-black">
                     Select a Service
                   </option>
                   {services.map((service) => (
-                    <option key={service.id} value={service.id}>
+                    <option
+                      key={service.id}
+                      value={service.id}
+                      className="bg-white text-black"
+                    >
                       {service.title}
                     </option>
                   ))}
@@ -200,9 +241,26 @@ export function ContactSection() {
                 )}
               </div>
 
-              <Button type="submit" className="w-full" magnetic>
+              <Button
+                type="submit"
+                className="w-full"
+                magnetic
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Sending..." : "Send Message"}
               </Button>
+              {formMessage && (
+                <p
+                  className={`text-center text-sm ${
+                    formStatus === "success"
+                      ? "text-amber-400/90"
+                      : "text-orange"
+                  }`}
+                  role="status"
+                >
+                  {formMessage}
+                </p>
+              )}
             </form>
           </FadeUp>
         </div>
