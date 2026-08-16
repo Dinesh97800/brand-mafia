@@ -108,21 +108,21 @@ function shortenDescription(text: string, max = 85) {
   return `${text.slice(0, max).trim()}…`;
 }
 
-const LAMP_TOP = 12;
-const CARD_GAP = 22;
-/** ViewBox y=97 — bottom of bulb / start of beam */
-const LAMP_FIXTURE_RATIO = 97 / 420;
-const LAMP_WIDTH = "min(340px, 58vw)";
-const LAMP_ASPECT = 420 / 300;
+const LAMP_TOP = 0;
+const CARD_GAP = 12;
+/** website-lamp-on.png is 612×408; shade + bulb end ~72% down the frame */
+const LAMP_ASPECT = 408 / 612;
+const LAMP_SHADE_END = 0.72;
+const LAMP_WIDTH = "min(360px, 86vw)";
 
 function getCarouselTop(cardHeight: number) {
-  return `calc(${LAMP_TOP}px + ${LAMP_WIDTH} * ${LAMP_ASPECT} * ${LAMP_FIXTURE_RATIO} + ${CARD_GAP}px + ${cardHeight / 2}px)`;
+  return `calc(${LAMP_TOP}px + ${LAMP_WIDTH} * ${LAMP_ASPECT} * ${LAMP_SHADE_END} + ${CARD_GAP}px + ${cardHeight / 2}px)`;
 }
 
 /** Fit stage to lamp + cards + reflection — no extra empty gap */
 function getStageMinHeight(cardHeight: number) {
   const reflection = cardHeight * 0.4 * 0.35;
-  return `calc(${LAMP_TOP}px + ${LAMP_WIDTH} * ${LAMP_ASPECT} * ${LAMP_FIXTURE_RATIO} + ${CARD_GAP}px + ${cardHeight}px + ${reflection}px + 36px)`;
+  return `calc(${LAMP_TOP}px + ${LAMP_WIDTH} * ${LAMP_ASPECT} * ${LAMP_SHADE_END} + ${CARD_GAP}px + ${cardHeight}px + ${reflection}px + 36px)`;
 }
 
 function HangingLamp({
@@ -132,65 +132,51 @@ function HangingLamp({
   lightOn: boolean;
   onToggle: () => void;
 }) {
-  const fixtureHeight = `calc(${LAMP_WIDTH} * ${LAMP_ASPECT} * ${LAMP_FIXTURE_RATIO})`;
-  const beamHeight = `calc(${LAMP_WIDTH} * ${LAMP_ASPECT} * ${1 - LAMP_FIXTURE_RATIO})`;
+  const lampHeight = `calc(${LAMP_WIDTH} * ${LAMP_ASPECT})`;
+  const beamTop = `calc(${LAMP_TOP}px + ${LAMP_WIDTH} * ${LAMP_ASPECT} * 0.5)`;
 
   return (
     <>
-      {/* Light beam — behind cards */}
       <motion.div
-        className="pointer-events-none absolute left-1/2 z-[8] -translate-x-1/2 overflow-hidden"
-        style={{ top: `calc(${LAMP_TOP}px + ${fixtureHeight})`, width: LAMP_WIDTH, height: beamHeight }}
+        className="pointer-events-none absolute left-1/2 z-[8] -translate-x-1/2"
+        style={{
+          top: beamTop,
+          width: "min(820px, 96vw)",
+          height: "78%",
+          background:
+            "linear-gradient(180deg, rgba(255,186,92,0.28) 0%, rgba(240,87,7,0.12) 22%, rgba(240,87,7,0.04) 48%, transparent 78%)",
+          clipPath: "polygon(42% 0%, 58% 0%, 100% 100%, 0% 100%)",
+        }}
         initial={false}
         animate={{ opacity: lightOn ? 1 : 0 }}
         transition={{ duration: 0.5, ease: "easeInOut" }}
-        aria-hidden={!lightOn}
-      >
-        <div style={{ transform: `translateY(-${LAMP_FIXTURE_RATIO * 100}%)` }}>
-          <LocalImage
-            src="/images/website_lamp_glow.svg"
-            alt=""
-            width={340}
-            height={560}
-            className="block h-auto w-full max-w-none select-none"
-            priority
-          />
-        </div>
-      </motion.div>
+        aria-hidden
+      />
 
-      {/* Lamp fixture — always in front of cards */}
       <button
         type="button"
         onClick={onToggle}
         aria-label={lightOn ? "Turn spotlight off" : "Turn spotlight on"}
         aria-pressed={lightOn}
-        className="absolute left-1/2 z-50 -translate-x-1/2 cursor-pointer overflow-hidden outline-none transition-transform hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
-        style={{ top: LAMP_TOP, width: LAMP_WIDTH, height: fixtureHeight }}
+        className="absolute left-1/2 z-50 -translate-x-1/2 cursor-pointer outline-none transition-transform hover:scale-[1.03] focus-visible:ring-2 focus-visible:ring-orange/60 focus-visible:ring-offset-2 focus-visible:ring-offset-black"
+        style={{ top: LAMP_TOP, width: LAMP_WIDTH, height: 'calc(0.666667 * min(260px, 86vw))' }}
       >
-        {lightOn ? (
-          <div
-            style={{
-              clipPath: `inset(0 0 ${(1 - LAMP_FIXTURE_RATIO) * 100}% 0)`,
-            }}
-          >
-            <LocalImage
-              src="/images/website_lamp_glow.svg"
-              alt=""
-              width={340}
-              height={560}
-              className="block h-auto w-full max-w-none select-none"
-              priority
-            />
-          </div>
-        ) : (
-          <LocalImage
-            src="/images/website_lamp_off.svg"
-            alt=""
-            width={88}
-            height={120}
-            className="mx-auto block h-full w-auto max-w-[92px] select-none object-contain object-top drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)]"
-          />
-        )}
+        <LocalImage
+          src={
+            lightOn
+              ? "/images/website-lamp-on.png"
+              : "/images/website-lamp-off.png"
+          }
+          alt=""
+          width={612}
+          height={408}
+          className={
+            lightOn
+              ? "pointer-events-none h-full w-full select-none object-contain object-top mix-blend-screen"
+              : "pointer-events-none h-full w-full select-none object-contain object-top brightness-150 contrast-125"
+          }
+          priority
+        />
         <span className="sr-only">
           {lightOn
             ? "Spotlight on — click to turn off"
