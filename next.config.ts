@@ -1,17 +1,16 @@
 import type { NextConfig } from "next";
 
-const repoName =
-  process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "brand-mafia";
-
 const isStaticExport =
   process.env.STATIC_EXPORT === "true" || process.env.GITHUB_ACTIONS === "true";
 
-const basePath =
-  process.env.NEXT_PUBLIC_BASE_PATH ??
-  (isStaticExport ? `/${repoName}` : "");
+// brandmafia.co is a custom domain at the site root. Do not default to
+// /brand-mafia — that breaks /_next chunk URLs on production.
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
 const nextConfig: NextConfig = {
-  ...(isStaticExport ? { output: "export" as const } : {}),
+  ...(isStaticExport
+    ? { output: "export" as const, trailingSlash: true }
+    : {}),
   ...(basePath ? { basePath, assetPrefix: basePath } : {}),
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,

@@ -6,6 +6,7 @@ import { PillNavbar } from "@/components/layout/PillNavbar";
 import { BottomNav } from "@/components/layout/BottomNav";
 import { Footer } from "@/components/layout/Footer";
 import { SmoothScroll } from "@/components/providers/SmoothScroll";
+import { ChunkLoadRecovery } from "@/components/providers/ChunkLoadRecovery";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollProgress, CursorGlow } from "@/components/ui/ScrollProgress";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -27,6 +28,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <>
+      <ChunkLoadRecovery />
       <LoadingScreen />
       <ScrollProgress />
       <CursorGlow />
