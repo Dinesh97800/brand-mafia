@@ -672,167 +672,167 @@ export const services: Service[] = [
     image:
       "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1400&q=80",
   },
-  {
-    id: "local-seo",
-    title: "Local SEO",
-    description:
-      "Own your local market with geo-targeted SEO that puts you on the map when customers search with urgency.",
-    icon: "MapPin",
-    headline: "Own the map when they search with urgency.",
-    seoDescription:
-      "Brand Mafia Local SEO puts you on the map when customers search with urgency — geo-targeted visibility built on trust, listings, and real intent.",
-    intro: [
-      "Local SEO is how you become the name people see — and the one they trust — when they need you now.",
-      "We treat the map pack, Google Business Profile, reviews, and location pages as one system. Visibility without conversion is just a prettier listing.",
-      "Working with local businesses taught us this: people search with urgency. Your job is to be obvious, close, and credible.",
-    ],
-    quote:
-      "Local SEO works when Google can clearly understand who you are, where you are, what you offer, and why customers trust you.",
-    forWho:
-      "Restaurants, salons, shops, clinics, and service businesses that live or die by nearby demand.",
-    pillars: [
-      {
-        title: "Map Pack Presence",
-        description:
-          "Categories, services, photos, and proximity signals that put you in the local three.",
-      },
-      {
-        title: "Location Pages That Convert",
-        description:
-          "Pages that answer the search — hours, offer, proof — not thin city clones.",
-      },
-      {
-        title: "Review Momentum",
-        description:
-          "A system for earning and responding to reviews so trust is visible, not assumed.",
-      },
-      {
-        title: "Local Proof Everywhere",
-        description:
-          "Citations, partnerships, and on-site signals that match the real-world business.",
-      },
-    ],
-    includes: [
-      "Local competitive and map-pack audit",
-      "Google Business Profile strategy (paired with GMB work)",
-      "Location and service page builds",
-      "Citation cleanup and consistency",
-      "Review generation and response playbook",
-      "Local rank and lead tracking",
-    ],
-    outcomes: [
-      "Higher map-pack and local organic visibility",
-      "More calls, directions, and walk-ins from search",
-      "A listing and site that match the real business",
-      "A local lead engine that does not depend on ads alone",
-    ],
-    process: [
-      {
-        title: "See The Market",
-        description:
-          "We map who owns the pack, which queries matter, and where you leak trust.",
-      },
-      {
-        title: "Fix The Signals",
-        description:
-          "Name, categories, pages, and citations — one version of the truth.",
-      },
-      {
-        title: "Earn The Reviews",
-        description:
-          "A request and response rhythm that builds the proof Google and people both use.",
-      },
-      {
-        title: "Defend The Rank",
-        description:
-          "Local SEO is a contest. We keep publishing, updating, and measuring leads.",
-      },
-    ],
-    relatedIds: ["seo", "gmb", "google-ads"],
-    blogSlug: "local-seo-for-local-businesses",
-    image:
-      "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80",
-  },
-  {
-    id: "gmb",
-    title: "GMB Optimization",
-    description:
-      "Your Google Business Profile is the new front door — optimized for visibility, trust, and conversion.",
-    icon: "Building2",
-    headline: "The new front door is a Google profile.",
-    seoDescription:
-      "Brand Mafia Google Business Profile optimization treats your listing as the new front door — photos, menus, hours, reviews, and conversion.",
-    intro: [
-      "Many customers see your Google profile before they see your website. For a lot of local businesses, that listing is the business.",
-      "We optimize photos, menus, hours, services, products, and reviews so the profile does more than exist — it converts. Visibility matters, but conversion is the real goal.",
-      "A florist's photos are brand. A barbershop's reviews are trust. A pizzeria's hours and delivery info are the sale.",
-    ],
-    quote: "Visibility matters, but conversion is the real goal.",
-    forWho:
-      "Any local business that lives on Maps — especially if the listing is incomplete, outdated, or losing to a competitor with a weaker product.",
-    pillars: [
-      {
-        title: "Complete The Door",
-        description:
-          "Categories, services, products, attributes, hours, and Q&A — no empty rooms.",
-      },
-      {
-        title: "Photos As Brand",
-        description:
-          "We treat the gallery as storefront design, not leftover camera rolls.",
-      },
-      {
-        title: "Reviews As Proof",
-        description:
-          "Ask, respond, and surface the stories that make a stranger comfortable.",
-      },
-      {
-        title: "Posts That Work",
-        description:
-          "Offers, events, and updates that keep the profile alive — and clickable.",
-      },
-    ],
-    includes: [
-      "Full Google Business Profile audit",
-      "Category, service, and attribute optimization",
-      "Photo, menu, and product setup",
-      "Review strategy and response templates",
-      "Weekly posts, offers, and updates",
-      "Insights reporting on calls, clicks, and direction requests",
-    ],
-    outcomes: [
-      "A listing that looks as good as the business",
-      "More calls, website clicks, and direction requests",
-      "Stronger map-pack competitiveness",
-      "Trust signals that ads and SEO can lean on",
-    ],
-    process: [
-      {
-        title: "Audit",
-        description:
-          "We compare your profile to the businesses beating you — category by category.",
-      },
-      {
-        title: "Complete",
-        description:
-          "Every field, photo, and service filled like a storefront you actually care about.",
-      },
-      {
-        title: "Activate",
-        description:
-          "Reviews, posts, and Q&A so the listing feels current, not abandoned.",
-      },
-      {
-        title: "Maintain",
-        description:
-          "Hours change. Offers change. We keep the front door honest and converting.",
-      },
-    ],
-    relatedIds: ["local-seo", "seo", "social"],
-    blogSlug: "google-business-profile-new-front-door",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80",
-  },
+  // {
+  //   id: "local-seo",
+  //   title: "Local SEO",
+  //   description:
+  //     "Own your local market with geo-targeted SEO that puts you on the map when customers search with urgency.",
+  //   icon: "MapPin",
+  //   headline: "Own the map when they search with urgency.",
+  //   seoDescription:
+  //     "Brand Mafia Local SEO puts you on the map when customers search with urgency — geo-targeted visibility built on trust, listings, and real intent.",
+  //   intro: [
+  //     "Local SEO is how you become the name people see — and the one they trust — when they need you now.",
+  //     "We treat the map pack, Google Business Profile, reviews, and location pages as one system. Visibility without conversion is just a prettier listing.",
+  //     "Working with local businesses taught us this: people search with urgency. Your job is to be obvious, close, and credible.",
+  //   ],
+  //   quote:
+  //     "Local SEO works when Google can clearly understand who you are, where you are, what you offer, and why customers trust you.",
+  //   forWho:
+  //     "Restaurants, salons, shops, clinics, and service businesses that live or die by nearby demand.",
+  //   pillars: [
+  //     {
+  //       title: "Map Pack Presence",
+  //       description:
+  //         "Categories, services, photos, and proximity signals that put you in the local three.",
+  //     },
+  //     {
+  //       title: "Location Pages That Convert",
+  //       description:
+  //         "Pages that answer the search — hours, offer, proof — not thin city clones.",
+  //     },
+  //     {
+  //       title: "Review Momentum",
+  //       description:
+  //         "A system for earning and responding to reviews so trust is visible, not assumed.",
+  //     },
+  //     {
+  //       title: "Local Proof Everywhere",
+  //       description:
+  //         "Citations, partnerships, and on-site signals that match the real-world business.",
+  //     },
+  //   ],
+  //   includes: [
+  //     "Local competitive and map-pack audit",
+  //     "Google Business Profile strategy (paired with GMB work)",
+  //     "Location and service page builds",
+  //     "Citation cleanup and consistency",
+  //     "Review generation and response playbook",
+  //     "Local rank and lead tracking",
+  //   ],
+  //   outcomes: [
+  //     "Higher map-pack and local organic visibility",
+  //     "More calls, directions, and walk-ins from search",
+  //     "A listing and site that match the real business",
+  //     "A local lead engine that does not depend on ads alone",
+  //   ],
+  //   process: [
+  //     {
+  //       title: "See The Market",
+  //       description:
+  //         "We map who owns the pack, which queries matter, and where you leak trust.",
+  //     },
+  //     {
+  //       title: "Fix The Signals",
+  //       description:
+  //         "Name, categories, pages, and citations — one version of the truth.",
+  //     },
+  //     {
+  //       title: "Earn The Reviews",
+  //       description:
+  //         "A request and response rhythm that builds the proof Google and people both use.",
+  //     },
+  //     {
+  //       title: "Defend The Rank",
+  //       description:
+  //         "Local SEO is a contest. We keep publishing, updating, and measuring leads.",
+  //     },
+  //   ],
+  //   relatedIds: ["seo", "gmb", "google-ads"],
+  //   blogSlug: "local-seo-for-local-businesses",
+  //   image:
+  //     "https://images.unsplash.com/photo-1524661135-423995f22d0b?w=1400&q=80",
+  // },
+  // {
+  //   id: "gmb",
+  //   title: "GMB Optimization",
+  //   description:
+  //     "Your Google Business Profile is the new front door — optimized for visibility, trust, and conversion.",
+  //   icon: "Building2",
+  //   headline: "The new front door is a Google profile.",
+  //   seoDescription:
+  //     "Brand Mafia Google Business Profile optimization treats your listing as the new front door — photos, menus, hours, reviews, and conversion.",
+  //   intro: [
+  //     "Many customers see your Google profile before they see your website. For a lot of local businesses, that listing is the business.",
+  //     "We optimize photos, menus, hours, services, products, and reviews so the profile does more than exist — it converts. Visibility matters, but conversion is the real goal.",
+  //     "A florist's photos are brand. A barbershop's reviews are trust. A pizzeria's hours and delivery info are the sale.",
+  //   ],
+  //   quote: "Visibility matters, but conversion is the real goal.",
+  //   forWho:
+  //     "Any local business that lives on Maps — especially if the listing is incomplete, outdated, or losing to a competitor with a weaker product.",
+  //   pillars: [
+  //     {
+  //       title: "Complete The Door",
+  //       description:
+  //         "Categories, services, products, attributes, hours, and Q&A — no empty rooms.",
+  //     },
+  //     {
+  //       title: "Photos As Brand",
+  //       description:
+  //         "We treat the gallery as storefront design, not leftover camera rolls.",
+  //     },
+  //     {
+  //       title: "Reviews As Proof",
+  //       description:
+  //         "Ask, respond, and surface the stories that make a stranger comfortable.",
+  //     },
+  //     {
+  //       title: "Posts That Work",
+  //       description:
+  //         "Offers, events, and updates that keep the profile alive — and clickable.",
+  //     },
+  //   ],
+  //   includes: [
+  //     "Full Google Business Profile audit",
+  //     "Category, service, and attribute optimization",
+  //     "Photo, menu, and product setup",
+  //     "Review strategy and response templates",
+  //     "Weekly posts, offers, and updates",
+  //     "Insights reporting on calls, clicks, and direction requests",
+  //   ],
+  //   outcomes: [
+  //     "A listing that looks as good as the business",
+  //     "More calls, website clicks, and direction requests",
+  //     "Stronger map-pack competitiveness",
+  //     "Trust signals that ads and SEO can lean on",
+  //   ],
+  //   process: [
+  //     {
+  //       title: "Audit",
+  //       description:
+  //         "We compare your profile to the businesses beating you — category by category.",
+  //     },
+  //     {
+  //       title: "Complete",
+  //       description:
+  //         "Every field, photo, and service filled like a storefront you actually care about.",
+  //     },
+  //     {
+  //       title: "Activate",
+  //       description:
+  //         "Reviews, posts, and Q&A so the listing feels current, not abandoned.",
+  //     },
+  //     {
+  //       title: "Maintain",
+  //       description:
+  //         "Hours change. Offers change. We keep the front door honest and converting.",
+  //     },
+  //   ],
+  //   relatedIds: ["local-seo", "seo", "social"],
+  //   blogSlug: "google-business-profile-new-front-door",
+  //   image:
+  //     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1400&q=80",
+  // },
   {
     id: "email",
     title: "Email Marketing",
@@ -1141,80 +1141,80 @@ export const services: Service[] = [
     blogSlug: "local-seo-for-local-businesses",
     image: serviceImage("E-commerce SEO.webp"),
   },
-  {
-    id: "ai-optimization",
-    title: "AI Optimization",
-    description:
-      "Make your brand easier to understand, cite, and recommend as search becomes answer-first — without promising placement you cannot control.",
-    icon: "Sparkles",
-    headline: "Be Visible in the Age of AI Search.",
-    seoDescription:
-      "Brand Mafia AI optimization prepares your brand for answer-first search — structured information, entity clarity, and useful content. No guaranteed AI placements.",
-    intro: [
-      "Search is becoming answer-first. People still look things up — they just often get a summary before a list of links.",
-      "We do not sell guaranteed placement in AI answers. We make your brand easier to understand, cite, and trust: clear entities, structured content, and pages that actually help.",
-    ],
-    quote: "You cannot buy a citation. You can become the source worth citing.",
-    forWho:
-      "Brands that already publish and rank — and want their information to travel into AI answers, not just classic blue links.",
-    pillars: [
-      {
-        title: "Entity Clarity",
-        description:
-          "Who you are, what you offer, and how that is stated the same way everywhere.",
-      },
-      {
-        title: "Structured Helpfulness",
-        description:
-          "Pages that answer real questions in language machines and people can both use.",
-      },
-      {
-        title: "Technical Access",
-        description:
-          "Crawlable, fast, and not locked behind junk that blocks discovery.",
-      },
-      {
-        title: "Honest Scope",
-        description:
-          "We report on readiness and visibility signals — not fantasies about controlling the model.",
-      },
-    ],
-    includes: [
-      "Entity and knowledge-panel audit",
-      "Content structured for questions and citations",
-      "Schema and information architecture review",
-      "Technical accessibility for crawlers and AI systems",
-      "Source-worthiness improvements on key pages",
-      "A readiness report — not a placement guarantee",
-    ],
-    outcomes: [
-      "A clearer public record of who you are and what you do",
-      "Content that is easier to quote, summarize, and trust",
-      "Fewer contradictions across site, profiles, and listings",
-      "A brand prepared for answer-first search — without the hype",
-    ],
-    process: [
-      {
-        title: "Inventory",
-        description: "How the brand is described today — on-site and off.",
-      },
-      {
-        title: "Clarify",
-        description: "One accurate story, then structure that can be parsed.",
-      },
-      {
-        title: "Publish",
-        description: "Useful pages that deserve to be referenced.",
-      },
-      {
-        title: "Watch",
-        description: "Visibility and citation signals. We adjust. We do not promise magic.",
-      },
-    ],
-    relatedIds: ["seo", "content", "web-dev"],
-    blogSlug: "ai-automation-removing-repetition",
-    image: serviceImage("AI Optimization.webp"),
-  },
+  // {
+  //   id: "ai-optimization",
+  //   title: "AI Optimization",
+  //   description:
+  //     "Make your brand easier to understand, cite, and recommend as search becomes answer-first — without promising placement you cannot control.",
+  //   icon: "Sparkles",
+  //   headline: "Be Visible in the Age of AI Search.",
+  //   seoDescription:
+  //     "Brand Mafia AI optimization prepares your brand for answer-first search — structured information, entity clarity, and useful content. No guaranteed AI placements.",
+  //   intro: [
+  //     "Search is becoming answer-first. People still look things up — they just often get a summary before a list of links.",
+  //     "We do not sell guaranteed placement in AI answers. We make your brand easier to understand, cite, and trust: clear entities, structured content, and pages that actually help.",
+  //   ],
+  //   quote: "You cannot buy a citation. You can become the source worth citing.",
+  //   forWho:
+  //     "Brands that already publish and rank — and want their information to travel into AI answers, not just classic blue links.",
+  //   pillars: [
+  //     {
+  //       title: "Entity Clarity",
+  //       description:
+  //         "Who you are, what you offer, and how that is stated the same way everywhere.",
+  //     },
+  //     {
+  //       title: "Structured Helpfulness",
+  //       description:
+  //         "Pages that answer real questions in language machines and people can both use.",
+  //     },
+  //     {
+  //       title: "Technical Access",
+  //       description:
+  //         "Crawlable, fast, and not locked behind junk that blocks discovery.",
+  //     },
+  //     {
+  //       title: "Honest Scope",
+  //       description:
+  //         "We report on readiness and visibility signals — not fantasies about controlling the model.",
+  //     },
+  //   ],
+  //   includes: [
+  //     "Entity and knowledge-panel audit",
+  //     "Content structured for questions and citations",
+  //     "Schema and information architecture review",
+  //     "Technical accessibility for crawlers and AI systems",
+  //     "Source-worthiness improvements on key pages",
+  //     "A readiness report — not a placement guarantee",
+  //   ],
+  //   outcomes: [
+  //     "A clearer public record of who you are and what you do",
+  //     "Content that is easier to quote, summarize, and trust",
+  //     "Fewer contradictions across site, profiles, and listings",
+  //     "A brand prepared for answer-first search — without the hype",
+  //   ],
+  //   process: [
+  //     {
+  //       title: "Inventory",
+  //       description: "How the brand is described today — on-site and off.",
+  //     },
+  //     {
+  //       title: "Clarify",
+  //       description: "One accurate story, then structure that can be parsed.",
+  //     },
+  //     {
+  //       title: "Publish",
+  //       description: "Useful pages that deserve to be referenced.",
+  //     },
+  //     {
+  //       title: "Watch",
+  //       description: "Visibility and citation signals. We adjust. We do not promise magic.",
+  //     },
+  //   ],
+  //   relatedIds: ["seo", "content", "web-dev"],
+  //   blogSlug: "ai-automation-removing-repetition",
+  //   image: serviceImage("AI Optimization.webp"),
+  // },
   {
     id: "app-development",
     title: "App Development",

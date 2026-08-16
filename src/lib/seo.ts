@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { siteConfig } from "@/data/site";
 
+/** Flip to false when the site is ready to appear in search. */
+export const SITE_NO_INDEX = true;
+
 interface SEOProps {
   title?: string;
   description?: string;
@@ -14,7 +17,7 @@ export function generateSEO({
   description = siteConfig.description,
   path = "",
   image = siteConfig.logo,
-  noIndex = false,
+  noIndex = SITE_NO_INDEX,
 }: SEOProps = {}): Metadata {
   const fullTitle = title
     ? `${title} | ${siteConfig.name}`
@@ -26,7 +29,19 @@ export function generateSEO({
     description,
     metadataBase: new URL(siteConfig.url),
     alternates: { canonical: url },
-    robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
+    robots: noIndex
+      ? {
+          index: false,
+          follow: false,
+          nocache: true,
+          googleBot: {
+            index: false,
+            follow: false,
+            noimageindex: true,
+            nosnippet: true,
+          },
+        }
+      : { index: true, follow: true },
     openGraph: {
       title: fullTitle,
       description,

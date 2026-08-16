@@ -263,27 +263,27 @@ export const showcasePillars = [
   {
     label: "Media",
     image:
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80",
+      "/images/MEDIA.webp",
   },
   {
     label: "Discovery",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80",
+      "/images/DISCOVERY.webp",
   },
   {
     label: "Strategy",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=80",
+      "/images/STRATEGY.webp",
   },
   {
     label: "Content",
     image:
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=600&q=80",
+      "/images/CONTENT.webp",
   },
   {
     label: "Commerce",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80",
+      "/images/COMMERCE.webp",
   },
 ];
 
@@ -829,24 +829,24 @@ export const blogPhilosophy = {
 };
 
 export const blogPosts = [
-  {
-    slug: "local-seo-for-local-businesses",
-    title: "What SEO Really Looks Like for Local Businesses",
-    excerpt:
-      "SEO is not just keywords and backlinks. For Brand Mafia, it begins with understanding how real customers search for pizza, coffee, haircuts, and flower delivery in Halifax.",
-    category: "SEO",
-    filterCategory: "SEO",
-    readTime: "6 min read",
-    date: "Aug 15, 2026",
-    image:
-      "https://images.unsplash.com/photo-1432888622747-4eb9e8eb2f8c?w=1200&q=80",
-    content: [
-      "SEO is not just keywords and backlinks. For Brand Mafia, it begins with understanding how real customers search for pizza, coffee, haircuts, and flower delivery in Halifax.",
-      "Working with Blume, Lalaji Barbershop, Lala's Café, and Lala's Pizza showed us that local SEO is fundamentally about digital trust. We aligned websites, Google Business Profiles, reviews, service pages, and customer intent so that people searching with urgency could find the right business with confidence.",
-    ],
-    quote:
-      "Local SEO works when Google can clearly understand who you are, where you are, what you offer, and why customers trust you.",
-  },
+  // {
+  //   slug: "local-seo-for-local-businesses",
+  //   title: "What SEO Really Looks Like for Local Businesses",
+  //   excerpt:
+  //     "SEO is not just keywords and backlinks. For Brand Mafia, it begins with understanding how real customers search for pizza, coffee, haircuts, and flower delivery in Halifax.",
+  //   category: "SEO",
+  //   filterCategory: "SEO",
+  //   readTime: "6 min read",
+  //   date: "Aug 15, 2026",
+  //   image:
+  //     "https://images.unsplash.com/photo-1432888622747-4eb9e8eb2f8c?w=1200&q=80",
+  //   content: [
+  //     "SEO is not just keywords and backlinks. For Brand Mafia, it begins with understanding how real customers search for pizza, coffee, haircuts, and flower delivery in Halifax.",
+  //     "Working with Blume, Lalaji Barbershop, Lala's Café, and Lala's Pizza showed us that local SEO is fundamentally about digital trust. We aligned websites, Google Business Profiles, reviews, service pages, and customer intent so that people searching with urgency could find the right business with confidence.",
+  //   ],
+  //   quote:
+  //     "Local SEO works when Google can clearly understand who you are, where you are, what you offer, and why customers trust you.",
+  // },
   {
     slug: "google-ads-not-like-typical-agency",
     title: "Why We Don't Run Google Ads Like a Typical Agency",
@@ -972,23 +972,23 @@ export const blogPosts = [
     ],
     quote: "AI handles repetition. Humans handle connection.",
   },
-  {
-    slug: "google-business-profile-new-front-door",
-    title: "Google Business Profile Is the New Front Door",
-    excerpt:
-      "Many customers see your Google profile before they see your website — optimized for photos, menus, hours, reviews, and trust.",
-    category: "GMB Optimization",
-    filterCategory: "SEO",
-    readTime: "5 min read",
-    date: "Aug 7, 2026",
-    image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
-    content: [
-      "Many customers see your Google profile before they see your website.",
-      "For Lala's Pizza, we optimized photos, menus, hours, and delivery information. For Lalaji Barbershop, we focused on reviews and trust signals. For Blume, we treated photos as part of the brand experience.",
-    ],
-    quote: "Visibility matters, but conversion is the real goal.",
-  },
+  // {
+  //   slug: "google-business-profile-new-front-door",
+  //   title: "Google Business Profile Is the New Front Door",
+  //   excerpt:
+  //     "Many customers see your Google profile before they see your website — optimized for photos, menus, hours, reviews, and trust.",
+  //   category: "GMB Optimization",
+  //   filterCategory: "SEO",
+  //   readTime: "5 min read",
+  //   date: "Aug 7, 2026",
+  //   image:
+  //     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&q=80",
+  //   content: [
+  //     "Many customers see your Google profile before they see your website.",
+  //     "For Lala's Pizza, we optimized photos, menus, hours, and delivery information. For Lalaji Barbershop, we focused on reviews and trust signals. For Blume, we treated photos as part of the brand experience.",
+  //   ],
+  //   quote: "Visibility matters, but conversion is the real goal.",
+  // },
   {
     slug: "email-marketing-long-term-customer-value",
     title: "Email Marketing Builds Long-Term Customer Value",
