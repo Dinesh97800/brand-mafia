@@ -16,6 +16,7 @@ interface ButtonProps {
   onClick?: () => void;
   type?: "button" | "submit";
   ariaLabel?: string;
+  disabled?: boolean;
 }
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
@@ -31,6 +32,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       onClick,
       type = "button",
       ariaLabel,
+      disabled = false,
     },
     ref
   ) => {
@@ -104,7 +106,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           }
         }}
         type={type}
-        className={classes}
+        disabled={disabled}
+        className={cn(classes, disabled && "pointer-events-none opacity-60")}
         onClick={onClick}
         whileTap={{ scale: 0.97 }}
         aria-label={ariaLabel}
