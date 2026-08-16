@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { projects, siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -67,9 +68,12 @@ export default async function CaseStudyPage({ params }: Props) {
             <span className="block text-xs font-heading uppercase tracking-wider text-orange mb-2">
               {project.category}
             </span>
-            <h1 className="font-heading text-3xl md:text-5xl font-bold text-offwhite">
-              {project.title}
-            </h1>
+            <BlurRevealText
+              as="h1"
+              trigger="mount"
+              text={project.title}
+              className="font-heading text-3xl md:text-5xl font-bold text-offwhite"
+            />
           </div>
         </div>
 
@@ -79,9 +83,12 @@ export default async function CaseStudyPage({ params }: Props) {
               {project.description}
             </p>
 
-            <h2 className="font-heading text-2xl font-bold text-offwhite mb-6">
-              Key Results
-            </h2>
+            <BlurRevealText
+              as="h2"
+              trigger="inView"
+              text="Key Results"
+              className="font-heading text-2xl font-bold text-offwhite mb-6"
+            />
             <div className="grid sm:grid-cols-2 gap-4 mb-12">
               {project.results.map((result) => (
                 <div key={result} className="glass rounded-xl p-6">

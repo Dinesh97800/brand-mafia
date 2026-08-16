@@ -23,11 +23,11 @@ export function Footer() {
             <div className="lg:col-span-4">
               <Link href="/" className="inline-block mb-6">
                 <LocalImage
-                  src="/images/logo.jpg"
+                  src={siteConfig.logo}
                   alt={siteConfig.name}
-                  width={140}
-                  height={90}
-                  className="h-16 w-auto object-contain"
+                  width={500}
+                  height={500}
+                  className="h-20 w-auto object-contain"
                 />
               </Link>
               <p className="text-offwhite/50 text-sm leading-relaxed max-w-sm mb-6">

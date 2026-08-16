@@ -1,0 +1,72 @@
+.card {
+  --hover-ease: linear(
+    0,
+    0.0663,
+    0.2105,
+    0.3763,
+    0.5332,
+    0.6669,
+    0.7733,
+    0.8533,
+    0.9107,
+    0.9499,
+    0.9754,
+    0.9911,
+    1,
+    1.0044,
+    1.0061,
+    1.0062,
+    1.0055,
+    1.0045,
+    1.0035,
+    1.0026,
+    1.0018,
+    1.0012,
+    1.0008,
+    1
+  );
+}
+
+.portraitWrap {
+  position: relative;
+  width: 100%;
+  max-width: 230px;
+  margin-inline: auto;
+}
+
+.portraitSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.photo {
+  filter: grayscale(0%);
+  transition: filter 0.45s ease;
+}
+
+.card:hover .photo,
+.card:focus-within .photo {
+  filter: grayscale(100%);
+}
+
+.socialLink {
+  color: rgba(244, 242, 242, 0.4);
+  transition:
+    color 0.3s ease,
+    transform 750ms var(--hover-ease);
+}
+
+.socialLink:hover,
+.socialLink:focus-visible {
+  color: #f4f2f2;
+  transform: translateY(-2px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .photo,
+  .socialLink {
+    transition: none;
+  }
+}

@@ -1,13 +1,14 @@
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { PageHero } from "@/components/ui/PageTransition";
 import { PricingSection } from "@/components/sections/PricingSection";
-import { FAQSection } from "@/components/sections/FAQSection";
+import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
+import { SolutionsSection } from "@/components/sections/SolutionsSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 
 export const metadata = generateSEO({
-  title: "Pricing",
+  title: "Digital Marketing Packages",
   description:
-    "Transparent pricing for premium digital marketing services. Starter, Growth, and Enterprise plans to fit every stage of your business.",
+    "Transparent digital marketing packages built to generate leads and sales. Starter Growth, Business Growth, and Scale & Dominate plans for every stage of your business.",
   path: "/pricing",
 });
 
@@ -24,11 +25,12 @@ export default function PricingPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
       <PageHero
-        title="Invest in Growth"
-        subtitle="Choose the plan that matches your ambition. No hidden fees."
+        title="Built to Dominate"
+        subtitle="Digital marketing packages that help businesses generate more leads, increase sales, and dominate their market. No hidden fees."
       />
+      <WhyChooseSection />
       <PricingSection />
-      <FAQSection />
+      <SolutionsSection />
       <ContactSection />
     </>
   );

@@ -1,43 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import {
-  Search,
-  Target,
-  Share2,
-  Code2,
-  Palette,
-  Users,
-  FileText,
-  Bot,
-  MapPin,
-  Building2,
-  Mail,
-  TrendingUp,
-  ChevronLeft,
-  ChevronRight,
-  ArrowUpRight,
-  type LucideIcon,
-} from "lucide-react";
-import { services } from "@/data/site";
+import { Search, ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
+import { getFeaturedServices } from "@/data/services";
+import { serviceIconMap } from "@/lib/service-icons";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { LocalImage } from "@/components/ui/LocalImage";
-
-const iconMap: Record<string, LucideIcon> = {
-  Search,
-  Target,
-  Share2,
-  Code2,
-  Palette,
-  Users,
-  FileText,
-  Bot,
-  MapPin,
-  Building2,
-  Mail,
-  TrendingUp,
-};
 
 interface CarouselConfig {
   cardWidth: number;
@@ -232,13 +202,17 @@ function HangingLamp({
 }
 
 export function ServicesSection() {
+  const router = useRouter();
   const config = useCarouselConfig();
+  const services = useMemo(() => getFeaturedServices(), []);
   const total = services.length;
   const [activeIndex, setActiveIndex] = useState(0);
   const [paused, setPaused] = useState(false);
   const [lightOn, setLightOn] = useState(true);
   const [hoveredId, setHoveredId] = useState<string | null>(null);
   const touchStartX = useRef<number | null>(null);
+  const carouselRef = useRef<HTMLDivElement>(null);
+  const wheelDeltaRef = useRef(0);
 
   const goToIndex = useCallback((index: number) => {
     setActiveIndex(index);
@@ -262,6 +236,50 @@ export function ServicesSection() {
     const timer = setInterval(goNext, 3200);
     return () => clearInterval(timer);
   }, [paused, lightOn, goNext]);
+
+  useEffect(() => {
+    const el = carouselRef.current;
+    if (!el) return;
+
+    const WHEEL_THRESHOLD = 55;
+
+    const normalizeWheelDelta = (value: number, mode: number) => {
+      if (mode === 1) return value * 16;
+      if (mode === 2) return value * window.innerHeight;
+      return value;
+    };
+
+    const onWheel = (e: WheelEvent) => {
+      const deltaX = normalizeWheelDelta(e.deltaX, e.deltaMode);
+      const deltaY = normalizeWheelDelta(e.deltaY, e.deltaMode);
+
+      let delta = 0;
+      if (Math.abs(deltaX) > Math.abs(deltaY)) {
+        delta = deltaX;
+      } else if (e.shiftKey && Math.abs(deltaY) > 0) {
+        delta = deltaY;
+      }
+
+      if (delta === 0) return;
+
+      e.preventDefault();
+      setPaused(true);
+      wheelDeltaRef.current += delta;
+
+      if (wheelDeltaRef.current >= WHEEL_THRESHOLD) {
+        const steps = Math.floor(wheelDeltaRef.current / WHEEL_THRESHOLD);
+        wheelDeltaRef.current -= steps * WHEEL_THRESHOLD;
+        setActiveIndex((prev) => (prev + steps) % total);
+      } else if (wheelDeltaRef.current <= -WHEEL_THRESHOLD) {
+        const steps = Math.floor(Math.abs(wheelDeltaRef.current) / WHEEL_THRESHOLD);
+        wheelDeltaRef.current += steps * WHEEL_THRESHOLD;
+        setActiveIndex((prev) => (prev - steps + total * steps) % total);
+      }
+    };
+
+    el.addEventListener("wheel", onWheel, { passive: false });
+    return () => el.removeEventListener("wheel", onWheel);
+  }, [total]);
 
   const visibleCards = useMemo(
     () =>
@@ -304,7 +322,8 @@ export function ServicesSection() {
       </div>
 
       <div
-        className="relative mx-auto mt-2 w-full max-w-[1500px]"
+        ref={carouselRef}
+        className="relative mx-auto mt-2 w-full max-w-[1500px] overscroll-x-contain touch-pan-y"
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => {
           setPaused(false);
@@ -362,7 +381,7 @@ export function ServicesSection() {
             }}
           >
             {visibleCards.map(({ service, index, rel }) => {
-              const Icon = iconMap[service.icon] || Search;
+              const Icon = serviceIconMap[service.icon] || Search;
               const transform = getCurvedMonitorTransform(rel, config);
               const isCenter = rel === 0;
               const isHovered = hoveredId === service.id;
@@ -402,6 +421,7 @@ export function ServicesSection() {
                   }}
                   onClick={() => {
                     if (!isCenter) goToIndex(index);
+                    else router.push(`/services/${service.id}`);
                   }}
                   onMouseEnter={() => setHoveredId(service.id)}
                   onMouseLeave={() => setHoveredId(null)}

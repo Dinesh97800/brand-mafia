@@ -81,6 +81,15 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -105,11 +114,142 @@
   }
 }
 
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInTop {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInFromTop 0.8s ease-in-out forwards;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
+}
+
 @keyframes loadBar {
   from {
     width: 0%;
   }
   to {
     width: 100%;
+  }
+}
+
+@keyframes scan {
+  0%,
+  100% {
+    top: 0%;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  50% {
+    top: 100%;
+  }
+}
+
+@keyframes process-card-in {
+  from {
+    opacity: 0.65;
+    transform: translateY(20px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-fadeInTop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .process-card-animate {
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .process-card-active {
+    animation: none !important;
+  }
+}
+
+.process-card-active {
+  animation: process-card-in 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Blur reveal headings — padding prevents blur clipping */
+.blur-reveal-heading {
+  overflow: visible;
+}
+
+.blur-reveal-inner {
+  padding: 6px 3px;
+  margin: -6px -3px;
+}
+
+.blur-reveal-word {
+  opacity: 0;
+  filter: blur(9px);
+  transform: translateY(8px);
+}
+
+@keyframes blur-reveal-in {
+  from {
+    opacity: 0;
+    filter: blur(9px);
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0);
+  }
+}
+
+@keyframes blur-reveal-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.blur-reveal-word--animate {
+  animation: blur-reveal-in var(--blur-duration, 700ms)
+    cubic-bezier(0.25, 0.1, 0.25, 1) var(--blur-delay, 0ms) forwards;
+}
+
+.blur-reveal-word--animate-reduced {
+  filter: none;
+  transform: none;
+  animation: blur-reveal-fade var(--blur-duration, 200ms)
+    cubic-bezier(0.25, 0.1, 0.25, 1) var(--blur-delay, 0ms) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blur-reveal-word {
+    filter: none;
+    transform: none;
   }
 }

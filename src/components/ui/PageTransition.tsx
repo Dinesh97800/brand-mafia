@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
   return (
@@ -27,21 +28,17 @@ export function PageHero({
       <div className="absolute inset-0 bg-hero-glow opacity-30 pointer-events-none" />
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
       <div className="container-custom section-padding relative">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
-          className="max-w-3xl"
-        >
-          <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-offwhite mb-4">
-            {title}
-          </h1>
+        <div className="max-w-3xl">
+          <BlurRevealText
+            as="h1"
+            trigger="mount"
+            text={title}
+            className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold text-offwhite mb-4"
+          />
           {subtitle && (
-            <p className="text-lg text-offwhite/60 leading-relaxed">
-              {subtitle}
-            </p>
+            <p className="text-lg text-offwhite/60 leading-relaxed">{subtitle}</p>
           )}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

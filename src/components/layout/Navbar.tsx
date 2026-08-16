@@ -45,12 +45,12 @@ export function Navbar() {
         >
           <Link href="/" className="relative z-10 flex items-center gap-3 group">
             <LocalImage
-              src="/images/logo.jpg"
+              src={siteConfig.logo}
               alt={siteConfig.name}
-              width={48}
-              height={32}
+              width={500}
+              height={500}
               priority
-              className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-9 w-auto object-contain transition-transform group-hover:scale-105 sm:h-10"
             />
           </Link>
 

@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { BlurRevealText } from "@/components/ui/BlurRevealText";
 import { Sparkles, ArrowRight } from "lucide-react";
 import { whyStats } from "@/data/site";
 
@@ -85,11 +86,9 @@ export function WhySection() {
           </motion.div>
 
           {/* Headline */}
-          <motion.h2
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.1 }}
+          <BlurRevealText
+            as="h2"
+            trigger="inView"
             className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold leading-[1.15] tracking-tight text-offwhite mb-8"
           >
             Branding, Performance, Strategy — every{" "}
@@ -104,7 +103,7 @@ export function WhySection() {
             <span className="bg-gradient-to-r from-orange via-[#ff8c42] to-orange bg-clip-text text-transparent">
               sale, mastered
             </span>
-          </motion.h2>
+          </BlurRevealText>
 
           {/* Description */}
           <motion.p
