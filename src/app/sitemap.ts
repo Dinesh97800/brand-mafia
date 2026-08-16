@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { siteConfig, blogPosts, projects } from "@/data/site";
+import { getServiceStaticParams } from "@/data/services";
 
 export const dynamic = "force-static";
 
@@ -23,6 +24,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : 0.8,
   }));
 
+  const servicePages = getServiceStaticParams().map(({ slug }) => ({
+    url: `${siteConfig.url}/services/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const caseStudyPages = projects.map((p) => ({
     url: `${siteConfig.url}/case-studies/${p.id}`,
     lastModified: new Date(),
@@ -37,5 +45,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...caseStudyPages, ...blogPages];
+  return [...staticPages, ...servicePages, ...caseStudyPages, ...blogPages];
 }

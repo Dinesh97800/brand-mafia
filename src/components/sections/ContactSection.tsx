@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, MessageCircle, Calendar } from "lucide-react";
-import { siteConfig } from "@/data/site";
+import { services, siteConfig } from "@/data/site";
 import { SectionHeading, FadeUp } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
 
@@ -174,11 +174,11 @@ export function ContactSection() {
                   <option value="" disabled>
                     Select a Service
                   </option>
-                  <option value="seo">SEO</option>
-                  <option value="ads">Paid Ads</option>
-                  <option value="branding">Branding</option>
-                  <option value="web">Web Development</option>
-                  <option value="other">Other</option>
+                  {services.map((service) => (
+                    <option key={service.id} value={service.id}>
+                      {service.title}
+                    </option>
+                  ))}
                 </select>
               </div>
 

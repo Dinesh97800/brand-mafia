@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
-import { blogPosts } from "@/data/site";
+import { blogPosts, siteConfig } from "@/data/site";
 import { BlurRevealText } from "@/components/ui/BlurRevealText";
+import { Button } from "@/components/ui/Button";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -47,8 +48,14 @@ export default async function BlogPostPage({ params }: Props) {
       />
 
       <article>
-        <div className="relative h-[40vh] md:h-[50vh] overflow-hidden">
-          <Image src={post.image} alt={post.title} fill className="object-cover" priority />
+        <div className="relative h-[40vh] overflow-hidden md:h-[50vh]">
+          <Image
+            src={post.image}
+            alt={post.title}
+            fill
+            className="object-cover"
+            priority
+          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent" />
         </div>
 
@@ -56,14 +63,14 @@ export default async function BlogPostPage({ params }: Props) {
           <div className="container-custom max-w-3xl">
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 text-sm text-offwhite/60 hover:text-orange transition-colors mb-8"
+              className="mb-8 inline-flex items-center gap-2 text-sm text-offwhite/60 transition-colors hover:text-orange"
             >
               <ArrowLeft className="h-4 w-4" />
               Back to Blog
             </Link>
 
-            <div className="flex items-center gap-3 mb-4">
-              <span className="text-xs font-heading uppercase tracking-wider text-orange">
+            <div className="mb-4 flex items-center gap-3">
+              <span className="font-heading text-xs uppercase tracking-wider text-orange">
                 {post.category}
               </span>
               <span className="text-xs text-offwhite/40">{post.date}</span>
@@ -73,28 +80,37 @@ export default async function BlogPostPage({ params }: Props) {
               as="h1"
               trigger="mount"
               text={post.title}
-              className="font-heading text-3xl md:text-4xl font-bold text-offwhite mb-8"
+              className="mb-8 font-heading text-3xl font-bold text-offwhite md:text-4xl"
             />
 
             <div className="prose prose-invert max-w-none">
-              <p className="text-lg text-offwhite/70 leading-relaxed mb-6">
+              <p className="mb-8 text-lg leading-relaxed text-offwhite/75">
                 {post.excerpt}
               </p>
-              <p className="text-offwhite/60 leading-relaxed mb-4">
-                In today&apos;s competitive digital landscape, brands that fail to
-                adapt get left behind. At Brand Mafia, we&apos;ve developed proven
-                frameworks that consistently deliver exceptional results for our
-                clients across industries.
+
+              {post.content.map((paragraph) => (
+                <p
+                  key={paragraph}
+                  className="mb-5 leading-relaxed text-offwhite/60"
+                >
+                  {paragraph}
+                </p>
+              ))}
+
+              {post.quote && (
+                <blockquote className="my-10 rounded-2xl border border-orange/20 bg-orange/5 px-6 py-5 font-heading text-lg font-semibold leading-relaxed text-offwhite md:text-xl">
+                  {post.quote}
+                </blockquote>
+              )}
+            </div>
+
+            <div className="mt-12 border-t border-white/10 pt-10">
+              <p className="mb-6 text-offwhite/60">
+                Ready to put these insights into action for your business?
               </p>
-              <p className="text-offwhite/60 leading-relaxed mb-4">
-                Whether you&apos;re looking to dominate search rankings, scale paid
-                advertising, or build an unforgettable brand identity, the strategies
-                outlined in this article will give you a clear roadmap to success.
-              </p>
-              <p className="text-offwhite/60 leading-relaxed">
-                Ready to put these insights into action? Book a free strategy call
-                with our team and let&apos;s build your empire together.
-              </p>
+              <Button href={siteConfig.calendly} external magnetic>
+                Book a Free Strategy Call
+              </Button>
             </div>
           </div>
         </div>

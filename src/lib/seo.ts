@@ -13,7 +13,7 @@ export function generateSEO({
   title,
   description = siteConfig.description,
   path = "",
-  image = "/images/logo.jpg",
+  image = siteConfig.logo,
   noIndex = false,
 }: SEOProps = {}): Metadata {
   const fullTitle = title
@@ -88,7 +88,7 @@ export function generateOrganizationSchema() {
     "@type": "Organization",
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/images/logo.jpg`,
+    logo: `${siteConfig.url}${siteConfig.logo}`,
     description: siteConfig.description,
     contactPoint: {
       "@type": "ContactPoint",

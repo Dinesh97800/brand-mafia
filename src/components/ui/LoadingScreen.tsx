@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { siteConfig } from "@/data/site";
 import { LocalImage } from "@/components/ui/LocalImage";
 
 export function LoadingScreen() {
@@ -28,25 +29,13 @@ export function LoadingScreen() {
       <div className="relative flex flex-col items-center gap-6">
         <div className="animate-[fadeIn_0.5s_ease-out]">
           <LocalImage
-            src="/images/brandmafia.logopng.png"
-            alt="Brand Mafia"
-            width={120}
-            height={80}
+            src={siteConfig.logo}
+            alt={siteConfig.name}
+            width={500}
+            height={500}
             priority
-            className="object-contain"
+            className="h-28 w-28 object-contain sm:h-32 sm:w-32"
           />
-        </div>
-
-        <div className="flex gap-1">
-          {["B", "M"].map((letter, i) => (
-            <span
-              key={letter}
-              className="font-heading text-4xl font-bold text-offwhite animate-[fadeUp_0.5s_ease-out_both]"
-              style={{ animationDelay: `${300 + i * 150}ms` }}
-            >
-              {letter}
-            </span>
-          ))}
         </div>
 
         <div className="h-[2px] w-32 overflow-hidden rounded-full bg-white/10">

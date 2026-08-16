@@ -81,6 +81,15 @@
   .text-balance {
     text-wrap: balance;
   }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @keyframes fadeIn {
@@ -103,6 +112,31 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes fadeInFromTop {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInTop {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeInFromTop 0.8s ease-in-out forwards;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-600 {
+  animation-delay: 0.6s;
 }
 
 @keyframes loadBar {
@@ -143,6 +177,12 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animate-fadeInTop {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
   .process-card-animate {
     animation: none !important;
     transform: none !important;

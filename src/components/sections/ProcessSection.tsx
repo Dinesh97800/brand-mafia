@@ -6,6 +6,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Check } from "lucide-react";
 import { processSteps } from "@/data/site";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { LocalImage } from "@/components/ui/LocalImage";
+import { LENIS_READY_EVENT, isLenisReady } from "@/components/providers/SmoothScroll";
 import { cn } from "@/lib/utils";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -14,13 +16,16 @@ type Point = { x: number; y: number };
 
 const MOBILE_BREAKPOINT = 768;
 const TOTAL_STEPS = processSteps.length;
-const LERP = 0.11;
-const IDLE_BOB_AMPLITUDE = 2;
-const IDLE_BOB_PERIOD_MS = 2000;
-const CONTRAIL_LENGTH = 40;
-const BASE_LIFT_PX = 11;
-const PLANE_WIDTH_PX = 56;
-const PLANE_HEIGHT_PX = 42;
+const IDLE_BOB_AMPLITUDE = 3.2;
+const IDLE_BOB_PERIOD_MS = 2100;
+const CONTRAIL_LENGTH = 86;
+const BASE_LIFT_PX = 14;
+const PLANE_WIDTH_PX = 88;
+const PLANE_HEIGHT_PX = 88;
+/** paper-plane.png nose points up-right; offset so the nose follows the path. */
+const PNG_NOSE_DEG = -40;
+const PLANE_SCRUB = 1.35;
+const ANGLE_LERP = 0.16;
 
 function perpUp(rad: number) {
   return { x: Math.sin(rad), y: -Math.cos(rad) };
@@ -51,10 +56,6 @@ function buildVerticalPath(points: Point[]): string {
   return d;
 }
 
-function easeInOutCubic(t: number): number {
-  return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-}
-
 function getSegmentAltitude(globalT: number, segmentCount: number): number {
   const clamped = Math.max(0, Math.min(1, globalT));
   const scaled = clamped * segmentCount;
@@ -74,72 +75,16 @@ function getPathGeometry(path: SVGPathElement, t: number) {
   const angleBefore = Math.atan2(pt.y - ptBefore.y, pt.x - ptBefore.x);
   const angleAfter = Math.atan2(ptAfter.y - pt.y, ptAfter.x - pt.x);
   const curvature = angleAfter - angleBefore;
-  const bank = Math.max(-5, Math.min(5, ((curvature * 180) / Math.PI) * 1.8));
+  const bank = Math.max(-18, Math.min(18, ((curvature * 180) / Math.PI) * 4.2));
 
   return { x: pt.x, y: pt.y, angle, bank };
 }
 
-/** Folded paper plane — 3/4 top view, multi-layer (not a chevron) */
-function PaperPlaneIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      viewBox="0 0 64 44"
-      fill="none"
-      className={className}
-      aria-hidden="true"
-      style={{ filter: "drop-shadow(0 2px 3px rgba(0,0,0,0.35))" }}
-    >
-      <defs>
-        <linearGradient id="plane-under-wing" x1="32" y1="18" x2="32" y2="40" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#b0b0b0" />
-          <stop offset="100%" stopColor="#8a8a8a" />
-        </linearGradient>
-        <linearGradient id="plane-top-wing" x1="32" y1="8" x2="32" y2="24" gradientUnits="userSpaceOnUse">
-          <stop offset="0%" stopColor="#e8e8e8" />
-          <stop offset="100%" stopColor="#d0d0d0" />
-        </linearGradient>
-      </defs>
-
-      {/* Near-side underside wing — darkest, reads as depth */}
-      <path
-        d="M6 24 L58 22 L28 40 Z"
-        fill="url(#plane-under-wing)"
-      />
-
-      {/* Top wing panel — lighter fold surface */}
-      <path
-        d="M6 24 L58 22 L28 6 Z"
-        fill="url(#plane-top-wing)"
-      />
-
-      {/* Main fuselage / center fold — bright white strip along spine */}
-      <path
-        d="M6 24 L58 22 L58 20 L6 22 Z"
-        fill="#f2f2f2"
-      />
-
-      {/* Nose cone highlight */}
-      <path
-        d="M44 21 L58 22 L44 23 Z"
-        fill="#fafafa"
-      />
-
-      {/* Brand accent — fold crease along top wing edge */}
-      <path
-        d="M6 24 L58 22"
-        stroke="#F05707"
-        strokeWidth="1.25"
-        strokeLinecap="round"
-      />
-      <path
-        d="M6 24 L28 6"
-        stroke="#F05707"
-        strokeWidth="1"
-        strokeLinecap="round"
-        opacity="0.85"
-      />
-    </svg>
-  );
+function lerpAngle(current: number, target: number, t: number) {
+  let diff = target - current;
+  while (diff > 180) diff -= 360;
+  while (diff < -180) diff += 360;
+  return current + diff * t;
 }
 
 function ProcessCard({
@@ -281,6 +226,8 @@ export function ProcessSection() {
     isMobile: false,
     rafId: 0,
     startTime: 0,
+    smoothedAngle: 0,
+    angleReady: false,
   });
 
   useEffect(() => {
@@ -328,48 +275,74 @@ export function ProcessSection() {
       let altitude = getSegmentAltitude(progress, segmentCount);
       if (options.isMobile) altitude *= 0.35;
 
-      const liftAmount = options.reduced ? 8 : BASE_LIFT_PX + altitude * 5;
+      const landing = Math.max(0, Math.min(1, (progress - 0.9) / 0.1));
+      const liftAmount = options.reduced
+        ? 8
+        : (BASE_LIFT_PX + altitude * 9) * (1 - landing * 0.72);
+
       const bob =
         options.enableBob && !options.reduced
-          ? Math.sin((timeMs / IDLE_BOB_PERIOD_MS) * Math.PI * 2) * IDLE_BOB_AMPLITUDE
+          ? Math.sin((timeMs / IDLE_BOB_PERIOD_MS) * Math.PI * 2) *
+              IDLE_BOB_AMPLITUDE *
+              (1 - landing) +
+            Math.sin(timeMs / 160) * 1.15 * (1 - landing)
           : 0;
 
       const planeX = x + up.x * (liftAmount + bob);
       const planeY = y + up.y * (liftAmount + bob);
 
-      const shadowDrift = options.reduced ? 0 : altitude * (options.isMobile ? 2 : 5);
+      const shadowDrift = options.reduced ? 0 : altitude * (options.isMobile ? 2 : 6);
       const shadowX = x + up.x * shadowDrift * 0.25;
       const shadowY = y + up.y * shadowDrift * 0.25;
 
-      const shadowBlur = (options.isMobile ? 2.5 : 3) + altitude * (options.isMobile ? 2 : 3);
+      const shadowBlur = (options.isMobile ? 2.5 : 3.5) + altitude * (options.isMobile ? 2 : 4);
       const shadowOpacity = options.reduced
         ? 0.3
-        : 0.38 - altitude * 0.14;
+        : 0.4 - altitude * 0.16;
       const shadowW = PLANE_WIDTH_PX * 0.58 * (1.08 - altitude * 0.18);
       const shadowH = PLANE_HEIGHT_PX * 0.22 * (1.05 - altitude * 0.12);
 
-      const landingPulse =
-        options.isMobile && !options.reduced ? 1 + (1 - altitude) * 0.1 : 1;
-
-      shadow.style.transform = `translate(${shadowX - shadowW / 2}px, ${shadowY - shadowH / 2}px) scale(${landingPulse})`;
+      shadow.style.transform = `translate3d(${shadowX - shadowW / 2}px, ${shadowY - shadowH / 2}px, 0)`;
       shadow.style.width = `${shadowW}px`;
       shadow.style.height = `${shadowH}px`;
-      shadow.style.opacity = String(Math.max(0.25, Math.min(0.4, shadowOpacity)));
+      shadow.style.opacity = String(Math.max(0.22, Math.min(0.42, shadowOpacity)));
       shadow.style.filter = `blur(${shadowBlur}px)`;
 
-      const totalAngle = angle + bank;
-      plane.style.transform = `translate(${planeX}px, ${planeY}px) translate(-50%, -50%) rotate(${totalAngle}deg)`;
+      const wobble = options.reduced
+        ? 0
+        : Math.sin(timeMs / 190) * 3.4 * (1 - landing) +
+          Math.sin(timeMs / 310) * 1.8 * (1 - landing);
+      const flare = landing * 8;
+      const targetAngle = angle + bank + wobble + flare - PNG_NOSE_DEG;
+      const state = animRef.current;
+      if (!state.angleReady) {
+        state.smoothedAngle = targetAngle;
+        state.angleReady = true;
+      } else {
+        state.smoothedAngle = lerpAngle(
+          state.smoothedAngle,
+          targetAngle,
+          options.reduced ? 1 : ANGLE_LERP
+        );
+      }
+
+      const thrust =
+        options.reduced || landing > 0.6
+          ? 1
+          : 1 + Math.sin(timeMs / 210) * 0.035 + altitude * 0.05;
+
+      plane.style.transform = `translate3d(${planeX}px, ${planeY}px, 0) translate(-50%, -50%) rotate(${state.smoothedAngle}deg) scale(${thrust})`;
 
       if (contrail && !options.reduced) {
         const at = progress * pathLength;
-        const start = Math.max(0, at - CONTRAIL_LENGTH);
+        const start = Math.max(0, at - CONTRAIL_LENGTH * (0.7 + altitude * 0.5));
         const parts: string[] = [];
         for (let i = start; i <= at; i += 2) {
           const p = path.getPointAtLength(i);
           parts.push(`${parts.length === 0 ? "M" : "L"} ${p.x.toFixed(1)} ${p.y.toFixed(1)}`);
         }
         contrail.setAttribute("d", parts.length > 1 ? parts.join(" ") : "");
-        contrail.style.opacity = String(0.15 + altitude * 0.1);
+        contrail.style.opacity = String((0.22 + altitude * 0.18) * (1 - landing * 0.5));
       } else if (contrail) {
         contrail.setAttribute("d", "");
       }
@@ -383,9 +356,6 @@ export function ProcessSection() {
       const state = animRef.current;
       if (!state.startTime) state.startTime = now;
 
-      state.currentProgress +=
-        (state.targetProgress - state.currentProgress) * LERP;
-
       applyPlaneTransform(state.currentProgress, now - state.startTime, {
         isMobile: state.isMobile,
         reduced: reducedMotion,
@@ -396,7 +366,7 @@ export function ProcessSection() {
     };
 
     const cardProgress = (index: number, segmentCount: number) =>
-      Math.min(1, (index + 1) / segmentCount);
+      index >= TOTAL_STEPS - 1 ? 1 : Math.min(1, (index + 1) / segmentCount);
 
     const build = () => {
       ctx?.revert();
@@ -417,7 +387,7 @@ export function ProcessSection() {
         const isMobile = window.innerWidth < MOBILE_BREAKPOINT;
         const containerRect = track.getBoundingClientRect();
         const offsetAbove = isMobile ? 28 : 48;
-        const offsetBelow = isMobile ? 28 : 48;
+        const offsetBelow = isMobile ? 56 : 88;
 
         const xForSide = (rect: DOMRect, isLeft: boolean, mobileLeftRail: number) => {
           if (isMobile) return mobileLeftRail;
@@ -443,7 +413,7 @@ export function ProcessSection() {
             };
           }),
           {
-            x: xForSide(lastRect, true, mobileRailX),
+            x: xForSide(lastRect, (steps.length - 1) % 2 === 0, mobileRailX),
             y: lastRect.bottom - containerRect.top + offsetBelow,
           },
         ];
@@ -454,6 +424,7 @@ export function ProcessSection() {
 
         const pathLength = routeProgress.getTotalLength();
         const segmentCount = Math.max(1, anchors.length - 1);
+        const lastCardT = steps.length / segmentCount;
 
         animRef.current.pathLength = pathLength;
         animRef.current.segmentCount = segmentCount;
@@ -472,6 +443,8 @@ export function ProcessSection() {
           yPercent: -50,
           opacity: 0.9,
         });
+
+        animRef.current.angleReady = false;
 
         const snapToCard = (index: number) => {
           const p = cardProgress(index, segmentCount);
@@ -507,34 +480,40 @@ export function ProcessSection() {
 
         plane.style.opacity = "1";
 
-        ScrollTrigger.create({
-          trigger: track,
-          start: isMobile ? "top 70%" : "top 58%",
-          end: isMobile ? "bottom 30%" : "bottom 42%",
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            animRef.current.targetProgress = easeInOutCubic(self.progress);
+        const proxy = { t: 0 };
+        const lastStep = steps[steps.length - 1];
+        const split = (steps.length - 1) / steps.length;
 
-            const idx = Math.min(
-              steps.length - 1,
-              Math.max(0, Math.floor(self.progress * steps.length))
-            );
-            setActiveIndex((prev) => (prev === idx ? prev : idx));
+        gsap.to(proxy, {
+          t: 1,
+          ease: "none",
+          scrollTrigger: {
+            id: "process-plane",
+            trigger: steps[0],
+            endTrigger: lastStep,
+            start: isMobile ? "top 78%" : "top 62%",
+            end: isMobile ? "center 48%" : "center 42%",
+            scrub: PLANE_SCRUB,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              const p = self.progress;
+              const mapped =
+                p < split
+                  ? (p / split) * lastCardT
+                  : lastCardT + ((p - split) / (1 - split)) * (1 - lastCardT);
+
+              animRef.current.currentProgress = mapped;
+
+              const idx = Math.min(
+                steps.length - 1,
+                Math.floor(p * steps.length)
+              );
+              setActiveIndex((prev) => (prev === idx ? prev : idx));
+            },
           },
         });
 
-        steps.forEach((step, i) => {
-          ScrollTrigger.create({
-            trigger: step,
-            start: "top 72%",
-            end: "bottom 28%",
-            onEnter: () => setActiveIndex(i),
-            onEnterBack: () => setActiveIndex(i),
-          });
-        });
-
         animRef.current.startTime = 0;
-        animRef.current.currentProgress = animRef.current.targetProgress;
         cancelRaf = false;
         animRef.current.rafId = requestAnimationFrame(tick);
       }, section);
@@ -549,7 +528,9 @@ export function ProcessSection() {
       });
     };
 
-    scheduleBuild();
+    if (isLenisReady()) scheduleBuild();
+    window.addEventListener(LENIS_READY_EVENT, scheduleBuild);
+    const fallbackTimer = window.setTimeout(scheduleBuild, 480);
 
     let resizeTimer: ReturnType<typeof setTimeout>;
     const onResize = () => {
@@ -562,8 +543,10 @@ export function ProcessSection() {
     return () => {
       cancelRaf = true;
       cancelAnimationFrame(animRef.current.rafId);
+      window.clearTimeout(fallbackTimer);
       clearTimeout(resizeTimer);
       window.removeEventListener("resize", onResize);
+      window.removeEventListener(LENIS_READY_EVENT, scheduleBuild);
       ctx?.revert();
     };
   }, [reducedMotion]);
@@ -572,6 +555,7 @@ export function ProcessSection() {
 
   return (
     <section
+      id="process"
       ref={sectionRef}
       className="section-padding relative overflow-hidden"
       aria-label="Our process journey"
@@ -652,10 +636,10 @@ export function ProcessSection() {
             <path
               ref={contrailRef}
               fill="none"
-              stroke="rgba(251,191,36,0.35)"
-              strokeWidth={2}
+              stroke="rgba(251,191,36,0.55)"
+              strokeWidth={2.5}
               strokeLinecap="round"
-              strokeDasharray="4 6"
+              strokeDasharray="3 7"
             />
           </svg>
 
@@ -666,8 +650,13 @@ export function ProcessSection() {
             style={{ willChange: "transform" }}
             aria-hidden="true"
           >
-            <PaperPlaneIcon
-              className="h-[42px] w-[56px] sm:h-[48px] sm:w-[64px]"
+            <LocalImage
+              src="/images/paper-plane.png"
+              alt=""
+              width={88}
+              height={88}
+              className="h-[72px] w-[72px] object-contain drop-shadow-[0_4px_10px_rgba(240,87,7,0.35)] sm:h-[88px] sm:w-[88px]"
+              priority
             />
           </div>
 
@@ -682,7 +671,7 @@ export function ProcessSection() {
             </span>
           </div>
 
-          <div className="relative z-10 flex flex-col gap-8 pb-10 pt-4 sm:gap-12 sm:pb-14 sm:pt-6 md:gap-20 lg:gap-24">
+          <div className="relative z-10 flex flex-col gap-8 pb-24 pt-4 sm:gap-12 sm:pb-28 sm:pt-6 md:gap-20 lg:gap-24">
             {processSteps.map((step, i) => (
               <ProcessCard
                 key={step.step}
