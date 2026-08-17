@@ -1,11 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Mail, Phone, MapPin, MessageCircle, Calendar } from "lucide-react";
 import { services, siteConfig } from "@/data/site";
 import { SectionHeading, FadeUp } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
+import {
+  RecaptchaBox,
+  getRecaptchaToken,
+  resetRecaptcha,
+} from "@/components/forms/RecaptchaBox";
 import { postForm } from "@/lib/api-client";
 
 interface ContactFormData {
@@ -18,6 +23,7 @@ interface ContactFormData {
 }
 
 export function ContactSection() {
+  const recaptchaId = useRef<number | null>(null);
   const [formStatus, setFormStatus] = useState<"idle" | "success" | "error">(
     "idle"
   );
@@ -32,6 +38,14 @@ export function ContactSection() {
   const onSubmit = async (data: ContactFormData) => {
     setFormStatus("idle");
     setFormMessage("");
+
+    const recaptchaToken = getRecaptchaToken(recaptchaId.current);
+    if (!recaptchaToken) {
+      setFormStatus("error");
+      setFormMessage("Please confirm you are not a robot.");
+      return;
+    }
+
     try {
       await postForm("/api/contact", {
         name: data.name,
@@ -41,13 +55,16 @@ export function ContactSection() {
         message: data.message,
         source: "contact",
         website: data.website,
+        recaptchaToken,
       });
       setFormStatus("success");
       setFormMessage(
         "Request received. Check your inbox — we will connect with you soon."
       );
       reset();
+      resetRecaptcha(recaptchaId.current);
     } catch (error) {
+      resetRecaptcha(recaptchaId.current);
       setFormStatus("error");
       setFormMessage(
         error instanceof Error
@@ -240,6 +257,12 @@ export function ContactSection() {
                   </p>
                 )}
               </div>
+
+              <RecaptchaBox
+                onReady={(id) => {
+                  recaptchaId.current = id;
+                }}
+              />
 
               <Button
                 type="submit"

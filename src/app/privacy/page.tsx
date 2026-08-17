@@ -37,7 +37,7 @@ export default function PrivacyPage() {
           </h2>
           <p className="text-offwhite/60 leading-relaxed">
             If you have questions about this Privacy Policy, please contact us at
-            hello@brandmafia.com.
+            info@brandmafia.co.
           </p>
         </div>
       </section>

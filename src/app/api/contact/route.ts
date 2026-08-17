@@ -7,6 +7,7 @@ import {
   contactUserEmail,
 } from "@/lib/server/email-templates";
 import { clientIp, rateLimit } from "@/lib/server/rate-limit";
+import { verifyRecaptcha } from "@/lib/server/recaptcha";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -47,6 +48,7 @@ export async function POST(request: Request) {
   const service = asString(body.service, 120);
   const message = asString(body.message, 4000);
   const source = asString(body.source, 80) || "contact";
+  const recaptchaToken = asString(body.recaptchaToken, 4000);
 
   if (!name || !email || !message) {
     return NextResponse.json(
@@ -58,6 +60,22 @@ export async function POST(request: Request) {
   if (!EMAIL_RE.test(email)) {
     return NextResponse.json(
       { ok: false, error: "Enter a valid email address." },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const human = await verifyRecaptcha(recaptchaToken, ip);
+    if (!human) {
+      return NextResponse.json(
+        { ok: false, error: "Please confirm you are not a robot." },
+        { status: 400 }
+      );
+    }
+  } catch (error) {
+    console.error("[contact] recaptcha error", error);
+    return NextResponse.json(
+      { ok: false, error: "Could not verify reCAPTCHA. Try again." },
       { status: 400 }
     );
   }

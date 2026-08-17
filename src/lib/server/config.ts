@@ -17,16 +17,19 @@ export function getDbConfig() {
 }
 
 export function getMailConfig() {
-  const port = Number(read("SMTP_PORT", "587")) || 587;
+  const port = Number(read("SMTP_PORT", "465")) || 465;
   const secureEnv = read("SMTP_SECURE");
+  const secure =
+    port === 465 ? true : secureEnv ? secureEnv === "true" : false;
+
   return {
     host: read("SMTP_HOST"),
     port,
-    secure: secureEnv ? secureEnv === "true" : port === 465,
+    secure,
     user: read("SMTP_USER"),
     pass: read("SMTP_PASS"),
-    from: read("MAIL_FROM", "Brand Mafia <hello@brandmafia.com>"),
-    admin: read("MAIL_ADMIN", "hello@brandmafia.com"),
+    from: read("MAIL_FROM", "Brand Mafia <info@brandmafia.co>"),
+    admin: read("MAIL_ADMIN", "info@brandmafia.co"),
   };
 }
 

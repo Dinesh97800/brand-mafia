@@ -9,9 +9,9 @@ export const siteConfig = {
   description:
     "Premium digital marketing agency specializing in SEO, paid ads, branding, web development, and AI automation. We build brands that dominate.",
   url: "https://brandmafia.com",
-  email: "hello@brandmafia.com",
-  phone: "+1 (555) 123-4567",
-  whatsapp: "+15551234567",
+  email: "info@brandmafia.co",
+  phone: "+1 (782) 882-1814",
+  whatsapp: "+17828821814",
   address: {
     street: "123 Marketing Avenue",
     city: "New York",

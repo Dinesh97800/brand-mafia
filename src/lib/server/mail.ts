@@ -12,9 +12,18 @@ function getTransporter() {
     host: mail.host,
     port: mail.port,
     secure: mail.secure,
+    requireTLS: !mail.secure,
     auth: {
       user: mail.user,
       pass: mail.pass,
+    },
+    authMethod: "LOGIN",
+    connectionTimeout: 20000,
+    greetingTimeout: 20000,
+    socketTimeout: 20000,
+    tls: {
+      minVersion: "TLSv1.2",
+      servername: mail.host,
     },
   });
 
