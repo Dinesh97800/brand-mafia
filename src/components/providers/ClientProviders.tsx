@@ -9,7 +9,7 @@ import { SmoothScroll } from "@/components/providers/SmoothScroll";
 import { ChunkLoadRecovery } from "@/components/providers/ChunkLoadRecovery";
 import { LoadingScreen } from "@/components/ui/LoadingScreen";
 import { ScrollProgress, CursorGlow } from "@/components/ui/ScrollProgress";
-import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+// import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 function SiteNavigation() {
   switch (navigationVariant) {
@@ -37,7 +37,7 @@ export function ClientProviders({ children }: { children: React.ReactNode }) {
         <main>{children}</main>
         <Footer />
         {useBottomNav && <div aria-hidden className="h-20" />}
-        <WhatsAppButton raised={useBottomNav} />
+        {/* <WhatsAppButton raised={useBottomNav} /> */}
       </SmoothScroll>
     </>
   );
