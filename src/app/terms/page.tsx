@@ -36,7 +36,7 @@ export default function TermsPage() {
             Contact
           </h2>
           <p className="text-offwhite/60 leading-relaxed">
-            For questions about these terms, contact us at hello@brandmafia.com.
+            For questions about these terms, contact us at info@brandmafia.co.
           </p>
         </div>
       </section>

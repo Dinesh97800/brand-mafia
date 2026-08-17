@@ -28,8 +28,8 @@ export function getMailConfig() {
     secure,
     user: read("SMTP_USER"),
     pass: read("SMTP_PASS"),
-    from: read("MAIL_FROM", "Brand Mafia <hello@brandmafia.com>"),
-    admin: read("MAIL_ADMIN", "hello@brandmafia.com"),
+    from: read("MAIL_FROM", "Brand Mafia <info@brandmafia.co>"),
+    admin: read("MAIL_ADMIN", "info@brandmafia.co"),
   };
 }
 
