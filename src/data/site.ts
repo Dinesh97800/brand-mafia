@@ -847,42 +847,42 @@ export const blogPosts = [
   //   quote:
   //     "Local SEO works when Google can clearly understand who you are, where you are, what you offer, and why customers trust you.",
   // },
-  {
-    slug: "google-ads-not-like-typical-agency",
-    title: "Why We Don't Run Google Ads Like a Typical Agency",
-    excerpt:
-      "We optimize for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases for local businesses.",
-    category: "Google Ads",
-    filterCategory: "Paid Ads",
-    readTime: "5 min read",
-    date: "Aug 14, 2026",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
-    content: [
-      "We optimize for revenue, not vanity metrics.",
-      "For Lala's Pizza, we targeted delivery and menu intent. For Lalaji Barbershop, we focused on local appointment searches. For Blume, we built campaigns around emotional moments such as birthdays and anniversaries.",
-    ],
-    quote:
-      "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
-  },
-  {
-    slug: "meta-ads-not-like-everyone-else",
-    title: "Why We Don't Run Meta Ads Like Everyone Else",
-    excerpt:
-      "Meta is a platform of distraction, not intent. That changes everything about how we sell cravings, atmosphere, trust, and emotion.",
-    category: "Meta Ads",
-    filterCategory: "Paid Ads",
-    readTime: "5 min read",
-    date: "Aug 13, 2026",
-    image:
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=80",
-    content: [
-      "Meta is a platform of distraction, not intent. That changes everything.",
-      "For Lala's Pizza, we sold cravings. For Lala's Café, we sold atmosphere. For Lalaji Barbershop, we sold trust and personality. For Blume, we sold emotion and celebration.",
-    ],
-    quote:
-      "Attention becomes valuable only when it creates emotion, connection, and action.",
-  },
+  // {
+  //   slug: "google-ads-not-like-typical-agency",
+  //   title: "Why We Don't Run Google Ads Like a Typical Agency",
+  //   excerpt:
+  //     "We optimize for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases for local businesses.",
+  //   category: "Google Ads",
+  //   filterCategory: "Paid Ads",
+  //   readTime: "5 min read",
+  //   date: "Aug 14, 2026",
+  //   image:
+  //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+  //   content: [
+  //     "We optimize for revenue, not vanity metrics.",
+  //     "For Lala's Pizza, we targeted delivery and menu intent. For Lalaji Barbershop, we focused on local appointment searches. For Blume, we built campaigns around emotional moments such as birthdays and anniversaries.",
+  //   ],
+  //   quote:
+  //     "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
+  // },
+  // {
+  //   slug: "meta-ads-not-like-everyone-else",
+  //   title: "Why We Don't Run Meta Ads Like Everyone Else",
+  //   excerpt:
+  //     "Meta is a platform of distraction, not intent. That changes everything about how we sell cravings, atmosphere, trust, and emotion.",
+  //   category: "Meta Ads",
+  //   filterCategory: "Paid Ads",
+  //   readTime: "5 min read",
+  //   date: "Aug 13, 2026",
+  //   image:
+  //     "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1200&q=80",
+  //   content: [
+  //     "Meta is a platform of distraction, not intent. That changes everything.",
+  //     "For Lala's Pizza, we sold cravings. For Lala's Café, we sold atmosphere. For Lalaji Barbershop, we sold trust and personality. For Blume, we sold emotion and celebration.",
+  //   ],
+  //   quote:
+  //     "Attention becomes valuable only when it creates emotion, connection, and action.",
+  // },
   {
     slug: "websites-around-customers-not-templates",
     title: "Why We Build Websites Around Customers, Not Templates",

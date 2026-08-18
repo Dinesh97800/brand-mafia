@@ -2,7 +2,8 @@
 
 import { useRef, useState } from "react";
 import { useForm } from "react-hook-form";
-import { Mail, Phone, MapPin, MessageCircle, Calendar } from "lucide-react";
+import { Mail, Phone, Calendar } from "lucide-react";
+// import { Mail, Phone, MapPin, MessageCircle, Calendar } from "lucide-react";
 import { services, siteConfig } from "@/data/site";
 import { SectionHeading, FadeUp } from "@/components/ui/SectionHeading";
 import { Button } from "@/components/ui/Button";
@@ -101,12 +102,12 @@ export function ContactSection() {
                   value: siteConfig.phone,
                   href: `tel:${siteConfig.phone}`,
                 },
-                {
-                  icon: MapPin,
-                  label: "Office",
-                  value: `${siteConfig.address.street}, ${siteConfig.address.city}`,
-                  href: "#map",
-                },
+                // {
+                //   icon: MapPin,
+                //   label: "Office",
+                //   value: `${siteConfig.address.street}, ${siteConfig.address.city}`,
+                //   href: "#map",
+                // },
               ].map(({ icon: Icon, label, value, href }) => (
                 <a
                   key={label}
@@ -128,7 +129,7 @@ export function ContactSection() {
               ))}
 
               <div className="flex gap-3 pt-4">
-                <Button
+                {/* <Button
                   href={`https://wa.me/${siteConfig.whatsapp}`}
                   external
                   variant="secondary"
@@ -136,7 +137,7 @@ export function ContactSection() {
                 >
                   <MessageCircle className="h-4 w-4" />
                   WhatsApp
-                </Button>
+                </Button> */}
                 <Button href={siteConfig.calendly} external size="sm" magnetic>
                   <Calendar className="h-4 w-4" />
                   Book a Call
@@ -144,7 +145,7 @@ export function ContactSection() {
               </div>
             </div>
 
-            <div id="map" className="mt-8 rounded-2xl overflow-hidden h-64 glass">
+            {/* <div id="map" className="mt-8 rounded-2xl overflow-hidden h-64 glass">
               <iframe
                 title="Brand Mafia Office Location"
                 src="https://maps.google.com/maps?q=New+York+NY&t=&z=13&ie=UTF8&iwloc=&output=embed"
@@ -152,7 +153,7 @@ export function ContactSection() {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
               />
-            </div>
+            </div> */}
           </FadeUp>
 
           <FadeUp delay={0.2}>

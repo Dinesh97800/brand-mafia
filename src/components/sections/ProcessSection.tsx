@@ -557,7 +557,7 @@ export function ProcessSection() {
     <section
       id="process"
       ref={sectionRef}
-      className="section-padding relative overflow-hidden"
+      className="section-padding relative overflow-hidden pt-12 md:pt-16 lg:pt-20"
       aria-label="Our process journey"
     >
       <div className="absolute inset-0 grid-bg opacity-20 pointer-events-none" />
