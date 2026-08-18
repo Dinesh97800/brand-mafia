@@ -45,7 +45,7 @@ export function CaseStudiesSection() {
   );
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden pb-0">
       <div className="container-custom">
         <SectionHeading
           label="Case Studies"

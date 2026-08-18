@@ -21,7 +21,7 @@ export function ShowcaseSection() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-padding relative overflow-hidden bg-black">
+    <section className="section-padding relative overflow-hidden bg-black pt-12 md:pt-16 lg:pt-20">
       <div className="container-custom">
         {/* Heading */}
         <BlurRevealText

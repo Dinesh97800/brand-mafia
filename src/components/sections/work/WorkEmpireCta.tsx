@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
+// import { ArrowUpRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { LocalImage } from "@/components/ui/LocalImage";
@@ -24,14 +25,14 @@ export function WorkEmpireCta() {
               Book a Free Strategy Call
               <ArrowUpRight className="h-4 w-4" />
             </Button>
-            <Button
+            {/* <Button
               href={`https://wa.me/${siteConfig.whatsapp}`}
               external
               variant="secondary"
             >
               <MessageCircle className="h-4 w-4" />
               WhatsApp Us
-            </Button>
+            </Button> */}
           </div>
         </div>
 
@@ -49,12 +50,12 @@ export function WorkEmpireCta() {
               value: siteConfig.phone,
               href: `tel:${siteConfig.phone}`,
             },
-            {
-              icon: MapPin,
-              label: "Office",
-              value: `${siteConfig.address.city}, ${siteConfig.address.state}`,
-              href: "/contact",
-            },
+            // {
+            //   icon: MapPin,
+            //   label: "Office",
+            //   value: `${siteConfig.address.city}, ${siteConfig.address.state}`,
+            //   href: "/contact",
+            // },
           ].map(({ icon: Icon, label, value, href }) => (
             <li key={label}>
               <a href={href} className="group flex items-start gap-3">

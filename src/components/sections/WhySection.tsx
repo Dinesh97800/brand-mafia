@@ -64,7 +64,7 @@ export function WhySection() {
   const inView = useInView(statsRef, { once: true, margin: "-80px" });
 
   return (
-    <section className="section-padding relative overflow-hidden">
+    <section className="section-padding relative overflow-hidden pb-0">
       {/* Gradient orb */}
       <div className="absolute -top-20 right-0 w-[500px] h-[500px] rounded-full bg-orange/10 blur-[120px] pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] rounded-full bg-orange/[0.03] blur-[100px] pointer-events-none" />

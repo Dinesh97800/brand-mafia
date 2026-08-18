@@ -112,167 +112,167 @@ export const services: Service[] = [
     blogSlug: "local-seo-for-local-businesses",
     image: serviceImage("SEO.webp"),
   },
-  {
-    id: "google-ads",
-    title: "Google Ads",
-    description:
-      "We optimize for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases.",
-    icon: "Target",
-    headline: "Turn search intent into revenue.",
-    seoDescription:
-      "Brand Mafia Google Ads are built for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases.",
-    intro: [
-      "We do not run Google Ads like a typical agency. Clicks are cheap. Orders, bookings, and purchases are the point.",
-      "For a pizzeria, that means delivery and menu intent. For a barbershop, local appointment searches. For a florist, emotional moments — birthdays, anniversaries, I-need-this-today.",
-      "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
-    ],
-    quote: "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
-    forWho:
-      "Businesses with clear offer, location, or product intent — where people already know what they want and need the right brand to appear.",
-    pillars: [
-      {
-        title: "Revenue First",
-        description:
-          "Campaigns are scored on cost per acquisition, bookings, and return — not CTR theater.",
-      },
-      {
-        title: "Intent Tightness",
-        description:
-          "We bid on the searches that mean buy, book, or order — and cut the rest without apology.",
-      },
-      {
-        title: "Landing Fit",
-        description:
-          "Ads send people to pages built for that intent. A generic homepage is not a landing page.",
-      },
-      {
-        title: "Creative That Converts",
-        description:
-          "Copy and extensions that match how customers talk — offers, hours, menus, proof, not slogans.",
-      },
-    ],
-    includes: [
-      "Account audit or full campaign build",
-      "Keyword, negative, and audience architecture",
-      "Conversion tracking and lead quality setup",
-      "Ad copy, extensions, and offer testing",
-      "Landing page recommendations",
-      "Weekly optimization and transparent ROI reporting",
-    ],
-    outcomes: [
-      "Lower wasted spend on low-intent clicks",
-      "More orders, bookings, and qualified leads",
-      "Clear cost-per-result you can actually use",
-      "A paid search engine you can scale with confidence",
-    ],
-    process: [
-      {
-        title: "Measure",
-        description:
-          "We install tracking that follows the money — calls, forms, purchases — not vanity events.",
-      },
-      {
-        title: "Focus",
-        description:
-          "We rebuild campaigns around high-intent queries and kill budget leaks.",
-      },
-      {
-        title: "Match",
-        description:
-          "Ad, offer, and landing page say the same thing. Friction is treated as wasted spend.",
-      },
-      {
-        title: "Scale",
-        description:
-          "We raise budget only on what returns value. Growth without a leaky funnel is the rule.",
-      },
-    ],
-    relatedIds: ["performance", "meta-ads", "web-dev"],
-    blogSlug: "google-ads-not-like-typical-agency",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80",
-  },
-  {
-    id: "meta-ads",
-    title: "Meta Ads",
-    description:
-      "Meta is distraction, not intent. We sell cravings, atmosphere, trust, and emotion — turning attention into action.",
-    icon: "Share2",
-    headline: "Sell the feeling. Then the action.",
-    seoDescription:
-      "Brand Mafia Meta Ads sell cravings, atmosphere, trust, and emotion — turning attention into action on a platform of distraction, not intent.",
-    intro: [
-      "Meta is a platform of distraction, not intent. That changes everything about how we advertise.",
-      "People are not searching. They are scrolling. So we do not interrupt with features — we interrupt with appetite, atmosphere, personality, and emotion.",
-      "Attention becomes valuable only when it creates emotion, connection, and action.",
-    ],
-    quote:
-      "Attention becomes valuable only when it creates emotion, connection, and action.",
-    forWho:
-      "Brands that win on feeling — restaurants, cafés, salons, retail, lifestyle, and anyone who needs to create demand rather than capture it.",
-    pillars: [
-      {
-        title: "Emotion Over Specs",
-        description:
-          "We sell cravings, rooms you want to sit in, trust you can feel — not bullet lists.",
-      },
-      {
-        title: "Creative as the Targeting",
-        description:
-          "The ad is the filter. Strong creative finds the right people faster than overbuilt audiences.",
-      },
-      {
-        title: "Offer Architecture",
-        description:
-          "Hooks, offers, and retargeting that move someone from scroll to visit, book, or buy.",
-      },
-      {
-        title: "Always-On Testing",
-        description:
-          "New angles weekly. We kill losers fast and put budget behind what actually moves people.",
-      },
-    ],
-    includes: [
-      "Creative strategy and ad concepts",
-      "Campaign, audience, and retargeting structure",
-      "Static, reel, and story ad production guidance",
-      "Pixel, CAPI, and conversion tracking",
-      "Offer and landing alignment",
-      "Creative testing cadence and performance reporting",
-    ],
-    outcomes: [
-      "Ads people actually stop for",
-      "Lower cost per result as creative compounds",
-      "A retargeting engine that recovers warm attention",
-      "Demand created — not just captured",
-    ],
-    process: [
-      {
-        title: "Position",
-        description:
-          "We define the feeling the brand must own on the feed — craving, trust, warmth, or energy.",
-      },
-      {
-        title: "Create",
-        description:
-          "Hooks, visuals, and offers built for interruption — then for the click.",
-      },
-      {
-        title: "Prove",
-        description:
-          "Small tests, honest numbers, fast cuts. No six-week wait to learn the obvious.",
-      },
-      {
-        title: "Compound",
-        description:
-          "Winners get budget, new angles, and retargeting so attention turns into habit.",
-      },
-    ],
-    relatedIds: ["social", "google-ads", "performance"],
-    blogSlug: "meta-ads-not-like-everyone-else",
-    image:
-      "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1400&q=80",
-  },
+  // {
+  //   id: "google-ads",
+  //   title: "Google Ads",
+  //   description:
+  //     "We optimize for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases.",
+  //   icon: "Target",
+  //   headline: "Turn search intent into revenue.",
+  //   seoDescription:
+  //     "Brand Mafia Google Ads are built for revenue, not vanity metrics — turning search intent into orders, bookings, and purchases.",
+  //   intro: [
+  //     "We do not run Google Ads like a typical agency. Clicks are cheap. Orders, bookings, and purchases are the point.",
+  //     "For a pizzeria, that means delivery and menu intent. For a barbershop, local appointment searches. For a florist, emotional moments — birthdays, anniversaries, I-need-this-today.",
+  //     "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
+  //   ],
+  //   quote: "The goal is not to buy traffic. The goal is to turn search intent into revenue.",
+  //   forWho:
+  //     "Businesses with clear offer, location, or product intent — where people already know what they want and need the right brand to appear.",
+  //   pillars: [
+  //     {
+  //       title: "Revenue First",
+  //       description:
+  //         "Campaigns are scored on cost per acquisition, bookings, and return — not CTR theater.",
+  //     },
+  //     {
+  //       title: "Intent Tightness",
+  //       description:
+  //         "We bid on the searches that mean buy, book, or order — and cut the rest without apology.",
+  //     },
+  //     {
+  //       title: "Landing Fit",
+  //       description:
+  //         "Ads send people to pages built for that intent. A generic homepage is not a landing page.",
+  //     },
+  //     {
+  //       title: "Creative That Converts",
+  //       description:
+  //         "Copy and extensions that match how customers talk — offers, hours, menus, proof, not slogans.",
+  //     },
+  //   ],
+  //   includes: [
+  //     "Account audit or full campaign build",
+  //     "Keyword, negative, and audience architecture",
+  //     "Conversion tracking and lead quality setup",
+  //     "Ad copy, extensions, and offer testing",
+  //     "Landing page recommendations",
+  //     "Weekly optimization and transparent ROI reporting",
+  //   ],
+  //   outcomes: [
+  //     "Lower wasted spend on low-intent clicks",
+  //     "More orders, bookings, and qualified leads",
+  //     "Clear cost-per-result you can actually use",
+  //     "A paid search engine you can scale with confidence",
+  //   ],
+  //   process: [
+  //     {
+  //       title: "Measure",
+  //       description:
+  //         "We install tracking that follows the money — calls, forms, purchases — not vanity events.",
+  //     },
+  //     {
+  //       title: "Focus",
+  //       description:
+  //         "We rebuild campaigns around high-intent queries and kill budget leaks.",
+  //     },
+  //     {
+  //       title: "Match",
+  //       description:
+  //         "Ad, offer, and landing page say the same thing. Friction is treated as wasted spend.",
+  //     },
+  //     {
+  //       title: "Scale",
+  //       description:
+  //         "We raise budget only on what returns value. Growth without a leaky funnel is the rule.",
+  //     },
+  //   ],
+  //   relatedIds: ["performance", "meta-ads", "web-dev"],
+  //   blogSlug: "google-ads-not-like-typical-agency",
+  //   image:
+  //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80",
+  // },
+  // {
+  //   id: "meta-ads",
+  //   title: "Meta Ads",
+  //   description:
+  //     "Meta is distraction, not intent. We sell cravings, atmosphere, trust, and emotion — turning attention into action.",
+  //   icon: "Share2",
+  //   headline: "Sell the feeling. Then the action.",
+  //   seoDescription:
+  //     "Brand Mafia Meta Ads sell cravings, atmosphere, trust, and emotion — turning attention into action on a platform of distraction, not intent.",
+  //   intro: [
+  //     "Meta is a platform of distraction, not intent. That changes everything about how we advertise.",
+  //     "People are not searching. They are scrolling. So we do not interrupt with features — we interrupt with appetite, atmosphere, personality, and emotion.",
+  //     "Attention becomes valuable only when it creates emotion, connection, and action.",
+  //   ],
+  //   quote:
+  //     "Attention becomes valuable only when it creates emotion, connection, and action.",
+  //   forWho:
+  //     "Brands that win on feeling — restaurants, cafés, salons, retail, lifestyle, and anyone who needs to create demand rather than capture it.",
+  //   pillars: [
+  //     {
+  //       title: "Emotion Over Specs",
+  //       description:
+  //         "We sell cravings, rooms you want to sit in, trust you can feel — not bullet lists.",
+  //     },
+  //     {
+  //       title: "Creative as the Targeting",
+  //       description:
+  //         "The ad is the filter. Strong creative finds the right people faster than overbuilt audiences.",
+  //     },
+  //     {
+  //       title: "Offer Architecture",
+  //       description:
+  //         "Hooks, offers, and retargeting that move someone from scroll to visit, book, or buy.",
+  //     },
+  //     {
+  //       title: "Always-On Testing",
+  //       description:
+  //         "New angles weekly. We kill losers fast and put budget behind what actually moves people.",
+  //     },
+  //   ],
+  //   includes: [
+  //     "Creative strategy and ad concepts",
+  //     "Campaign, audience, and retargeting structure",
+  //     "Static, reel, and story ad production guidance",
+  //     "Pixel, CAPI, and conversion tracking",
+  //     "Offer and landing alignment",
+  //     "Creative testing cadence and performance reporting",
+  //   ],
+  //   outcomes: [
+  //     "Ads people actually stop for",
+  //     "Lower cost per result as creative compounds",
+  //     "A retargeting engine that recovers warm attention",
+  //     "Demand created — not just captured",
+  //   ],
+  //   process: [
+  //     {
+  //       title: "Position",
+  //       description:
+  //         "We define the feeling the brand must own on the feed — craving, trust, warmth, or energy.",
+  //     },
+  //     {
+  //       title: "Create",
+  //       description:
+  //         "Hooks, visuals, and offers built for interruption — then for the click.",
+  //     },
+  //     {
+  //       title: "Prove",
+  //       description:
+  //         "Small tests, honest numbers, fast cuts. No six-week wait to learn the obvious.",
+  //     },
+  //     {
+  //       title: "Compound",
+  //       description:
+  //         "Winners get budget, new angles, and retargeting so attention turns into habit.",
+  //     },
+  //   ],
+  //   relatedIds: ["social", "google-ads", "performance"],
+  //   blogSlug: "meta-ads-not-like-everyone-else",
+  //   image:
+  //     "https://images.unsplash.com/photo-1611162616305-c69b3fa7fbe0?w=1400&q=80",
+  // },
   {
     id: "web-dev",
     title: "Website Development",
