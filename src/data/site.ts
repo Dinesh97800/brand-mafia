@@ -5,7 +5,8 @@ export { services } from "./services";
 export const siteConfig = {
   name: "Brand Mafia",
   tagline: "Building Brands That Dominate.",
-  logo: "/images/logo-web.png",
+  logo: "/images/logo-bm-no-bg.png",
+  favicon: "/images/favicon.jpeg",
   description:
     "Premium digital marketing agency specializing in SEO, paid ads, branding, web development, and AI automation. We build brands that dominate.",
   url: "https://brandmafia.com",
