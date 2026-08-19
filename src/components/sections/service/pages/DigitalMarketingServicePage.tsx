@@ -16,9 +16,9 @@ export function DigitalMarketingServicePage({
     <article>
       <ServiceHero
         label="Digital Marketing"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             One Strategy.{" "}
@@ -26,8 +26,13 @@ export function DigitalMarketingServicePage({
           </>
         }
         description="This is the umbrella. Search, content, social, paid, email, and conversion — planned as one system so they stop competing for the same budget."
-        visual={<DigitalMarketingEngine />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <DigitalMarketingEngine />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom">

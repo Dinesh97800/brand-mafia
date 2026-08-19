@@ -11,6 +11,7 @@ export function AiOptimizationServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="AI Optimization"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
         title={
@@ -20,8 +21,13 @@ export function AiOptimizationServicePage({ service }: { service: Service }) {
           </>
         }
         description="We do not sell guaranteed placement in AI answers. We make your brand easier to understand, cite, and trust as search becomes answer-first."
-        visual={<AIKnowledgeGraph />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <AIKnowledgeGraph />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom">

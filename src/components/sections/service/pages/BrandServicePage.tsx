@@ -14,7 +14,7 @@ export function BrandServicePage({ service }: { service: Service }) {
         label="Brand Identity"
         image={service.image}
         imageAlt={service.title}
-        layout="editorial"
+        layout="background"
         title={
           <>
             Build a Brand People Recognize{" "}

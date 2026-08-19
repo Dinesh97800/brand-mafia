@@ -24,7 +24,7 @@ const craftedPages: Record<string, ServicePage> = {
   content: ContentServicePage,
   email: EmailServicePage,
   "ai-optimization": AiOptimizationServicePage,
-  "web-dev": WebsiteServicePage,
+  "web-development": WebsiteServicePage,
   "app-development": AppServicePage,
   branding: BrandServicePage,
   "video-production": VideoServicePage,

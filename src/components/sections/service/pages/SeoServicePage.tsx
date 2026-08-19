@@ -12,6 +12,7 @@ export function SeoServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="SEO"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
         title={
@@ -21,7 +22,6 @@ export function SeoServicePage({ service }: { service: Service }) {
           </>
         }
         description="Search is crowded. When customers look for what you sell, your brand should be one of the businesses worth clicking — and worth trusting after they do."
-        visual={<SEORankingVisual />}
         trust={[
           { label: "Technical SEO" },
           { label: "Content" },
@@ -29,6 +29,12 @@ export function SeoServicePage({ service }: { service: Service }) {
           { label: "Qualified traffic" },
         ]}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <SEORankingVisual />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">

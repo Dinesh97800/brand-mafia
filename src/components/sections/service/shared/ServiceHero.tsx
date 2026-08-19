@@ -83,9 +83,11 @@ export function ServiceHero({
               trigger="mount"
               className={cn(
                 "font-heading font-bold leading-[1.08] tracking-tight text-offwhite",
-                isEditorial
-                  ? "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
-                  : "text-4xl sm:text-5xl lg:text-[3.4rem]"
+                isBackground
+                  ? "text-4xl sm:text-5xl lg:text-6xl"
+                  : isEditorial
+                    ? "text-4xl sm:text-5xl lg:text-6xl xl:text-7xl"
+                    : "text-4xl sm:text-5xl lg:text-[3.4rem]"
               )}
             >
               {title}
@@ -144,7 +146,7 @@ export function ServiceHero({
           </div>
         )}
 
-        {visual && (isWide || image) && (
+        {visual && (isWide || image) && !isBackground && (
           <div className="mt-12 md:mt-16">{visual}</div>
         )}
 
