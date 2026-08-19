@@ -28,7 +28,7 @@ export function Footer() {
                   alt={siteConfig.name}
                   width={500}
                   height={500}
-                  className="h-20 w-auto object-contain"
+                  className="h-24 w-auto max-w-[min(90vw,20rem)] object-contain"
                 />
               </Link>
               <p className="text-offwhite/50 text-sm leading-relaxed max-w-sm mb-6">

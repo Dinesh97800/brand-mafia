@@ -63,7 +63,7 @@ export function BottomNav() {
               width={500}
               height={500}
               priority
-              className="h-9 w-auto object-contain transition-transform group-hover:scale-105 sm:h-10"
+              className="h-9 w-auto max-w-[min(42vw,11rem)] object-contain transition-transform group-hover:scale-105 sm:h-10 sm:max-w-[13rem]"
             />
           </Link>
 

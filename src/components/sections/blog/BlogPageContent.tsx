@@ -186,7 +186,7 @@ export function BlogPageContent() {
                           <div className="mt-5 flex items-center gap-3 border-t border-white/[0.06] pt-4">
                             <div className="relative h-8 w-8 shrink-0 overflow-hidden rounded-full border border-white/10 bg-black">
                               <LocalImage
-                                src={siteConfig.logo}
+                                src={siteConfig.favicon}
                                 alt={siteConfig.name}
                                 width={500}
                                 height={500}

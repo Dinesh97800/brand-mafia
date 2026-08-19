@@ -57,6 +57,11 @@ export function generateSEO({
       description,
       images: [image],
     },
+    icons: {
+      icon: [{ url: siteConfig.favicon, type: "image/jpeg" }],
+      shortcut: siteConfig.favicon,
+      apple: siteConfig.favicon,
+    },
   };
 }
 

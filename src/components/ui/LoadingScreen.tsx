@@ -34,7 +34,7 @@ export function LoadingScreen() {
             width={500}
             height={500}
             priority
-            className="h-28 w-28 object-contain sm:h-32 sm:w-32"
+            className="h-16 w-auto max-w-[min(90vw,22rem)] object-contain sm:h-20"
           />
         </div>
 
