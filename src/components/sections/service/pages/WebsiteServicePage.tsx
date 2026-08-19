@@ -25,12 +25,14 @@ export function WebsiteServicePage({ service }: { service: Service }) {
       />
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
-        <div className="container-custom grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="container-custom grid items-center gap-12 
+        ">
+          {/* // lg:grid-cols-[0.9fr_1.1fr] */}
           <div>
             <h2 className="font-heading text-4xl font-bold text-offwhite md:text-5xl">
               From wireframe to working product
             </h2>
-            <ol className="mt-12 grid gap-8 sm:grid-cols-2">
+            <ol className="mt-12 grid gap-8 sm:grid-cols-5">
               {["Strategy", "Wireframe", "UI", "Development", "Launch"].map(
                 (step, i) => (
                   <li key={step}>
@@ -45,7 +47,7 @@ export function WebsiteServicePage({ service }: { service: Service }) {
               )}
             </ol>
           </div>
-          <WebsiteBuildVisual />
+          {/* <WebsiteBuildVisual /> */}
         </div>
       </section>
 
