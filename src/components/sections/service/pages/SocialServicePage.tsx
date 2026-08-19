@@ -12,9 +12,9 @@ export function SocialServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="Social Media Marketing"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             Turn Attention Into{" "}
@@ -22,8 +22,13 @@ export function SocialServicePage({ service }: { service: Service }) {
           </>
         }
         description="Posting every day isn't a strategy. A point of view, a cadence, and creative that sounds like the brand — that is."
-        visual={<SocialFeed />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <SocialFeed />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom grid items-start gap-10 lg:grid-cols-[1.1fr_0.9fr]">

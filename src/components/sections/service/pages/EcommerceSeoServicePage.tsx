@@ -12,9 +12,9 @@ export function EcommerceSeoServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="E-commerce SEO"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             Turn Product Searches{" "}
@@ -22,8 +22,13 @@ export function EcommerceSeoServicePage({ service }: { service: Service }) {
           </>
         }
         description="Category rankings. Product visibility. A store Google can crawl and a customer can actually check out of."
-        visual={<EcommerceJourney />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <EcommerceJourney />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom max-w-3xl">

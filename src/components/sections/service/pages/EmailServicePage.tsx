@@ -11,9 +11,9 @@ export function EmailServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="Email Marketing"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             Turn Your Inbox Into a{" "}
@@ -21,8 +21,13 @@ export function EmailServicePage({ service }: { service: Service }) {
           </>
         }
         description="Welcome sequences. Lifecycle. Abandoned carts. Retention. The conversation after the first sale — not another blast."
-        visual={<EmailLifecycle />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <EmailLifecycle />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom grid gap-12 lg:grid-cols-2">

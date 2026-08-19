@@ -12,9 +12,9 @@ export function ContentServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="Content Marketing"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="editorial"
         title={
           <>
             Create Content{" "}
@@ -22,11 +22,6 @@ export function ContentServicePage({ service }: { service: Service }) {
           </>
         }
         description="Volume is easy. A library that still works six months later is harder. We write and film for authority — then cut it into the channels that need it."
-        visual={
-          <p className="max-w-sm text-sm leading-relaxed text-offwhite/40 lg:pt-8">
-            Research → Story → Distribution → Search → Authority
-          </p>
-        }
       />
 
       <section className="px-4 py-8 sm:px-6 lg:px-8 xl:px-16">

@@ -11,9 +11,9 @@ export function AppServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="App Development"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             Ideas Engineered Into Products{" "}
@@ -21,8 +21,13 @@ export function AppServicePage({ service }: { service: Service }) {
           </>
         }
         description="We start with the job the product has to do in someone's week. Then we design the few screens that matter and leave the rest off the backlog."
-        visual={<AppProductFlow />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <AppProductFlow />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom max-w-2xl">

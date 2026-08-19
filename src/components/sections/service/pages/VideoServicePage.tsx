@@ -11,9 +11,9 @@ export function VideoServicePage({ service }: { service: Service }) {
     <article>
       <ServiceHero
         label="Video Production"
+        layout="background"
         image={service.image}
         imageAlt={service.title}
-        layout="wide"
         title={
           <>
             Stories Designed to{" "}
@@ -21,8 +21,13 @@ export function VideoServicePage({ service }: { service: Service }) {
           </>
         }
         description="Great video earns the next three seconds. Then it has to do a job in the campaign — hunger, trust, a booking, a memory."
-        visual={<VideoTimeline />}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <VideoTimeline />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom grid gap-12 lg:grid-cols-2">

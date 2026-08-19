@@ -15,6 +15,15 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: basePath,
   },
+  async redirects() {
+    return [
+      {
+        source: "/services/web-dev",
+        destination: "/services/web-development",
+        permanent: true,
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     remotePatterns: [

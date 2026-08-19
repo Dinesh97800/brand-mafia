@@ -22,7 +22,6 @@ export function PerformanceServicePage({ service }: { service: Service }) {
           </>
         }
         description="Clicks are easy to buy. Profitable customers are harder. We optimize for the second one."
-        visual={<PerformanceFunnel />}
         trust={[
           { label: "Spend" },
           { label: "Campaigns" },
@@ -30,6 +29,12 @@ export function PerformanceServicePage({ service }: { service: Service }) {
           { label: "ROAS" },
         ]}
       />
+
+      <section className="px-4 pt-8 sm:px-6 lg:px-8 xl:px-16">
+        <div className="container-custom">
+          <PerformanceFunnel />
+        </div>
+      </section>
 
       <section className="px-4 py-16 sm:px-6 md:py-24 lg:px-8 xl:px-16">
         <div className="container-custom">
