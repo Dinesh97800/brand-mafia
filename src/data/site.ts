@@ -22,9 +22,9 @@ export const siteConfig = {
   },
   social: {
     twitter: "https://twitter.com/brandmafia",
-    instagram: "https://instagram.com/brandmafia",
-    linkedin: "https://linkedin.com/company/brandmafia",
-    facebook: "https://facebook.com/brandmafia",
+    instagram: "https://www.instagram.com/brandmafia.co",
+    linkedin: "https://www.linkedin.com/in/the-brand-mafia-42b716422/",
+    facebook: "https://www.facebook.com/brandmafia",
     youtube: "https://youtube.com/@brandmafia",
   },
   calendly: "https://calendly.com/brandmafia/strategy-call",
@@ -315,6 +315,48 @@ export const projects = [
     metrics: [
       { value: "1.2M+", label: "Reach" },
       { value: "18.5K+", label: "Orders" },
+    ],
+  },
+  {
+    id: "lalas-cafe",
+    title: "Lala's Cafe",
+    client: "Lala's Cafe",
+    category: "Web Design",
+    image: "/images/case-study/lalas-cafe-hero.png",
+    description:
+      "From new cafe launch to a digital-first local brand — website, video, social, and local SEO from day one.",
+    results: ["187+ visitors daily", "93% positive feedback"],
+    metrics: [
+      { value: "187+", label: "Daily Visitors" },
+      { value: "93%", label: "Positive Feedback" },
+    ],
+  },
+  {
+    id: "oohlalablume",
+    title: "Blume Salon & Spa",
+    client: "Blume Salon & Spa",
+    category: "Paid Ads",
+    image: "/images/case-study/blume-hero.png",
+    description:
+      "Turning digital visibility into real beauty bookings — Meta Ads and local SEO that brought the right clients into the salon.",
+    results: ["250+ conversions", "10X+ return on ad spend"],
+    metrics: [
+      { value: "250+", label: "Conversions" },
+      { value: "10X+", label: "ROAS" },
+    ],
+  },
+  {
+    id: "active-away",
+    title: "Active Away",
+    client: "Active Away",
+    category: "SEO",
+    image: "/images/case-study/active-away-hero.png",
+    description:
+      "Ranking a UK tennis holiday brand on page one of Google — SEO for the searches their customers actually use.",
+    results: ["Page 1 Google rankings", "Multiple high-value keywords"],
+    metrics: [
+      { value: "Page 1", label: "Google Rankings" },
+      { value: "UK", label: "Market Visibility" },
     ],
   },
   {
