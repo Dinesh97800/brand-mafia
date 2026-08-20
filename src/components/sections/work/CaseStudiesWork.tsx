@@ -17,7 +17,7 @@ const categories = [
   "Social Media",
 ];
 
-const FEATURED_ID = "techvault-seo";
+const FEATURED_ID = "lalaji-the-barbershop";
 
 const resultIcons = [Briefcase, Heart, TrendingUp, Layers];
 
