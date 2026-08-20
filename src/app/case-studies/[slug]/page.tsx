@@ -6,6 +6,7 @@ import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
 import { projects, siteConfig } from "@/data/site";
 import { Button } from "@/components/ui/Button";
 import { BlurRevealText } from "@/components/ui/BlurRevealText";
+import { getCraftedCaseStudyPage } from "@/components/sections/case-study/crafted-pages";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -34,6 +35,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
   if (!project) notFound();
 
+  const CraftedPage = getCraftedCaseStudyPage(slug);
   const breadcrumb = generateBreadcrumbSchema([
     { name: "Home", url: "/" },
     { name: "Case Studies", url: "/case-studies" },
@@ -47,7 +49,10 @@ export default async function CaseStudyPage({ params }: Props) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
 
-      <article>
+      {CraftedPage ? (
+        <CraftedPage />
+      ) : (
+        <article>
         <div className="relative h-[50vh] md:h-[60vh] overflow-hidden">
           <Image
             src={project.image}
@@ -113,7 +118,8 @@ export default async function CaseStudyPage({ params }: Props) {
             </div>
           </div>
         </div>
-      </article>
+        </article>
+      )}
     </>
   );
 }

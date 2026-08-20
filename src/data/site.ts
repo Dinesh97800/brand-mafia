@@ -290,6 +290,34 @@ export const showcasePillars = [
 
 export const projects = [
   {
+    id: "lalaji-the-barbershop",
+    title: "Lalaji The Barbershop",
+    client: "Lalaji The Barbershop",
+    category: "SEO",
+    image: "/images/case-study/lalajithebarbershop.png",
+    description:
+      "From a local barbershop to a growing Nova Scotia brand — visibility, bookings, and a digital presence that matches the chair.",
+    results: ["2.4M+ people reached", "8K+ appointments generated"],
+    metrics: [
+      { value: "2.4M+", label: "People Reached" },
+      { value: "8K+", label: "Appointments" },
+    ],
+  },
+  {
+    id: "lalas-pizza",
+    title: "Lala's Pizza",
+    client: "Lala's Pizza",
+    category: "Branding",
+    image: "/images/case-study/lalas-hero.png",
+    description:
+      "From restaurant launch to a digital food brand — website, social, ads, and local SEO from day one.",
+    results: ["1.2M+ reach", "18.5K+ orders"],
+    metrics: [
+      { value: "1.2M+", label: "Reach" },
+      { value: "18.5K+", label: "Orders" },
+    ],
+  },
+  {
     id: "luxora-rebrand",
     title: "Luxora Rebrand",
     client: "Luxora",
