@@ -23,8 +23,8 @@ export default function HomePage() {
       <ShowcaseSection />
       <CaseStudiesSection />
       <ProcessSection />
-      <TestimonialsSection />
-      <TeamSection />
+      {/* <TestimonialsSection />
+      <TeamSection /> */}
       {/* <PricingSection /> */}
       <SolutionsSection />
       <ContactSection />
