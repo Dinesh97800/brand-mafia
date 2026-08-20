@@ -22,9 +22,9 @@ export const siteConfig = {
   },
   social: {
     twitter: "https://twitter.com/brandmafia",
-    instagram: "https://instagram.com/brandmafia",
-    linkedin: "https://linkedin.com/company/brandmafia",
-    facebook: "https://facebook.com/brandmafia",
+    instagram: "https://www.instagram.com/brandmafia.co",
+    linkedin: "https://www.linkedin.com/in/the-brand-mafia-42b716422/",
+    facebook: "https://www.facebook.com/brandmafia",
     youtube: "https://youtube.com/@brandmafia",
   },
   calendly: "https://calendly.com/brandmafia/strategy-call",
@@ -318,89 +318,131 @@ export const projects = [
     ],
   },
   {
-    id: "luxora-rebrand",
-    title: "Luxora Rebrand",
-    client: "Luxora",
-    category: "Branding",
-    image:
-      "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
-    description: "Complete brand transformation for a luxury skincare line.",
-    results: ["340% increase in brand awareness", "2.5x social engagement"],
-    metrics: [
-      { value: "340%", label: "Brand Awareness" },
-      { value: "2.5x", label: "Social Engagement" },
-    ],
-  },
-  {
-    id: "techvault-seo",
-    title: "TechVault SEO",
-    client: "TechVault",
-    category: "SEO",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-    description: "Organic traffic domination for a SaaS startup.",
-    results: ["450% organic traffic growth", "#1 rankings for 28 keywords"],
-    metrics: [
-      { value: "450%", label: "Organic Traffic" },
-      { value: "#1", label: "Keyword Rankings" },
-    ],
-  },
-  {
-    id: "primefit-ads",
-    title: "PrimeFit Campaign",
-    client: "PrimeFit",
-    category: "Paid Ads",
-    image:
-      "https://images.pexels.com/photos/36106736/pexels-photo-36106736.jpeg?_gl=1*1etmlr9*_ga*MTIyNzM3NjE3MC4xNzg2MzgxMjg1*_ga_8JE65Q40S6*czE3ODYzODEyODUkbzEkZzEkdDE3ODYzODEyOTckajQ4JGwwJGgw",
-    description: "Multi-channel paid media strategy for fitness brand.",
-    results: ["620% ROAS", "$2.1M revenue generated"],
-    metrics: [
-      { value: "620%", label: "ROAS" },
-      { value: "$2.1M", label: "Revenue" },
-    ],
-  },
-  {
-    id: "novalabs-web",
-    title: "NovaLabs Platform",
-    client: "NovaLabs",
+    id: "lalas-cafe",
+    title: "Lala's Cafe",
+    client: "Lala's Cafe",
     category: "Web Design",
-    image:
-      "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
-    description: "Award-winning web experience for AI startup.",
-    results: ["85% bounce rate reduction", "3x conversion rate"],
+    image: "/images/case-study/lalas-cafe-hero.png",
+    description:
+      "From new cafe launch to a digital-first local brand — website, video, social, and local SEO from day one.",
+    results: ["187+ visitors daily", "93% positive feedback"],
     metrics: [
-      { value: "85%", label: "Bounce Drop" },
-      { value: "3x", label: "Conversion Rate" },
+      { value: "187+", label: "Daily Visitors" },
+      { value: "93%", label: "Positive Feedback" },
     ],
   },
   {
-    id: "auraskin-social",
-    title: "AuraSkin Social",
-    client: "AuraSkin",
-    category: "Social Media",
-    image:
-      "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-    description: "Viral social media strategy for beauty brand.",
-    results: ["1M+ followers gained", "890% engagement increase"],
-    metrics: [
-      { value: "1M+", label: "Followers" },
-      { value: "890%", label: "Engagement" },
-    ],
-  },
-  {
-    id: "swiftpay-growth",
-    title: "SwiftPay Growth",
-    client: "SwiftPay",
+    id: "oohlalablume",
+    title: "Blume Salon & Spa",
+    client: "Blume Salon & Spa",
     category: "Paid Ads",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
-    description: "Performance marketing for fintech app launch.",
-    results: ["500K app downloads", "4.2x LTV improvement"],
+    image: "/images/case-study/blume-hero.png",
+    description:
+      "Turning digital visibility into real beauty bookings — Meta Ads and local SEO that brought the right clients into the salon.",
+    results: ["250+ conversions", "10X+ return on ad spend"],
     metrics: [
-      { value: "500K", label: "Downloads" },
-      { value: "4.2x", label: "LTV" },
+      { value: "250+", label: "Conversions" },
+      { value: "10X+", label: "ROAS" },
     ],
   },
+  {
+    id: "active-away",
+    title: "Active Away",
+    client: "Active Away",
+    category: "SEO",
+    image: "/images/case-study/active-away-hero.png",
+    description:
+      "Ranking a UK tennis holiday brand on page one of Google — SEO for the searches their customers actually use.",
+    results: ["Page 1 Google rankings", "Multiple high-value keywords"],
+    metrics: [
+      { value: "Page 1", label: "Google Rankings" },
+      { value: "UK", label: "Market Visibility" },
+    ],
+  },
+  // {
+  //   id: "luxora-rebrand",
+  //   title: "Luxora Rebrand",
+  //   client: "Luxora",
+  //   category: "Branding",
+  //   image:
+  //     "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80",
+  //   description: "Complete brand transformation for a luxury skincare line.",
+  //   results: ["340% increase in brand awareness", "2.5x social engagement"],
+  //   metrics: [
+  //     { value: "340%", label: "Brand Awareness" },
+  //     { value: "2.5x", label: "Social Engagement" },
+  //   ],
+  // },
+  // {
+  //   id: "techvault-seo",
+  //   title: "TechVault SEO",
+  //   client: "TechVault",
+  //   category: "SEO",
+  //   image:
+  //     "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+  //   description: "Organic traffic domination for a SaaS startup.",
+  //   results: ["450% organic traffic growth", "#1 rankings for 28 keywords"],
+  //   metrics: [
+  //     { value: "450%", label: "Organic Traffic" },
+  //     { value: "#1", label: "Keyword Rankings" },
+  //   ],
+  // },
+  // {
+  //   id: "primefit-ads",
+  //   title: "PrimeFit Campaign",
+  //   client: "PrimeFit",
+  //   category: "Paid Ads",
+  //   image:
+  //     "https://images.pexels.com/photos/36106736/pexels-photo-36106736.jpeg?_gl=1*1etmlr9*_ga*MTIyNzM3NjE3MC4xNzg2MzgxMjg1*_ga_8JE65Q40S6*czE3ODYzODEyODUkbzEkZzEkdDE3ODYzODEyOTckajQ4JGwwJGgw",
+  //   description: "Multi-channel paid media strategy for fitness brand.",
+  //   results: ["620% ROAS", "$2.1M revenue generated"],
+  //   metrics: [
+  //     { value: "620%", label: "ROAS" },
+  //     { value: "$2.1M", label: "Revenue" },
+  //   ],
+  // },
+  // {
+  //   id: "novalabs-web",
+  //   title: "NovaLabs Platform",
+  //   client: "NovaLabs",
+  //   category: "Web Design",
+  //   image:
+  //     "https://images.unsplash.com/photo-1547658719-da2b51169166?w=800&q=80",
+  //   description: "Award-winning web experience for AI startup.",
+  //   results: ["85% bounce rate reduction", "3x conversion rate"],
+  //   metrics: [
+  //     { value: "85%", label: "Bounce Drop" },
+  //     { value: "3x", label: "Conversion Rate" },
+  //   ],
+  // },
+  // {
+  //   id: "auraskin-social",
+  //   title: "AuraSkin Social",
+  //   client: "AuraSkin",
+  //   category: "Social Media",
+  //   image:
+  //     "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
+  //   description: "Viral social media strategy for beauty brand.",
+  //   results: ["1M+ followers gained", "890% engagement increase"],
+  //   metrics: [
+  //     { value: "1M+", label: "Followers" },
+  //     { value: "890%", label: "Engagement" },
+  //   ],
+  // },
+  // {
+  //   id: "swiftpay-growth",
+  //   title: "SwiftPay Growth",
+  //   client: "SwiftPay",
+  //   category: "Paid Ads",
+  //   image:
+  //     "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80",
+  //   description: "Performance marketing for fintech app launch.",
+  //   results: ["500K app downloads", "4.2x LTV improvement"],
+  //   metrics: [
+  //     { value: "500K", label: "Downloads" },
+  //     { value: "4.2x", label: "LTV" },
+  //   ],
+  // },
 ];
 
 export const processSteps = [
