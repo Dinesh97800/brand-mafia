@@ -20,9 +20,7 @@ export default function ContactPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <div className="pt-20">
-        <ContactSection />
-      </div>
+      <ContactSection variant="page" />
     </>
   );
 }
