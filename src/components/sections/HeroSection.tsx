@@ -54,7 +54,18 @@ export function HeroSection() {
   // }, [mouseX, mouseY]);
 
   useEffect(() => {
-    setVideoSrc(assetPath("/videos/hero.mp4"));
+    const mobileQuery = window.matchMedia("(max-width: 767px)");
+    const applySrc = () => {
+      setVideoSrc(
+        assetPath(
+          mobileQuery.matches ? "/videos/hero-portrait.mp4" : "/videos/hero.mp4"
+        )
+      );
+    };
+
+    applySrc();
+    mobileQuery.addEventListener("change", applySrc);
+    return () => mobileQuery.removeEventListener("change", applySrc);
   }, []);
 
   useEffect(() => {
