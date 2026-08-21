@@ -5,7 +5,7 @@ export { services } from "./services";
 export const siteConfig = {
   name: "Brand Mafia",
   tagline: "Building Brands That Dominate.",
-  logo: "/images/ChatGPT Image Aug 21, 2026, 08_27_40 PM.png",
+  logo: "/images/brand-mafia.png",
   favicon: "/images/favicon.jpeg",
   description:
     "Premium digital marketing agency specializing in SEO, paid ads, branding, web development, and AI automation. We build brands that dominate.",
@@ -679,17 +679,9 @@ export const pricingPlans = [
     id: "business-growth",
     name: "Business Growth",
     price: "$4,000–5,500",
-    quarterlyPrice: "$3,400–4,675",
     period: "/month + Ad Spend",
     description:
       "For businesses looking to generate more leads, appointments, bookings, and sales.",
-    highlights: [
-      "Everything in Starter Growth",
-      "16–20 Professional Posts & Reels",
-      "Conversion & Retargeting Campaigns",
-      "Monthly Strategy Consultation",
-      "Lead Tracking & ROI Analysis",
-    ],
     inherits: "Starter Growth",
     featureGroups: [
       {
@@ -748,24 +740,16 @@ export const pricingPlans = [
     bestFor:
       "Growing businesses ready to scale their customer acquisition efforts.",
     highlighted: true,
-    cta: "Get Started",
+    cta: "Book a Strategy Call",
     ctaHref: siteConfig.calendly,
   },
   {
     id: "scale-dominate",
     name: "Scale & Dominate",
     price: "$10,000",
-    quarterlyPrice: "$8,500",
     period: "/month + Ad Spend",
     description:
       "For established businesses focused on aggressive growth and market leadership.",
-    highlights: [
-      "Everything in Business Growth",
-      "Meta + Google Ads Full Funnel",
-      "20–30 Premium Posts & Video",
-      "Weekly Strategy Meetings",
-      "Dedicated Growth Dashboard",
-    ],
     inherits: "Business Growth",
     featureGroups: [
       {
@@ -835,7 +819,7 @@ export const pricingPlans = [
     bestFor:
       "Businesses seeking consistent lead generation, sales growth, and long-term market dominance.",
     highlighted: false,
-    cta: "Contact Us",
+    cta: "Talk to Us",
     ctaHref: "/contact",
   },
 ];
