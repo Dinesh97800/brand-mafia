@@ -60,16 +60,16 @@ export const heroServices = [
 ];
 
 export const clientLogos = [
-  "TechVault",
-  "NovaLabs",
-  "PrimeFit",
-  "Luxora",
-  "GreenPeak",
-  "SwiftPay",
-  "AuraSkin",
-  "CloudNine",
-  "BoldCraft",
-  "ZenithCo",
+  "lalajithebarbershop",
+  "lalaspizza",
+  "lalascafe.ca",
+  "activeaway",
+  // "GreenPeak",
+  // "SwiftPay",
+  // "AuraSkin",
+  // "CloudNine",
+  // "BoldCraft",
+  // "ZenithCo",
 ];
 
 export const stats = [
