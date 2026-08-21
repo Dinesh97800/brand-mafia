@@ -1,9 +1,5 @@
 import { generateSEO, generateBreadcrumbSchema } from "@/lib/seo";
-import { PageHero } from "@/components/ui/PageTransition";
-import { PricingSection } from "@/components/sections/PricingSection";
-import { WhyChooseSection } from "@/components/sections/WhyChooseSection";
-import { SolutionsSection } from "@/components/sections/SolutionsSection";
-import { ContactSection } from "@/components/sections/ContactSection";
+import { PricingPageContent } from "@/components/sections/pricing/PricingPageContent";
 
 export const metadata = generateSEO({
   title: "Digital Marketing Packages",
@@ -24,14 +20,7 @@ export default function PricingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
       />
-      <PageHero
-        title="Built to Dominate"
-        subtitle="Digital marketing packages that help businesses generate more leads, increase sales, and dominate their market. No hidden fees."
-      />
-      <WhyChooseSection />
-      <PricingSection />
-      <SolutionsSection />
-      <ContactSection />
+      <PricingPageContent />
     </>
   );
 }
