@@ -61,7 +61,7 @@ export function PillNavbar() {
               width={500}
               height={500}
               priority
-              className="h-10 w-auto max-w-[min(42vw,11rem)] object-contain transition-transform group-hover:scale-105 sm:h-11 sm:max-w-[13rem] lg:max-w-none"
+              className="h-7 w-auto max-w-[8rem] object-contain transition-transform group-hover:scale-105 sm:h-8 sm:max-w-[9.5rem]"
             />
           </Link>
 
