@@ -81,13 +81,18 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       : {};
 
     if (href) {
+      const opensExternally =
+        Boolean(external) &&
+        !href.startsWith("tel:") &&
+        !href.startsWith("mailto:");
+
       return (
         <Link
           ref={magnetic ? magneticRef : undefined}
           href={href}
           className={classes}
-          target={external ? "_blank" : undefined}
-          rel={external ? "noopener noreferrer" : undefined}
+          target={opensExternally ? "_blank" : undefined}
+          rel={opensExternally ? "noopener noreferrer" : undefined}
           aria-label={ariaLabel}
           {...magneticHandlers}
         >

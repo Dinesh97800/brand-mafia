@@ -27,7 +27,7 @@ export const siteConfig = {
     facebook: "https://www.facebook.com/brandmafia",
     youtube: "https://youtube.com/@brandmafia",
   },
-  calendly: "https://calendly.com/brandmafia/strategy-call",
+  calendly: "tel:+17828821814",
 };
 
 /**
@@ -39,14 +39,14 @@ export const siteConfig = {
 export const navigationVariant: "pill" | "classic" | "bottom" = "pill";
 
 export const navLinks = [
-  { label: "Home", href: "/" },
+  // { label: "About", href: "/about" },
   { label: "About", href: "/about" },
   { label: "Services", href: "/services" },
   // { label: "Portfolio", href: "/portfolio" },
   { label: "Case Studies", href: "/case-studies" },
   { label: "Pricing", href: "/pricing" },
   // { label: "Blog", href: "/blog" },
-  { label: "Careers", href: "/careers" },
+  // { label: "Careers", href: "/careers" },
   { label: "Contact", href: "/contact" },
 ];
 

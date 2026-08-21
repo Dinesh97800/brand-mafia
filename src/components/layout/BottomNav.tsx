@@ -69,8 +69,6 @@ export function BottomNav() {
 
           <Link
             href={siteConfig.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
             className="group inline-flex items-center gap-2 rounded-full border border-orange/40 px-5 py-2 font-heading text-xs font-semibold text-orange transition-all duration-300 hover:bg-orange/10 sm:text-sm"
           >
             Free Strategy Call
