@@ -94,8 +94,6 @@ export function PillNavbar() {
           {/* Desktop CTA */}
           <Link
             href={siteConfig.calendly}
-            target="_blank"
-            rel="noopener noreferrer"
             className="group hidden shrink-0 items-center gap-2 rounded-full bg-orange px-4 py-2 font-heading text-xs font-semibold text-black transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_0_30px_rgba(240,87,7,0.35)] lg:inline-flex xl:px-5 xl:text-sm"
           >
             Free Strategy Call
@@ -176,8 +174,6 @@ export function PillNavbar() {
               <div className="mt-3 border-t border-white/[0.08] pt-3">
                 <Link
                   href={siteConfig.calendly}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className="flex w-full items-center justify-center gap-2 rounded-full bg-orange px-5 py-3 font-heading text-sm font-semibold text-black transition-transform active:scale-[0.98]"
                 >
                   Free Strategy Call

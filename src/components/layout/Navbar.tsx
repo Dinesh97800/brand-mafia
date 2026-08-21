@@ -122,8 +122,6 @@ export function Navbar() {
               ))}
               <Link
                 href={siteConfig.calendly}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="mt-4 inline-flex items-center justify-center gap-2 rounded-full bg-orange px-7 py-3 text-sm font-heading font-semibold text-black"
                 onClick={() => setMobileOpen(false)}
               >

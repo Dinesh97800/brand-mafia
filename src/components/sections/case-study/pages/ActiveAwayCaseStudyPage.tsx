@@ -26,9 +26,9 @@ import { LocalImage } from "@/components/ui/LocalImage";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const lime = "text-[#C6F000]";
-const limeBg = "bg-[#C6F000]";
-const limeBorder = "border-[#C6F000]/30";
+const lime = "text-orange";
+const limeBg = "bg-orange";
+const limeBorder = "border-orange/30";
 
 const snapshotIcons = {
   trophy: Trophy,

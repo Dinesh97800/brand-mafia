@@ -95,24 +95,10 @@ export function Footer() {
                 Get growth insights delivered to your inbox.
               </p>
               <NewsletterForm variant="footer" source="footer" />
-            </div>
-          </div>
-
-          <div className="mt-16 pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-offwhite/40">
-              &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
-              reserved.
-            </p>
-            <div className="flex gap-6">
-              {footerLinks.legal.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-xs text-offwhite/40 hover:text-orange transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              <p className="mt-5 text-xs text-offwhite/40">
+                &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
+                reserved.
+              </p>
             </div>
           </div>
         </div>
