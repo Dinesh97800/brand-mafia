@@ -74,7 +74,12 @@ export function RecaptchaBox({
         strategy="afterInteractive"
         onLoad={() => window.grecaptcha?.ready(renderWidget)}
       />
-      <div ref={hostRef} className="overflow-hidden rounded-lg" />
+      <div className="h-[62px] w-[243px] overflow-hidden sm:h-[78px] sm:w-[304px]">
+        <div
+          ref={hostRef}
+          className="origin-top-left scale-[0.8] sm:scale-100"
+        />
+      </div>
     </>
   );
 }
