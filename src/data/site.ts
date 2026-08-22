@@ -6,6 +6,7 @@ export const siteConfig = {
   name: "Brand Mafia",
   tagline: "Building Brands That Dominate.",
   logo: "/images/brand-mafia.png",
+  footerLogo: "/images/brand-mafia-brand-logo.png",
   favicon: "/images/favicon.jpeg",
   description:
     "Premium digital marketing agency specializing in SEO, paid ads, branding, web development, and AI automation. We build brands that dominate.",
@@ -294,7 +295,8 @@ export const projects = [
     title: "Lalaji The Barbershop",
     client: "Lalaji The Barbershop",
     category: "SEO",
-    image: "/images/case-study/lalajithebarbershop.png",
+    // image: "/images/case-study/lalajithebarbershop.png",
+    image: "https://lalajithebarbershop.ca/wp-content/uploads/2025/11/Frame-1261153791-scaled.webp",
     description:
       "From a local barbershop to a growing Nova Scotia brand — visibility, bookings, and a digital presence that matches the chair.",
     results: ["2.4M+ people reached", "8K+ appointments generated"],
@@ -308,7 +310,8 @@ export const projects = [
     title: "Lala's Pizza",
     client: "Lala's Pizza",
     category: "Branding",
-    image: "/images/case-study/lalas-hero.png",
+    // image: "/images/case-study/lalas-hero.png",
+    image: "/images/case-study/lalas-pizza-hero.jpeg",
     description:
       "From restaurant launch to a digital food brand — website, social, ads, and local SEO from day one.",
     results: ["1.2M+ reach", "18.5K+ orders"],
@@ -322,7 +325,8 @@ export const projects = [
     title: "Lala's Cafe",
     client: "Lala's Cafe",
     category: "Web Design",
-    image: "/images/case-study/lalas-cafe-hero.png",
+    // image: "/images/case-study/lalas-cafe-hero.png",
+    image: "/images/case-study/lalas-cafe.jpeg",
     description:
       "From new cafe launch to a digital-first local brand — website, video, social, and local SEO from day one.",
     results: ["187+ visitors daily", "93% positive feedback"],
@@ -336,7 +340,8 @@ export const projects = [
     title: "Blume Salon & Spa",
     client: "Blume Salon & Spa",
     category: "Paid Ads",
-    image: "/images/case-study/blume-hero.png",
+    // image: "/images/case-study/blume-hero.png",
+    image: "/images/case-study/blume.png",
     description:
       "Turning digital visibility into real beauty bookings — Meta Ads and local SEO that brought the right clients into the salon.",
     results: ["250+ conversions", "10X+ return on ad spend"],

@@ -9,7 +9,7 @@ export const blumeCaseStudy = {
   website: "https://oohlalablume.com/",
   websiteLabel: "oohlalablume.com",
   logo: "/images/case-study/blume-logo.png",
-  heroImage: "/images/case-study/blume-hero.png",
+  heroImage: "/images/case-study/blume.png",
   quoteImage: "/images/case-study/blume-photo-2.jpg",
   tagline: "More than a salon, it's an experience.",
   campaignPeriod: "July 2026",

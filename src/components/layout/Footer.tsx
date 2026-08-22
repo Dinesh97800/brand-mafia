@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import { ArrowUpRight, Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
 import { footerLinks, siteConfig } from "@/data/site";
 import { LocalImage } from "@/components/ui/LocalImage";
-import { NewsletterForm } from "@/components/forms/NewsletterForm";
+import { Button } from "@/components/ui/Button";
+// import { NewsletterForm } from "@/components/forms/NewsletterForm";
 
 const socialIcons = [
   { icon: Twitter, href: siteConfig.social.twitter, label: "Twitter" },
@@ -20,11 +21,11 @@ export function Footer() {
 
       <div className="section-padding relative">
         <div className="container-custom">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
-            <div className="lg:col-span-4">
+          <div className="grid grid-cols-2 gap-10 lg:grid-cols-12 lg:gap-8">
+            <div className="col-span-2 lg:col-span-4">
               <Link href="/" className="inline-block mb-6">
                 <LocalImage
-                  src={siteConfig.logo}
+                  src={siteConfig.footerLogo}
                   alt={siteConfig.name}
                   width={500}
                   height={500}
@@ -87,14 +88,19 @@ export function Footer() {
               </ul>
             </div>
 
-            <div className="lg:col-span-3">
+            <div className="col-span-2 lg:col-span-3">
               <h3 className="font-heading text-sm font-semibold uppercase tracking-wider text-offwhite mb-6">
-                Newsletter
+                Let&apos;s Talk
               </h3>
               <p className="text-sm text-offwhite/50 mb-4">
-                Get growth insights delivered to your inbox.
+                Ready to grow? Tell us about your brand and we&apos;ll build a
+                plan that drives results.
               </p>
-              <NewsletterForm variant="footer" source="footer" />
+              {/* <NewsletterForm variant="footer" source="footer" /> */}
+              <Button href="/contact" className="w-full sm:w-auto">
+                Contact Us
+                <ArrowUpRight className="h-4 w-4" />
+              </Button>
               <p className="mt-5 text-xs text-offwhite/40">
                 &copy; {new Date().getFullYear()} {siteConfig.name}. All rights
                 reserved.

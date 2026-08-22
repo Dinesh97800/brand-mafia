@@ -139,7 +139,7 @@ export function LalajiCaseStudyPage() {
                 <LocalImage
                   src={data.heroImage}
                   alt="Lalaji The Barbershop interior"
-                  className="absolute inset-0 h-full w-full object-cover object-right"
+                  className="absolute inset-0 h-full w-full object-contain object-bottom"
                   priority
                 />
                 <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-black to-transparent lg:hidden" />
@@ -309,20 +309,20 @@ export function LalajiCaseStudyPage() {
             <h2 className="font-heading text-xs font-semibold uppercase tracking-[0.28em] text-orange">
               Our Locations
             </h2>
-            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+            <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3">
               {data.locations.map((location) => (
                 <div
                   key={location.name}
-                  className="overflow-hidden rounded-2xl border border-white/10"
+                  className="overflow-hidden rounded-xl border border-white/10"
                 >
-                  <div className="relative aspect-[4/5]">
+                  <div className="relative aspect-[4/3]">
                     <LocalImage
                       src={location.image}
                       alt={`${location.name} location`}
                       className="h-full w-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/25 to-transparent" />
-                    <p className="absolute inset-x-2 bottom-3 font-heading text-xs font-semibold text-offwhite">
+                    <p className="absolute inset-x-2 bottom-2 font-heading text-xs font-semibold text-offwhite">
                       {location.name}
                     </p>
                   </div>

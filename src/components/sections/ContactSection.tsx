@@ -37,7 +37,7 @@ interface ContactFormData {
 }
 
 const fieldClass =
-  "w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-offwhite placeholder:text-offwhite/30 transition-colors focus:border-orange/50 focus:outline-none";
+  "min-w-0 w-full max-w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3.5 text-sm text-offwhite placeholder:text-offwhite/30 transition-colors focus:border-orange/50 focus:outline-none";
 
 const trustItems = [
   "No Obligation",
@@ -147,12 +147,18 @@ export function ContactSection({ variant = "embed" }: { variant?: "embed" | "pag
       className={
         variant === "page"
           ? "relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20"
-          : "section-padding relative"
+          : "section-padding relative overflow-hidden"
       }
     >
       <div className="pointer-events-none absolute inset-0 bg-hero-glow opacity-10" />
 
-      <div className="container-custom relative px-4 sm:px-6 lg:px-8 xl:px-16">
+      <div
+        className={
+          variant === "page"
+            ? "container-custom relative px-4 sm:px-6 lg:px-8 xl:px-16"
+            : "container-custom relative"
+        }
+      >
         {variant === "page" ? (
           <div className="mb-12 grid items-center gap-10 lg:mb-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
             <div>
@@ -209,28 +215,28 @@ export function ContactSection({ variant = "embed" }: { variant?: "embed" | "pag
           </FadeUp>
         )}
 
-        <div className="overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03]">
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="flex flex-col justify-between border-b border-white/10 p-6 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
+        <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] sm:rounded-3xl">
+          <div className="grid min-w-0 lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="flex min-w-0 flex-col justify-between border-b border-white/10 p-4 sm:p-8 lg:border-b-0 lg:border-r lg:p-10">
               <div>
                 <h2 className="font-heading text-xl font-bold text-offwhite sm:text-2xl">
                   Let&apos;s Start a Conversation
                 </h2>
-                <div className="mt-8 space-y-3">
+                <div className="mt-6 space-y-3 sm:mt-8">
                   {methods.map(({ icon: Icon, label, value, href }) => (
                     <a
                       key={label}
                       href={href}
-                      className="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.03] px-4 py-4 transition-colors hover:border-orange/30"
+                      className="flex min-w-0 items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.03] px-3 py-3.5 transition-colors hover:border-orange/30 sm:gap-4 sm:px-4 sm:py-4"
                     >
-                      <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange">
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-orange/10 text-orange sm:h-11 sm:w-11">
                         <Icon className="h-5 w-5" />
                       </span>
-                      <span>
+                      <span className="min-w-0">
                         <span className="block font-heading text-sm font-semibold text-offwhite">
                           {label}
                         </span>
-                        <span className="mt-0.5 block text-sm text-offwhite/50">
+                        <span className="mt-0.5 block truncate text-sm text-offwhite/50">
                           {value}
                         </span>
                       </span>
@@ -238,7 +244,7 @@ export function ContactSection({ variant = "embed" }: { variant?: "embed" | "pag
                   ))}
                 </div>
               </div>
-              <p className="mt-8 flex items-start gap-2 text-xs leading-relaxed text-offwhite/40">
+              <p className="mt-6 flex items-start gap-2 text-xs leading-relaxed text-offwhite/40 sm:mt-8">
                 <Clock className="mt-0.5 h-3.5 w-3.5 shrink-0 text-orange" />
                 We typically respond within a few hours during business days.
               </p>
@@ -246,7 +252,7 @@ export function ContactSection({ variant = "embed" }: { variant?: "embed" | "pag
 
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="relative space-y-4 p-6 sm:p-8 lg:p-10"
+              className="relative min-w-0 space-y-4 p-4 sm:p-8 lg:p-10"
               aria-label="Contact form"
             >
               <h2 className="font-heading text-xl font-bold text-offwhite sm:text-2xl">

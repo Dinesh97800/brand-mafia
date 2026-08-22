@@ -1367,23 +1367,21 @@ export const services: Service[] = [
 
 export const featuredServiceIds = [
   "seo",
-  "google-ads",
-  "meta-ads",
   "web-development",
   "branding",
   "social",
   "content",
   "ai",
-  "local-seo",
-  "gmb",
   "email",
   "performance",
+  "digital-marketing",
+  "ecommerce-seo",
+  "app-development",
+  "video-production",
 ] as const;
 
 export function getFeaturedServices() {
-  return featuredServiceIds
-    .map((id) => services.find((service) => service.id === id))
-    .filter((service): service is Service => Boolean(service));
+  return services;
 }
 
 export const serviceAliases: Record<string, string> = {
